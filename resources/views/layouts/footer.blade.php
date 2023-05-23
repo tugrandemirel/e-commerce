@@ -1,345 +1,157 @@
 
-<div class="header__bottom">
-    <div class="container custom-conatiner">
-        <div class="row g-0 align-items-center">
-            <div class="col-lg-3">
-                <div class="cat__menu-wrapper side-border d-none d-lg-block">
-                    <div class="cat-toggle">
-                        <button type="button" class="cat-toggle-btn cat-toggle-btn-1"><i class="fal fa-bars"></i> Shop by department</button>
-                        <div class="cat__menu-2 cat__menu">
-                            <nav id="mobile-menu" style="display: block;">
-                                <ul>
-                                    <li>
-                                        <a href="product.html">All Categories <i class="far fa-angle-down"></i></a>
-                                        <ul class="mega-menu">
-                                            <li><a href="product.html">Shop Pages</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">Standard SHop Page</a></li>
-                                                    <li><a href="product-details.html">Shop Right Sidebar</a></li>
-                                                    <li><a href="product-details.html">Shop Left Sidebar</a></li>
-                                                    <li><a href="product-details.html">Shop 3 Column</a></li>
-                                                    <li><a href="product-details.html">Shop 4 Column</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="product.html">Product Pages</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">Product Details</a></li>
-                                                    <li><a href="product-details.html">Product V2</a></li>
-                                                    <li><a href="product-details.html">Product V3</a></li>
-                                                    <li><a href="product-details.html">Varriable Product</a></li>
-                                                    <li><a href="product-details.html">External Product</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="product.html">Other Pages</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">wishlist</a></li>
-                                                    <li><a href="product-details.html">Shopping Cart</a></li>
-                                                    <li><a href="product-details.html">Checkout</a></li>
-                                                    <li><a href="product-details.html">Login</a></li>
-                                                    <li><a href="product-details.html">Register</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="product.html">Phone &amp; Tablets</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">Catagory 1</a></li>
-                                                    <li><a href="product-details.html">Catagory 2</a></li>
-                                                    <li><a href="product-details.html">Catagory 3</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="product.html">Phone &amp; Tablets</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">Catagory 1</a></li>
-                                                    <li><a href="product-details.html">Catagory 2</a></li>
-                                                    <li><a href="product-details.html">Catagory 3</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="product.html">Phone and Electronics <i class="far fa-angle-down"></i></a>
-                                        <ul class="mega-menu mega-menu-2">
-                                            <li><a href="product.html">Shop Pages</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">Standard SHop Page</a></li>
-                                                    <li><a href="product-details.html">Shop Right Sidebar</a></li>
-                                                    <li><a href="product-details.html">Shop Left Sidebar</a></li>
-                                                    <li><a href="product-details.html">Shop 3 Column</a></li>
-                                                    <li><a href="product-details.html">Shop 4 Column</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="product.html">Product Pages</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">Product Details</a></li>
-                                                    <li><a href="product-details.html">Product V2</a></li>
-                                                    <li><a href="product-details.html">Product V3</a></li>
-                                                    <li><a href="product-details.html">Varriable Product</a></li>
-                                                    <li><a href="product-details.html">External Product</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="product.html">Other Pages</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">wishlist</a></li>
-                                                    <li><a href="product-details.html">Shopping Cart</a></li>
-                                                    <li><a href="product-details.html">Checkout</a></li>
-                                                    <li><a href="product-details.html">Login</a></li>
-                                                    <li><a href="product-details.html">Register</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="product.html">Phone &amp; Tablets</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">Catagory 1</a></li>
-                                                    <li><a href="product-details.html">Catagory 2</a></li>
-                                                    <li><a href="product-details.html">Catagory 3</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="product.html">Phone &amp; Tablets</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">Catagory 1</a></li>
-                                                    <li><a href="product-details.html">Catagory 2</a></li>
-                                                    <li><a href="product-details.html">Catagory 3</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="product.html">Best Seller Products
-                                            <span class="cat-label">hot!</span>
-                                            <i class="far fa-angle-down"></i>
-                                        </a>
-                                        <ul class="mega-menu">
-                                            <li><a href="product.html">Shop Pages</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">Standard SHop Page</a></li>
-                                                    <li><a href="product-details.html">Shop Right Sidebar</a></li>
-                                                    <li><a href="product-details.html">Shop Left Sidebar</a></li>
-                                                    <li><a href="product-details.html">Shop 3 Column</a></li>
-                                                    <li><a href="product-details.html">Shop 4 Column</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="product.html">Product Pages</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">Product Details</a></li>
-                                                    <li><a href="product-details.html">Product V2</a></li>
-                                                    <li><a href="product-details.html">Product V3</a></li>
-                                                    <li><a href="product-details.html">Varriable Product</a></li>
-                                                    <li><a href="product-details.html">External Product</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="product.html">Other Pages</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">wishlist</a></li>
-                                                    <li><a href="product-details.html">Shopping Cart</a></li>
-                                                    <li><a href="product-details.html">Checkout</a></li>
-                                                    <li><a href="product-details.html">Login</a></li>
-                                                    <li><a href="product-details.html">Register</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="product.html">Phone &amp; Tablets</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">Catagory 1</a></li>
-                                                    <li><a href="product-details.html">Catagory 2</a></li>
-                                                    <li><a href="product-details.html">Catagory 3</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="product.html">Phone &amp; Tablets</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">Catagory 1</a></li>
-                                                    <li><a href="product-details.html">Catagory 2</a></li>
-                                                    <li><a href="product-details.html">Catagory 3</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="product.html">Top 10 Offers
-                                            <span class="cat-label green">new!</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html">New Arrivals <i class="far fa-angle-down"></i></a>
-                                        <ul class="submenu">
-                                            <li><a href="product.html">Home Appliances</a></li>
-                                            <li><a href="product.html">Technology</a>
-                                                <ul class="submenu">
-                                                    <li><a href="product.html">Storage Devices</a></li>
-                                                    <li><a href="product.html">Monitors</a></li>
-                                                    <li><a href="product.html">Laptops</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="product.html">Office Equipments</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="product.html">TV &amp; Audio</a></li>
-                                    <li><a href="product.html">Electronics &amp; Digital</a></li>
-                                    <li class="d-laptop-none"><a href="product.html">Fashion &amp; Clothings</a></li>
-                                    <li class="d-laptop-none"><a href="product.html">Jewelry &amp; Watches</a></li>
-                                    <li><a href="product.html">Health &amp; Beauty</a></li>
-                                </ul>
-                            </nav>
+<!-- footer-start -->
+<footer>
+    <div class="fotter-area d-ddark-bg">
+        <div class="footer__top pt-60 pb-10">
+            <div class="container custom-conatiner">
+                <div class="row">
+                    <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-8">
+                        <div class="footer__widget">
+                            <div class="footer__widget-title mb-20">
+                                <h4>Download App</h4>
+                            </div>
+                            <div class="footer__widget-content">
+                                <p class="footer-text mb-25">DukaMarket App is now available on App Store & Google Play. Get it now.</p>
+                                <div class="apps-store mb-20">
+                                    <a href="#"><img src="assets/user/img/brand/app_ios.png" alt=""></a>
+                                    <a href="#"><img src="assets/user/img/brand/app_android.png" alt=""></a>
+                                </div>
+                                <div class="social-icon social-icon-2">
+                                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                                    <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="rss"><i class="fas fa-rss"></i></a>
+                                    <a href="#" class="dribbble"><i class="fab fa-dribbble"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <div class="footer__widget footer-col-2">
+                            <div class="footer__widget-title">
+                                <h4>My Account</h4>
+                            </div>
+                            <div class="footer__widget-content">
+                                <div class="footer__link footer__link-2">
+                                    <ul>
+                                        <li><a href="contact.html">Product Support</a></li>
+                                        <li><a href="checkout.html">Checkout</a></li>
+                                        <li><a href="cart.html">Shopping Cart</a></li>
+                                        <li><a href="wishlist.html">Wishlist</a></li>
+                                        <li><a href="faq.html">Terms &amp; Conditions &amp;</a></li>
+                                        <li><a href="faq.html">Redeem Voucher</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <div class="footer__widget footer-col-2">
+                            <div class="footer__widget-title">
+                                <h4>Customer Care</h4>
+                            </div>
+                            <div class="footer__widget-content">
+                                <div class="footer__link footer__link-2">
+                                    <ul>
+                                        <li><a href="faq.html">New Customers</a></li>
+                                        <li><a href="faq.html">How to use Account</a></li>
+                                        <li><a href="faq.html">Placing an Order</a></li>
+                                        <li><a href="faq.html">Payment Methods</a></li>
+                                        <li><a href="faq.html">Delivery &amp; Dispatch</a></li>
+                                        <li><a href="faq.html">Problems with Order</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                        <div class="footer__widget footer-col-2">
+                            <div class="footer__widget-title">
+                                <h4>Customer Service</h4>
+                            </div>
+                            <div class="footer__widget-content">
+                                <div class="footer__link footer__link-2">
+                                    <ul>
+                                        <li><a href="faq.html">Help Center</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                        <li><a href="faq.html">Report Abuse</a></li>
+                                        <li><a href="faq.html">Submit a Dispute</a></li>
+                                        <li><a href="faq.html">Policies &amp; Rules</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-6">
+                        <div class="footer__widget">
+                            <div class="footer__widget-title mb-20">
+                                <h4>Sign Up To Newsletter</h4>
+                            </div>
+                            <div class="footer__widget-content">
+                                <p class="footer-text mb-25">Join 60.000+ subscribers and get a new discount coupon  on every Saturday.</p>
+                                <div class="footer__newsletter-form">
+                                    <form action="#">
+                                        <input class="ft-newsl b-radius" type="email" placeholder="Enter your email ...">
+                                        <button class="ft-newsl-btn" type="submit">subscribe</button>
+                                    </form>
+                                </div>
+                                <p class="provide-text mt-20">By providing your email address, you agree to our <br> <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> .</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-3">
-                <div class="header__bottom-left d-flex d-xl-block align-items-center">
-                    <div class="side-menu d-lg-none mr-20">
-                        <button type="button" class="side-menu-btn offcanvas-toggle-btn"><i class="fas fa-bars"></i></button>
+        </div>
+        <div class="footer__bottom-2">
+            <div class="container custom-conatiner">
+                <div class="footer__bottom-content footer__bottom-content-2 pt-50 pb-50">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="footer__links footer__links-d text-center mb-25">
+                                <p>
+                                    <a href="about.html">About Us</a>
+                                    <a href="contact.html">Delivery & Return</a>
+                                    <a href="faq.html">Privacy Policy</a>
+                                    <a href="faq.html">Help</a>
+                                    <a href="contact.html">Order Tracking</a>
+                                    <a href="contact.html">Contact Us</a>
+                                    <a href="faq.html">FAQs </a>
+                                </p>
+                            </div>
+                            <div class="payment-image text-center mb-25">
+                                <a href="#"><img src="assets/user/img/payment/payment.png" alt=""></a>
+                            </div>
+                            <div class="copy-right-area copy-right-area-2 text-center">
+                                <p>Copyright © <span>DukaMarket.</span> All Rights Reserved. Powered by <a href="#"><span class="main-color">Theme_Pure.</span></a></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="main-menu d-none d-lg-block">
-                        <nav>
-                            <ul>
-                                <li>
-                                    <a href="index.html" class="active">Home <i class="far fa-angle-down"></i></a>
-                                    <ul class="megamenu-1">
-                                        <li><a href="index.html">Home Pages</a>
-                                            <ul class="mega-item">
-                                                <li><a href="index.html">Home One</a></li>
-                                                <li><a href="index-2.html" class="active">Home Two</a></li>
-                                                <li><a href="index-3.html">Home Three</a></li>
-                                                <li><a href="product-details.html">Shop 3 Column</a></li>
-                                                <li><a href="product-details.html">Shop 4 Column</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="shop.html">Product Pages</a>
-                                            <ul class="mega-item">
-                                                <li><a href="product-details.html">Product Details</a></li>
-                                                <li><a href="product-details.html">Product V2</a></li>
-                                                <li><a href="product-details.html">Product V3</a></li>
-                                                <li><a href="product-details.html">Varriable Product</a></li>
-                                                <li><a href="product-details.html">External Product</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="shop.html">Other Pages</a>
-                                            <ul class="mega-item">
-                                                <li><a href="product-details.html">wishlist</a></li>
-                                                <li><a href="product-details.html">Shopping Cart</a></li>
-                                                <li><a href="product-details.html">Checkout</a></li>
-                                                <li><a href="product-details.html">Login</a></li>
-                                                <li><a href="product-details.html">Register</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="shop.html">Phone &amp; Tablets</a>
-                                            <ul class="mega-item">
-                                                <li><a href="product-details.html">Catagory 1</a></li>
-                                                <li><a href="product-details.html">Catagory 2</a></li>
-                                                <li><a href="product-details.html">Catagory 3</a></li>
-                                                <li><a href="product-details.html">Catagory 4</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="shop.html">Phone &amp; Tablets</a>
-                                            <ul class="mega-item">
-                                                <li><a href="product-details.html">Catagory 1</a></li>
-                                                <li><a href="product-details.html">Catagory 2</a></li>
-                                                <li><a href="product-details.html">Catagory 3</a></li>
-                                                <li><a href="product-details.html">Catagory 4</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="about.html">About Us</a></li>
-                                <li class="has-mega"><a href="shop.html">Shop <i class="far fa-angle-down"></i></a>
-                                    <div class="mega-menu">
-                                        <div class="container container-mega">
-                                            <ul>
-                                                <li>
-                                                    <ul>
-                                                        <li class="title"><a href="shop.html">SHOP LAYOUT</a></li>
-                                                        <li><a href="shop.html">Pagination</a></li>
-                                                        <li><a href="shop.html">Ajax Load More</a></li>
-                                                        <li><a href="shop.html">Infinite Scroll</a></li>
-                                                        <li><a href="shop.html">Sidebar Right</a></li>
-                                                        <li><a href="shop.html">Sidebar Left</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <ul>
-                                                        <li class="title"><a href="shop.html">SHOP PAGES</a></li>
-                                                        <li><a href="shop.html">List View</a></li>
-                                                        <li><a href="shop.html">Small Products</a></li>
-                                                        <li><a href="shop.html">Large Products</a></li>
-                                                        <li><a href="shop.html">Shop — 3 Items</a></li>
-                                                        <li><a href="shop.html">Shop — 4 Items</a></li>
-                                                        <li><a href="shop.html">Shop — 5 Items</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <ul>
-                                                        <li class="title"><a href="shop.html">PRODUCT LAYOUT</a></li>
-                                                        <li><a href="shop.html">Description Sticky</a></li>
-                                                        <li><a href="shop.html">Product Carousel</a></li>
-                                                        <li><a href="shop.html">Gallery Modern</a></li>
-                                                        <li><a href="shop.html">Thumbnail Left</a></li>
-                                                        <li><a href="shop.html">Thumbnail Right</a></li>
-                                                        <li><a href="shop.html">Thumbnail Botttom</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <ul>
-                                                        <li class="title"><a href="shop.html">Basketball</a></li>
-                                                        <li><a href="shop.html">East Hampton Fleece</a></li>
-                                                        <li><a href="shop.html">Faxon Canvas Low</a></li>
-                                                        <li><a href="shop.html">Habitasse Dictumst</a></li>
-                                                        <li><a href="shop.html">Kaoreet Lobortis</a></li>
-                                                        <li><a href="shop.html">NikeCourt Zoom</a></li>
-                                                        <li><a href="shop.html">NikeCourts Air Zoom</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <ul>
-                                                        <li class="title"><a href="shop.html">Basketball</a></li>
-                                                        <li><a href="shop.html">East Hampton Fleece</a></li>
-                                                        <li><a href="shop.html">Faxon Canvas Low</a></li>
-                                                        <li><a href="shop.html">Habitasse Dictumst</a></li>
-                                                        <li><a href="shop.html">Kaoreet Lobortis</a></li>
-                                                        <li><a href="shop.html">NikeCourt Zoom</a></li>
-                                                        <li><a href="shop.html">NikeCourts Air Zoom</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="mega-image hover-effect" style="background-image: url(assets/user/img/bg/menu-item.jpg);">
-                                                    <ul>
-                                                        <li><a href="shop.html">
-                                                                <h4>Top Cameras <br> Bestseller Products</h4>
-                                                                <h5>4K</h5>
-                                                                <h6>Sale Up To <span>60% Off</span></h6>
-                                                            </a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="offer mt-40">
-                                            <p><b>30% OFF</b> the shipping of your first order with the code: <b>DUKA-SALE30</b></p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li><a href="blog.html">Blog <i class="far fa-angle-down"></i></a>
-                                    <ul class="submenu">
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="about.html">Pages <i class="far fa-angle-down"></i></a>
-                                    <ul class="submenu">
-                                        <li><a href="my-account.html">My Account</a></li>
-                                        <li><a href="product-details.html">Product Details</a></li>
-                                        <li><a href="faq.html">FAQs pages</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
-                                        <li><a href="404.html">404 Error</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-9">
-                <div class="shopeing-text text-sm-end">
-                    <p>Spend $120 more and get free shipping!</p>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</footer>
+<!-- footer-end -->
+
+<!-- JS here -->
+<script src="assets/user/js/vendor/jquery.js"></script>
+<script src="assets/user/js/vendor/waypoints.js"></script>
+<script src="assets/user/js/bootstrap-bundle.js"></script>
+<script src="assets/user/js/meanmenu.js"></script>
+<script src="assets/user/js/swiper-bundle.js"></script>
+<script src="assets/user/js/tweenmax.js"></script>
+<script src="assets/user/js/owl-carousel.js"></script>
+<script src="assets/user/js/magnific-popup.js"></script>
+<script src="assets/user/js/parallax.js"></script>
+<script src="assets/user/js/backtotop.js"></script>
+<script src="assets/user/js/nice-select.js"></script>
+<script src="assets/user/js/countdown.min.js"></script>
+<script src="assets/user/js/counterup.js"></script>
+<script src="assets/user/js/wow.js"></script>
+<script src="assets/user/js/isotope-pkgd.js"></script>
+<script src="assets/user/js/imagesloaded-pkgd.js"></script>
+<script src="assets/user/js/ajax-form.js"></script>
+<script src="assets/user/js/main.js"></script>
+</body>
+</html>
