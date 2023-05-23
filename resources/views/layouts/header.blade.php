@@ -7,21 +7,21 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/user/img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/user/img/favicon.png') }}">
     <!-- CSS here -->
-    <link rel="stylesheet" href="assets/user/css/preloader.css">
-    <link rel="stylesheet" href="assets/user/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/user/css/meanmenu.css">
-    <link rel="stylesheet" href="assets/user/css/animate.css">
-    <link rel="stylesheet" href="assets/user/css/owl-carousel.css">
-    <link rel="stylesheet" href="assets/user/css/swiper-bundle.css">
-    <link rel="stylesheet" href="assets/user/css/backtotop.css">
-    <link rel="stylesheet" href="assets/user/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/user/css/nice-select.css">
-    <link rel="stylesheet" href="assets/user/flaticon/flaticon.css">
-    <link rel="stylesheet" href="assets/user/css/font-awesome-pro.css">
-    <link rel="stylesheet" href="assets/user/css/default.css">
-    <link rel="stylesheet" href="assets/user/css/style.css">
+    <link rel="stylesheet" href="{{ asset('assets/user/css/preloader.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/user/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/user/css/meanmenu.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/user/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/user/css/owl-carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/user/css/swiper-bundle.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/user/css/backtotop.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/user/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/user/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/user/flaticon/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/user/css/font-awesome-pro.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/user/css/default.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/user/css/style.css') }}">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -129,6 +129,7 @@
                 <div class="row align-items-center">
                     <div class="col-xl-6 col-lg-7">
                         <div class="header-inner-start">
+                            <!--
                             <div class="header__currency border-right">
                                 <div class="s-name">
                                     <span>Language: </span>
@@ -152,8 +153,9 @@
                                     <option>BGD</option>
                                 </select>
                             </div>
+                            -->
                             <div class="support d-none d-sm-block">
-                                <p>Need Help? <a href="tel:+001123456789">+001 123 456 789</a></p>
+                                <p>Yardıma mı İhtiyacınız var? <a href="tel:+001123456789">+001 123 456 789</a></p>
                             </div>
                         </div>
                     </div>
@@ -161,10 +163,10 @@
                         <div class="header-inner-end text-md-end">
                             <div class="ovic-menu-wrapper ovic-menu-wrapper-2">
                                 <ul>
-                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="about.html">Hakkımızda</a></li>
                                     <li><a href="contact.html">Order Tracking</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="faq.html">FAQs</a></li>
+                                    <li><a href="contact.html">İletişime Geç</a></li>
+                                    <li><a href="faq.html">SSS</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -180,7 +182,7 @@
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
                         <div class="header__info">
                             <div class="logo">
-                                <a href="index.html" class="logo-image"><img src="assets/user/img/logo/logo1.svg" alt="logo"></a>
+                                <a href="index.html" class="logo-image"><img src="{{ asset('assets/user/img/logo/logo1.svg') }}" alt="logo"></a>
                             </div>
                         </div>
                     </div>
@@ -188,12 +190,12 @@
                         <div class="header__search">
                             <form action="#">
                                 <div class="header__search-box">
-                                    <input class="search-input search-input-2" type="text" placeholder="I'm shopping for...">
+                                    <input class="search-input search-input-2" type="text" placeholder="Sizin için ne arayabilirim?">
                                     <button class="button button-2" type="submit"><i class="far fa-search"></i></button>
                                 </div>
                                 <div class="header__search-cat">
                                     <select>
-                                        <option>All Categories</option>
+                                        <option value="butun-categoriler">Bütün Kategoriler</option>
                                         <option>Best Seller Products</option>
                                         <option>Top 10 Offers</option>
                                         <option>New Arrivals</option>
@@ -216,10 +218,11 @@
                                 <a class="icon-link icon-link-2" href="my-account.html">
                                     <i class="flaticon-user"></i>
                                     <span class="text">
-                                    <span class="sub">Login </span>
+                                    <span class="sub">Giriş Yap </span>
                                     My Account </span>
                                 </a>
                             </div>
+                            <!--
                             <div class="block-wishlist action">
                                 <a class="icon-link icon-link-2" href="wishlist.html">
                                     <i class="flaticon-heart"></i>
@@ -280,12 +283,13 @@
                                     </div>
                                 </div>
                             </div>
+                            -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    @include('user.layouts.navbar')
+    @include('layouts.navbar')
 </header>
 <!-- header-end -->

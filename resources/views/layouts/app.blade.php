@@ -1,4 +1,3 @@
-
 @include('layouts.header')
 <!-- offcanvas area start -->
 <div class="offcanvas__area">
@@ -16,7 +15,7 @@
             </div>
             <div class="offcanvas__search mb-25">
                 <form action="#">
-                    <input type="text" placeholder="What are you searching for?">
+                    <input type="text" placeholder="Sizin için ne arayabilirim?">
                     <button type="submit" ><i class="far fa-search"></i></button>
                 </form>
             </div>
