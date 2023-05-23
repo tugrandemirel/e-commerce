@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('surname');
             $table->string('email')->unique();
             $table->string('phone');
-            $table->string('date_of_birth')->nullable();
+            $table->date('date_of_birth')->nullable();
             $table->boolean('gender')->nullable()->comment('true: male - false:female');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

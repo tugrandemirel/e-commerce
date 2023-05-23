@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Seller\SellerController;
+use App\Http\Controllers\Seller\SProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +21,61 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('admin')->as('admin.')->middleware(['auth', 'role:Admin'])->group(function (){
+    Route::get('index', [AdminController::class, 'index'])->name('index');
+
+    Route::prefix('roles')->as('roles.')->group(function (){
+        Route::get('index', [RoleController::class, 'index'])->name('index');
+        Route::post('store', [RoleController::class, 'store'])->name('store');
+        Route::post('destroy', [RoleController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::prefix('categories')->as('categories.')->group(function (){
+        Route::get('index', [CategoryController::class, 'index'])->name('index');
+        Route::get('create', [CategoryController::class, 'create'])->name('create');
+        Route::post('store', [CategoryController::class, 'store'])->name('store');
+        Route::get('edit/{category}', [CategoryController::class, 'edit'])->name('edit');
+        Route::post('update/{category}', [CategoryController::class, 'update'])->name('update');
+        Route::get('destroy/{category}', [CategoryController::class, 'destroy'])->name('destroy');
+
+        Route::prefix('sub')->as('sub.')->group(function (){
+            Route::get('index', [SubCategoryController::class, 'index'])->name('index');
+            Route::get('create', [SubCategoryController::class, 'create'])->name('create');
+            Route::post('store', [SubCategoryController::class, 'store'])->name('store');
+             Route::get('edit/{subCategory}', [SubCategoryController::class, 'edit'])->name('edit');
+             Route::post('update/{subCategory}', [SubCategoryController::class, 'update'])->name('update');
+              Route::get('destroy/{subCategory}', [SubCategoryController::class, 'destroy'])->name('destroy');
+        });
+    });
+
+    Route::prefix('brands')->as('brands.')->group(function (){
+        Route::get('index', [BrandController::class, 'index'])->name('index');
+        Route::get('create', [BrandController::class, 'create'])->name('create');
+        Route::post('store', [BrandController::class, 'store'])->name('store');
+        Route::get('edit/{brand}', [BrandController::class, 'edit'])->name('edit');
+        Route::post('update/{brand}', [BrandController::class, 'update'])->name('update');
+        Route::get('destroy/{brand}', [BrandController::class, 'destroy'])->name('destroy');
+    });
+});
+Route::prefix('seller')->as('seller.')->middleware(['auth', 'role:Seller'])->group(function (){
+   Route::get('/', [SellerController::class, 'index'])->name('index');
+
+   Route::prefix('product')->as('product.')->group(function (){
+      Route::get('index', [SProductController::class, 'index'])->name('index');
+      Route::get('create', [SProductController::class, 'create'])->name('create');
+      Route::post('store/', [SProductController::class, 'store'])->name('store');
+
+       Route::get('edit/{product}', [SProductController::class, 'edit'])->name('edit');
+       Route::post('update/{product}', [SProductController::class, 'update'])->name('update');
+      Route::post('get-sub-categories/', [SProductController::class, 'getSubCategories'])->name('getSubCat');
+      Route::post('store-media/', [SProductController::class, 'storeMedia'])->name('storeMedia');
+
+
+   });
 });

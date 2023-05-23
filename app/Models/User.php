@@ -22,6 +22,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'surname',
+        'phone',
+        'date_of_birth',
+        'gender'
     ];
 
     /**
@@ -41,5 +45,13 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'gender' => 'boolean',
+        'date_of_birth' => 'date'
     ];
+
+    public function seller()
+    {
+        return $this->hasOne(Seller::class);
+    }
+
 }
