@@ -28,7 +28,6 @@
 <p class="browserupgrade"><strong>Eski</strong> bir sürüme sahip tarayıcı kullanmaktasınız. Lütfen deneyiminizi ve güvenliğinizi geliştirmek için <a href="https://browsehappy.com/">tarayıcınızı yükseltiniz</a>.</p>
 <![endif]-->
 
-
 <!-- preloader start -->
 <div id="loading">
     <div id="loading-center">
