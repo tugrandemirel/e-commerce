@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Seller\SellerController;
 use App\Http\Controllers\Seller\SProductController;
 use App\Http\Controllers\Front\FIndexController;
+use App\Http\Controllers\Front\FProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +28,11 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/', [FIndexController::class, 'index'])->name('index');
+Route::prefix('/')->as('front.')->group(function (){
+    Route::get('/butun-urunler/', [FProductController::class, 'index'])->name('product.index');
+    Route::get('/detay/{slug}', [FProductController::class, 'detail'])->name('product.detail');
+});
+
 
 Route::prefix('admin')->as('admin.')->middleware(['auth', 'role:Admin'])->group(function (){
     Route::get('index', [AdminController::class, 'index'])->name('index');

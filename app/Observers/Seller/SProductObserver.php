@@ -7,6 +7,14 @@ use Illuminate\Support\Str;
 
 class SProductObserver
 {
+
+    public function saving(Product $product): void
+    {
+        $product->meta_title = $product->meta_title ? $product->meta_title : $product->title;
+        $product->meta_description = $product->meta_description ? $product->meta_description : $product->short_description;
+        $product->slug = Str::slug($product->title);
+
+    }
     /**
      * Handle the Product "created" event.
      */

@@ -3,9 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>E Ticaret </title>
-    <meta name="description" content="">
+    <title>@yield('title', 'E-Ticaret')</title>
+    <meta name="description" content="@yield('description')">
+    <meta name="keywords" content="@yield('keywords')">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Tuğran Demirel">
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/user/img/favicon.png') }}">
     <!-- CSS here -->
@@ -112,7 +115,7 @@
         </div>
     </div>
 </div>
-<!-- preloader end -->
+<!--  preloader end -->
 
 <!-- back to top start -->
 <div class="progress-wrap">
@@ -165,7 +168,7 @@
                                 <ul>
                                     <li><a href="about.html">Hakkımızda</a></li>
                                     <li><a href="contact.html">Order Tracking</a></li>
-                                    <li><a href="contact.html">İletişime Geç</a></li>
+                                    <li><a href="contact.html">İletişim</a></li>
                                     <li><a href="faq.html">SSS</a></li>
                                 </ul>
                             </div>
@@ -182,7 +185,7 @@
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
                         <div class="header__info">
                             <div class="logo">
-                                <a href="index.html" class="logo-image"><img src="{{ asset('assets/user/img/logo/logo1.svg') }}" alt="logo"></a>
+                                <a href="{{ route('index') }}" class="logo-image"><img src="{{ asset('assets/user/img/logo/logo1.svg') }}" alt="logo"></a>
                             </div>
                         </div>
                     </div>

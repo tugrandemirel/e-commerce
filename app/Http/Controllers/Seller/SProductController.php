@@ -41,7 +41,7 @@ class SProductController extends Controller
         $data['visibility'] = $data['visibility'] == 1 ? ProductEnum::VISIBILITY_ACTIVE : ProductEnum::VISIBILITY_PASSIVE;
         $data['stock'] = $data['stock'] == 1 ? ProductEnum::STOCK_ACTIVE : ProductEnum::STOCK_PASSIVE;
         $data['push_on'] = $data['push_on'] == 1 ? ProductEnum::PUSH_ON_ACTIVE : ProductEnum::PUSH_ON_PASSIVE;
-        $data['slug'] = $data['title'];
+
         if (!$request->input('document', []))
             return redirect()->back()->with('error', 'Lütfen resim seçiniz');
         else

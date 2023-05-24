@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 
   {{--  <!-- slider-area-start -->
@@ -917,297 +918,45 @@
                 <div class="col-xl-12">
                     <div class="section__head d-flex justify-content-between mb-30">
                         <div class="section__title section__title-2">
-                            <h5 class="st-titile">Recommended For You</h5>
+                            <h5 class="st-titile">En Son Eklenen Ürünler</h5>
                         </div>
                         <div class="button-wrap button-wrap-2">
-                            <a href="product.html">See All Product <i class="fal fa-chevron-right"></i></a>
+                            <a href="product.html">Bütün Ürünler <i class="fal fa-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
+                @foreach($lastAddProducts as $lastProduct)
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2">
                     <div class="product__item product__item-2 b-radius-2 mb-20">
                         <div class="product__thumb fix">
                             <div class="product-image w-img">
-                                <a href="product-details.html">
+                                <a href="{{  route('front.product.detail', ['slug'=> $lastProduct->slug]) }}">
                                     <img src="assets/user/img/product/tp-1.jpg" alt="product">
                                 </a>
                             </div>
-                            <div class="product__offer">
-                                <span class="discount">-15%</span>
-                            </div>
                             <div class="product-action product-action-2">
-                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                    <i class="fal fa-eye"></i>
-                                    <i class="fal fa-eye"></i>
-                                </a>
                                 <a href="#" class="icon-box icon-box-1">
                                     <i class="fal fa-heart"></i>
                                     <i class="fal fa-heart"></i>
-                                </a>
-                                <a href="#" class="icon-box icon-box-1">
-                                    <i class="fal fa-layer-group"></i>
-                                    <i class="fal fa-layer-group"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="product__content product__content-2">
-                            <h6><a href="product-details.html">Epple iPad Pro 10.5-inch Cellular 64G</a></h6>
-                            <div class="rating mb-5 mt-10">
-                                <ul>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                </ul>
-                                <span>(01 review)</span>
-                            </div>
+                            <h6><a href="{{  route('front.product.detail', ['slug'=> $lastProduct->slug]) }}">{{ $lastProduct->title }}</a></h6>
                             <div class="price">
-                                <span>$105-$110</span>
+                                <span>Başlangıç Fiyatı: {{ $lastProduct->price }}</span>
                             </div>
                         </div>
                         <div class="product__add-cart text-center">
                             <button type="button" class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                Add to Cart
+                                Açık Artırmaya Katıl
                             </button>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2">
-                    <div class="product__item product__item-2 b-radius-2 mb-20">
-                        <div class="product__thumb fix">
-                            <div class="product-image w-img">
-                                <a href="product-details.html">
-                                    <img src="assets/user/img/product/tp-2.jpg" alt="product">
-                                </a>
-                            </div>
-                            <div class="product-action product-action-2">
-                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                    <i class="fal fa-eye"></i>
-                                    <i class="fal fa-eye"></i>
-                                </a>
-                                <a href="#" class="icon-box icon-box-1">
-                                    <i class="fal fa-heart"></i>
-                                    <i class="fal fa-heart"></i>
-                                </a>
-                                <a href="#" class="icon-box icon-box-1">
-                                    <i class="fal fa-layer-group"></i>
-                                    <i class="fal fa-layer-group"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product__content product__content-2">
-                            <h6><a href="product-details.html">Men Size Yellow Basketball Jerseys</a></h6>
-                            <div class="rating mb-5 mt-10">
-                                <ul>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                </ul>
-                                <span>(01 review)</span>
-                            </div>
-                            <div class="price">
-                                <span>$105-$150</span>
-                            </div>
-                        </div>
-                        <div class="product__add-cart text-center">
-                            <button type="button" class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2">
-                    <div class="product__item product__item-2 b-radius-2 mb-20">
-                        <div class="product__thumb fix">
-                            <div class="product-image w-img">
-                                <a href="product-details.html">
-                                    <img src="assets/user/img/product/tp-3.jpg" alt="product">
-                                </a>
-                            </div>
-                            <div class="product__offer">
-                                <span class="discount">-9%</span>
-                            </div>
-                            <div class="product-action product-action-2">
-                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                    <i class="fal fa-eye"></i>
-                                    <i class="fal fa-eye"></i>
-                                </a>
-                                <a href="#" class="icon-box icon-box-1">
-                                    <i class="fal fa-heart"></i>
-                                    <i class="fal fa-heart"></i>
-                                </a>
-                                <a href="#" class="icon-box icon-box-1">
-                                    <i class="fal fa-layer-group"></i>
-                                    <i class="fal fa-layer-group"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product__content product__content-2">
-                            <h6><a href="product-details.html">Xbox Wireless Game Controller Pink</a></h6>
-                            <div class="rating mb-5 mt-10">
-                                <ul>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                </ul>
-                                <span>(01 review)</span>
-                            </div>
-                            <div class="price">
-                                <span>$200-$280</span>
-                            </div>
-                        </div>
-                        <div class="product__add-cart text-center">
-                            <button type="button" class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2">
-                    <div class="product__item product__item-2 b-radius-2 mb-20">
-                        <div class="product__thumb fix">
-                            <div class="product-image w-img">
-                                <a href="product-details.html">
-                                    <img src="assets/user/img/product/tp-7.jpg" alt="product">
-                                </a>
-                            </div>
-                            <div class="product-action product-action-2">
-                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                    <i class="fal fa-eye"></i>
-                                    <i class="fal fa-eye"></i>
-                                </a>
-                                <a href="#" class="icon-box icon-box-1">
-                                    <i class="fal fa-heart"></i>
-                                    <i class="fal fa-heart"></i>
-                                </a>
-                                <a href="#" class="icon-box icon-box-1">
-                                    <i class="fal fa-layer-group"></i>
-                                    <i class="fal fa-layer-group"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product__content product__content-2">
-                            <h6><a href="product-details.html">APPO R11s 64GB Dual 20MP Cameras</a></h6>
-                            <div class="rating mb-5 mt-10">
-                                <ul>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                </ul>
-                                <span>(01 review)</span>
-                            </div>
-                            <div class="price">
-                                <span>$150.00-$270.00</span>
-                            </div>
-                        </div>
-                        <div class="product__add-cart text-center">
-                            <button type="button" class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2">
-                    <div class="product__item product__item-2 b-radius-2 mb-20">
-                        <div class="product__thumb fix">
-                            <div class="product-image w-img">
-                                <a href="product-details.html">
-                                    <img src="assets/user/img/product/tp-10.jpg" alt="product">
-                                </a>
-                            </div>
-                            <div class="product-action product-action-2">
-                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                    <i class="fal fa-eye"></i>
-                                    <i class="fal fa-eye"></i>
-                                </a>
-                                <a href="#" class="icon-box icon-box-1">
-                                    <i class="fal fa-heart"></i>
-                                    <i class="fal fa-heart"></i>
-                                </a>
-                                <a href="#" class="icon-box icon-box-1">
-                                    <i class="fal fa-layer-group"></i>
-                                    <i class="fal fa-layer-group"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product__content product__content-2">
-                            <h6><a href="product-details.html">G951s Pink Stereo Gaming Headset</a></h6>
-                            <div class="rating mb-5 mt-10">
-                                <ul>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                </ul>
-                                <span>(01 review)</span>
-                            </div>
-                            <div class="price">
-                                <span>$120.00-$210.00</span>
-                            </div>
-                        </div>
-                        <div class="product__add-cart text-center">
-                            <button type="button" class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2">
-                    <div class="product__item product__item-2 b-radius-2 mb-20">
-                        <div class="product__thumb fix">
-                            <div class="product-image w-img">
-                                <a href="product-details.html">
-                                    <img src="assets/user/img/product/tp-9.jpg" alt="product">
-                                </a>
-                            </div>
-                            <div class="product-action product-action-2">
-                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                    <i class="fal fa-eye"></i>
-                                    <i class="fal fa-eye"></i>
-                                </a>
-                                <a href="#" class="icon-box icon-box-1">
-                                    <i class="fal fa-heart"></i>
-                                    <i class="fal fa-heart"></i>
-                                </a>
-                                <a href="#" class="icon-box icon-box-1">
-                                    <i class="fal fa-layer-group"></i>
-                                    <i class="fal fa-layer-group"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product__content product__content-2">
-                            <h6><a href="product-details.html">Epple iPhone 11 Pro Max 64GB Gold</a></h6>
-                            <div class="rating mb-5 mt-10">
-                                <ul>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                </ul>
-                                <span>(01 review)</span>
-                            </div>
-                            <div class="price">
-                                <span>$120.00-$140.00</span>
-                            </div>
-                        </div>
-                        <div class="product__add-cart text-center">
-                            <button type="button" class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -1253,8 +1002,8 @@
                                 <i class="fal fa-truck"></i>
                             </div>
                             <div class="features-2__content">
-                                <h6>FREE DELIVERY</h6>
-                                <p>For all orders over $120</p>
+                                <h6>HIZLI KARGO</h6>
+                                <p>Türkiye'nin her yerine güvenli, hızlı teslimat</p>
                             </div>
                         </div>
                     </div>
@@ -1264,8 +1013,8 @@
                                 <i class="fal fa-money-check"></i>
                             </div>
                             <div class="features-2__content">
-                                <h6>SAFE PAYMENT</h6>
-                                <p>100% secure payment</p>
+                                <h6>GÜVENLİ ÖDEME</h6>
+                                <p>100% güvenli ödeme</p>
                             </div>
                         </div>
                     </div>
@@ -1275,8 +1024,8 @@
                                 <i class="fal fa-comments-alt"></i>
                             </div>
                             <div class="features-2__content">
-                                <h6>24/7 HELP CENTER</h6>
-                                <p>Delicated 24/7 support</p>
+                                <h6>7/24 YARDIM MERKEZİ</h6>
+                                <p>Destek hattı</p>
                             </div>
                         </div>
                     </div>
@@ -1286,8 +1035,8 @@
                                 <i class="fal fa-hand-holding-usd"></i>
                             </div>
                             <div class="features-2__content">
-                                <h6>SHOP WITH CONFIDENCE</h6>
-                                <p>If goods have problems</p>
+                                <h6>GÜVENLE ALIŞVERİŞ YAPIN</h6>
+                                <p>Sorunsuz alışveriş</p>
                             </div>
                         </div>
                     </div>
@@ -1297,8 +1046,8 @@
                                 <i class="fad fa-user-headset"></i>
                             </div>
                             <div class="features-2__content">
-                                <h6>FRIENDLY SERVICES</h6>
-                                <p>30 day satisfaction guarantee</p>
+                                <h6>GÜLER YÜZLÜ HİZMET</h6>
+                                <p>15 Gün memnuniyet garantisi</p>
                             </div>
                         </div>
                     </div>
@@ -1310,7 +1059,7 @@
 
 
     <!-- shop modal start -->
-    <div class="modal fade" id="productModalId" tabindex="-1" role="dialog" aria-hidden="true">
+   <!-- <div class="modal fade" id="productModalId" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered product__modal" role="document">
             <div class="modal-content">
                 <div class="product__modal-wrapper p-relative">
@@ -1435,5 +1184,5 @@
             </div>
         </div>
     </div>
-
+-->
 @endsection

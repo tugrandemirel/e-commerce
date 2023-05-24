@@ -9,7 +9,7 @@
         </div>
         <div class="offcanvas__content">
             <div class="offcanvas__logo mb-40">
-                <a href="index.html">
+                <a href="{{ route('index')}}">
                     <img src="assets/user/img/logo/logo-white.png" alt="logo">
                 </a>
             </div>
