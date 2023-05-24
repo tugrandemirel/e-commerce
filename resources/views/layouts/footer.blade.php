@@ -135,23 +135,23 @@
 <!-- footer-end -->
 
 <!-- JS here -->
-<script src="assets/user/js/vendor/jquery.js"></script>
-<script src="assets/user/js/vendor/waypoints.js"></script>
-<script src="assets/user/js/bootstrap-bundle.js"></script>
-<script src="assets/user/js/meanmenu.js"></script>
-<script src="assets/user/js/swiper-bundle.js"></script>
-<script src="assets/user/js/tweenmax.js"></script>
-<script src="assets/user/js/owl-carousel.js"></script>
-<script src="assets/user/js/magnific-popup.js"></script>
-<script src="assets/user/js/parallax.js"></script>
-<script src="assets/user/js/backtotop.js"></script>
-<script src="assets/user/js/nice-select.js"></script>
-<script src="assets/user/js/countdown.min.js"></script>
-<script src="assets/user/js/counterup.js"></script>
-<script src="assets/user/js/wow.js"></script>
-<script src="assets/user/js/isotope-pkgd.js"></script>
-<script src="assets/user/js/imagesloaded-pkgd.js"></script>
-<script src="assets/user/js/ajax-form.js"></script>
-<script src="assets/user/js/main.js"></script>
+<script src="{{ asset('assets/user/js/vendor/jquery.js') }}"></script>
+<script src="{{ asset('assets/user/js/vendor/waypoints.js') }}"></script>
+<script src="{{ asset('assets/user/js/bootstrap-bundle.js') }}"></script>
+<script src="{{ asset('assets/user/js/meanmenu.js') }}"></script>
+<script src="{{ asset('assets/user/js/swiper-bundle.js') }}"></script>
+<script src="{{ asset('assets/user/js/tweenmax.js') }}"></script>
+<script src="{{ asset('assets/user/js/owl-carousel.js') }}"></script>
+<script src="{{ asset('assets/user/js/magnific-popup.js') }}"></script>
+<script src="{{ asset('assets/user/js/parallax.js') }}"></script>
+<script src="{{ asset('assets/user/js/backtotop.js') }}"></script>
+<script src="{{ asset('assets/user/js/nice-select.js') }}"></script>
+<script src="{{ asset('assets/user/js/countdown.min.js') }}"></script>
+<script src="{{ asset('assets/user/js/counterup.js') }}"></script>
+<script src="{{ asset('assets/user/js/wow.js') }}"></script>
+<script src="{{ asset('assets/user/js/isotope-pkgd.js') }}"></script>
+<script src="{{ asset('assets/user/js/imagesloaded-pkgd.js') }}"></script>
+<script src="{{ asset('assets/user/js/ajax-form.js') }}"></script>
+<script src="{{ asset('assets/user/js/main.js') }}"></script>
 </body>
 </html>

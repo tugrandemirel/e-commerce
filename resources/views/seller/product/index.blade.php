@@ -30,6 +30,7 @@
                             <th>Resim</th>
                             <th>Kategori</th>
                             <th>Marka</th>
+                            <th>Fiyat</th>
                             <th>Başlangıç Tarihi</th>
                             <th>Başlangıç Fiyatı</th>
                             <th>
@@ -51,15 +52,20 @@
                                 <td>{{ $product->title }}</td>
                                 @if ($product->hasMedia('images'))
                                     <td>
-                                        <img src="{{ $product->getFirstMedia('images')->getUrl() }}" alt="test">
+                                        <img src="{{ $product->getFirstMedia('images')->getUrl() }}" alt="{{ $product->title }}" width="80">
                                     </td>
                                 @else
                                     <td>Resim Yok</td>
                                 @endif
                                 <td>{{ $product->category->name }}</td>
                                 <td>{{ $product->brand->name }}</td>
-                                <td>{{ date('d-m-Y', strtotime($product->start_date)) }}</td>
-                                <td>{{ date('d-m-Y', strtotime($product->end_date)) }}</td>
+                                <td>
+
+                                        {{ $product->price }}<i style="margin-left: 1px;" class="fas fa-coins">
+                                    </div>
+                                </td>
+                                <td>{{ changingDateFormat($product->start_date) }}</td>
+                                <td>{{ changingDateFormat($product->end_date) }}</td>
                                 <td>
                                     @if($product->status == \App\Enum\Product\ProductEnum::STATUS_NEW)
                                         <span class="badge bg-soft-success text-success"  data-toggle="tooltip" title="Ürün Kullanım Durumu">Sıfır Ürün</span>
@@ -88,12 +94,13 @@
                                     <span class="badge bg-soft-success text-success" data-toggle="tooltip" title="Oluşturma Tarihi">
                                         {{ date('d-m-Y H:i:s', strtotime($product->created_at)) }}
                                     </span>
+
                                     <span class="badge bg-soft-info text-info" data-toggle="tooltip" title="Güncelleme Tarihi">
                                         {{ date('d-m-Y H:i:s', strtotime($product->updated_at)) }}
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-primary btn-sm waves-effect waves-light"><i class="mdi mdi-eye"></i></a>
+                                    <a href="{{ route('front.product.detail', ['slug' => $product->slug]) }}" target="_blank" class="btn btn-primary btn-sm waves-effect waves-light"><i class="mdi mdi-eye"></i></a>
                                     <a href="{{ route('seller.product.edit', ['product' => $product]) }}" class="btn btn-warning btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
                                     <a href="" class="btn btn-danger btn-sm waves-effect waves-light"><i class="mdi mdi-trash-can-outline"></i></a>
                                 </td>

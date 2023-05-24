@@ -207,7 +207,6 @@
                                                         </a>
                                                     </div>
                                                     <div class="product-action">
-
                                                         <a href="#" class="icon-box icon-box-1">
                                                             <i class="fal fa-heart"></i>
                                                             <i class="fal fa-heart"></i>
@@ -223,7 +222,7 @@
                                                 </div>
                                                 <div class="product__add-cart-s text-center">
                                                     <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                        Açık Artırmaya Katıl
+                                                        Teklif Ver
                                                     </button>
                                                 </div>
                                             </div>

@@ -946,12 +946,12 @@
                         <div class="product__content product__content-2">
                             <h6><a href="{{  route('front.product.detail', ['slug'=> $lastProduct->slug]) }}">{{ $lastProduct->title }}</a></h6>
                             <div class="price">
-                                <span>Başlangıç Fiyatı: {{ $lastProduct->price }}</span>
+                                <span>Başlangıç Fiyatı: {{ $lastProduct->price }} <i class="fas fa-coins"></i></span>
                             </div>
                         </div>
                         <div class="product__add-cart text-center">
                             <button type="button" class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                Açık Artırmaya Katıl
+                                Teklif Ver
                             </button>
                         </div>
                     </div>
