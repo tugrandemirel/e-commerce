@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Seller\SellerController;
 use App\Http\Controllers\Seller\SProductController;
+use App\Http\Controllers\Front\FIndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +26,7 @@ Route::get('/', function () {
 
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [FIndexController::class, 'index'])->name('index');
 
 Route::prefix('admin')->as('admin.')->middleware(['auth', 'role:Admin'])->group(function (){
     Route::get('index', [AdminController::class, 'index'])->name('index');
