@@ -19,4 +19,6 @@ class Brand extends Model
         'meta_description',
         'meta_keywords'
     ];
+
+
 }

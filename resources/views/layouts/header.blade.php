@@ -196,17 +196,9 @@
                                 <div class="header__search-cat">
                                     <select>
                                         <option value="butun-categoriler">Bütün Kategoriler</option>
-                                        <option>Best Seller Products</option>
-                                        <option>Top 10 Offers</option>
-                                        <option>New Arrivals</option>
-                                        <option>Phones &amp; Tablets</option>
-                                        <option>Electronics &amp; Digital</option>
-                                        <option>Fashion &amp; Clothings</option>
-                                        <option>Jewelry &amp; Watches</option>
-                                        <option>Health &amp; Beauty</option>
-                                        <option>Sound &amp; Speakers</option>
-                                        <option>TV &amp; Audio</option>
-                                        <option>Computers</option>
+                                        @foreach($_categories as $category)
+                                            <option value="{{ $category->slug }}">{{ $category->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </form>
