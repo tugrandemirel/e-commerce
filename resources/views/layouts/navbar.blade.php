@@ -11,23 +11,23 @@
                                     <li>
                                         <a href="#">Bütün Kategoriler</a>
                                     </li>
-                                    @foreach(\App\Models\Category::where('parent_id', 0)->where('status', \App\Enum\Category\CategoryEnum::STATUS_ACTIVE)->get() as $category)
+                                    @foreach($_categories as $category)
                                         <li>
                                             <a href="{{ $category->slug }}">{{ $category->name }}
-                                                @if(\App\Models\Category::where('parent_id', $category->id)->where('status', \App\Enum\Category\CategoryEnum::STATUS_ACTIVE)->count() > 0 )
-                                                <i class="far fa-angle-down"></i>
+                                                @if($category->children()->count() > 0 )
+                                                    <i class="far fa-angle-down"></i>
                                                 @endif
                                             </a>
-                                            @if(\App\Models\Category::where('parent_id', $category->id)->where('status', \App\Enum\Category\CategoryEnum::STATUS_ACTIVE)->count() > 0 )
-                                            <ul class="mega-menu mega-menu-2">
-                                                @foreach(\App\Models\Category::where('parent_id', $category->id)->where('status', \App\Enum\Category\CategoryEnum::STATUS_ACTIVE)->get() as $subCcategory)
-                                                <li>
-                                                    <ul class="mega-item">
-                                                        <li><a href="{{ $subCcategory->slug }}">{{ $subCcategory->name }}</a></li>
-                                                    </ul>
-                                                </li>
-                                                @endforeach
-                                            </ul>
+                                            @if($category->children()->count() > 0 )
+                                                <ul class="mega-menu mega-menu-2">
+                                                    @foreach($category->children()->get() as $subCcategory)
+                                                        <li>
+                                                            <ul class="mega-item">
+                                                                <li><a href="{{ $subCcategory->slug }}">{{ $subCcategory->name }}</a></li>
+                                                            </ul>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
                                             @endif
                                         </li>
                                     @endforeach
