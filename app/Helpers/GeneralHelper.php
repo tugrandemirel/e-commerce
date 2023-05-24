@@ -79,4 +79,21 @@ if (! function_exists('monthName'))
     }
 }
 
+if (! function_exists('explodeTags'))
+{
+    function explodeTags($tags)
+    {
+        $tags = explode(',', $tags);
+        $tags = array_map('trim', $tags);
+        return $tags;
+    }
+}
+
+if (!   function_exists('changingDateTimeFormat'))
+{
+    function changingDateTimeFormat($date)
+    {
+        return  date('d-m-Y H:i:s', strtotime($date));
+    }
+}
 

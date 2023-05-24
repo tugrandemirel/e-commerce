@@ -2,6 +2,7 @@
 @section('title', $product->title)
 @section('description', $product->meta_description)
 @section('keywords', $product->meta_keywords)
+@section('styles')
 @section('content')
     <!-- breadcrumb__area-start -->
     <section class="breadcrumb__area box-plr-75">
@@ -81,9 +82,9 @@
                         </div>
                         <div class="cart-option mb-15">
                             <div class="product-quantity mr-20">
-                                <div class="cart-plus-minus p-relative"><input type="text" value="1"><div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div>
+                                <div class="cart-plus-minus "><input type="number" value="{{ $product->price }}"></div>
                             </div>
-                            <a href="cart.html" class="cart-btn">Teklif Ver</a>
+                            <a href="" id="bidding" class="cart-btn">Teklif Ver</a>
                         </div>
                         <div class="details-meta">
                             <div class="d-meta-left">
@@ -105,12 +106,9 @@
                                     </span>
                                 <span class="tagged_as">
                                         <span class="title">Etiket:</span>
-                                    @php
-                                        $tags = explode(',', $product->meta_keywords);
-                                    @endphp
-                                    @foreach($tags as $tag)
-                                        <a href="#">{{ $tag }}</a>,
-                                    @endforeach
+                                        @foreach(explodeTags($product->meta_keywords) as $tag)
+                                            <a href="#">{{ $tag }}</a>,
+                                        @endforeach
                                 </span>
                             </div>
                         </div>
@@ -129,7 +127,10 @@
                     <div class="product__details-des-tab">
                         <ul class="nav nav-tabs" id="productDesTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="des-tab" data-bs-toggle="tab" data-bs-target="#des" type="button" role="tab" aria-controls="des" aria-selected="true">Ürün Açıklaması </button>
+                                <button class="nav-link active" id="bidding-tab" data-bs-toggle="tab" data-bs-target="#bidding" type="button" role="tab" aria-controls="bidding" aria-selected="true">Açık Artırma </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="des-tab" data-bs-toggle="tab" data-bs-target="#des" type="button" role="tab" aria-controls="des" aria-selected="true">Ürün Açıklaması </button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false">Ürün Yorumları </button>
@@ -139,7 +140,29 @@
                 </div>
             </div>
             <div class="tab-content" id="prodductDesTaContent">
-                <div class="tab-pane fade active show" id="des" role="tabpanel" aria-labelledby="des-tab">
+                <div class="tab-pane fade active show" id="bidding" role="tabpanel" aria-labelledby="bidding-tab">
+                    <div class="product__details-des-wrapper">
+                        <div class="table-content table-responsive" style="height: 500px; width: 500px;">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th class="cart-product-name">Kullanıcı Adı</th>
+                                    <th class="product-price">Fiyat</th>
+                                    <th class="product-subtotal">Tarih</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="product-name"><a href="shop-details.html">Light Jacketasdasds</a></td>
+                                    <td class="product-price"><span class="amount">130.09876540 <i class="fas fa-coins"></i></span></td>
+                                    <td class="product-subtotal"><span class="amount">130.00-000-*000</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade " id="des" role="tabpanel" aria-labelledby="des-tab">
                     <div class="product__details-des-wrapper">
                         {!! $product->description !!}
                     </div>
@@ -244,4 +267,14 @@
         </div>
     </div>
     <!-- product-details-des-end -->
+@endsection
+@section('scripts')
+    <script>
+        $(document).ready(function () {
+            $('#bidding').click(function () {
+                event.preventDefault();
+
+            })
+        });
+    </script>
 @endsection

@@ -153,5 +153,6 @@
 <script src="{{ asset('assets/user/js/imagesloaded-pkgd.js') }}"></script>
 <script src="{{ asset('assets/user/js/ajax-form.js') }}"></script>
 <script src="{{ asset('assets/user/js/main.js') }}"></script>
+@yield('scripts')
 </body>
 </html>

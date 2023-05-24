@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('assets/user/css/font-awesome-pro.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/user/css/default.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/user/css/style.css') }}">
+    @yield('styles')
 </head>
 <body>
 <!--[if lte IE 9]>
