@@ -63,11 +63,11 @@
 
                                 <td>
                                     <span class="badge bg-soft-success text-success" data-toggle="tooltip" title="Oluşturma Tarihi">
-                                        {{ date('d-m-Y H:i:s', strtotime($product->created_at)) }}
+                                        {{ changingDateTimeFormat($product->created_at) }}
                                     </span>
 
                                     <span class="badge bg-soft-info text-info" data-toggle="tooltip" title="Güncelleme Tarihi">
-                                        {{ date('d-m-Y H:i:s', strtotime($product->updated_at)) }}
+                                        {{ changingDateTimeFormat($product->updated_at) }}
                                     </span>
                                 </td>
                                 <td>
