@@ -54,4 +54,17 @@ class User extends Authenticatable
         return $this->hasOne(Seller::class);
     }
 
+    public function bid()
+    {
+        return $this->hasOne(Bid::class);
+    }
+
+    public function bids()
+    {
+        return $this->hasMany(Bid::class);
+    }
+
+
+
+
 }

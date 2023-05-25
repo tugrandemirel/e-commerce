@@ -56,5 +56,15 @@ class Product extends Model implements HasMedia
         return $this->belongsTo(Brand::class);
     }
 
+    public function bid()
+    {
+        return $this->hasOne(Bid::class);
+    }
+    public function bids()
+    {
+        return $this->hasMany(Bid::class);
+    }
+
+
 
 }
