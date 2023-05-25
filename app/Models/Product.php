@@ -29,6 +29,7 @@ class Product extends Model implements HasMedia
         'stock',
         'visibility',
         'push_on',
+        'approve',
         'start_date',
         'end_date',
         'meta_title',

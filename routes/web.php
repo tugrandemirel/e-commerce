@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
@@ -38,6 +39,13 @@ Route::prefix('/')->as('front.')->group(function (){
 
 Route::prefix('admin')->as('admin.')->middleware(['auth', 'role:Admin'])->group(function (){
     Route::get('index', [AdminController::class, 'index'])->name('index');
+
+    Route::prefix('product')->as('product.')->group(function (){
+        Route::get('index', [ProductController::class, 'index'])->name('index');
+        Route::get('show/{product}', [ProductController::class, 'show'])->name('show');
+        Route::post('reject/{product}', [ProductController::class, 'reject'])->name('reject');
+        Route::post('approve/{product}', [ProductController::class, 'approve'])->name('approve');
+    });
 
     Route::prefix('roles')->as('roles.')->group(function (){
         Route::get('index', [RoleController::class, 'index'])->name('index');

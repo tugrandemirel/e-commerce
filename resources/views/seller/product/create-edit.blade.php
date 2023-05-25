@@ -309,7 +309,7 @@
                 <div class="card">
                     <div class="card-header">
                        <div class="row justify-content-center">
-                           <button class="btn btn-success btn-sm">TEST</button>
+                           <button class="btn btn-success btn-sm">KAYDET</button>
                        </div>
                     </div>
                 </div>

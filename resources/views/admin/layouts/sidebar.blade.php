@@ -9,7 +9,7 @@
 
             <img src="assets/admin/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
             <div class="dropdown">
-                <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown"  aria-expanded="false">Nowak Helme</a>
+                <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown"  aria-expanded="false">{{ auth()->user()->name }}</a>
                 <div class="dropdown-menu user-pro-dropdown">
 
                     <!-- item-->
@@ -59,6 +59,20 @@
         <!--- Sidemenu -->
         <div id="sidebar-menu">
             <li>
+                <a href="#product" data-bs-toggle="collapse">
+                    <i class="mdi mdi-hand-left"></i>
+                    <span> Ürün İşlemleri </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="product">
+                    <ul class="nav-second-level">
+                        <li>
+                            <a href="{{ route('admin.product.index') }}">Onay Bekleyen Ürünler</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
                 <a href="{{ route('admin.brands.index') }}" >
                     <i class="mdi mdi-hand-left"></i>
                     <span> Marka </span>
@@ -67,12 +81,12 @@
             </li>
             <ul id="side-menu">
                 <li>
-                    <a href="#email" data-bs-toggle="collapse">
+                    <a href="#category" data-bs-toggle="collapse">
                         <i class="mdi mdi-hand-left"></i>
-                        <span> Rol </span>
+                        <span> Kategori İşlemleri </span>
                         <span class="menu-arrow"></span>
                     </a>
-                <div class="collapse" id="email">
+                <div class="collapse" id="category">
                     <ul class="nav-second-level">
                         <li>
                             <a href="{{ route('admin.categories.index') }}">Ana Kategoriler</a>
@@ -101,6 +115,7 @@
                         </ul>
                     </div>
                 </li>
+
             </ul>
 
         </div>
