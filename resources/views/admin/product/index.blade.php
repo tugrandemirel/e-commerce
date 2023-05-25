@@ -1,23 +1,19 @@
 @extends('admin.layouts.app')
-@section('title', 'Ürünler')
+@section('title', 'Onay Bekleyen Ürünler')
 @section('styles')
-
-
 @endsection
 @section('content')
-
     <!-- end row -->
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-
                     <h4 class="mt-2 header-title">Ürünler</h4>
                     <p class="text-muted font-14 mb-3">
                         Onay bekleyen <b>Ürünler</b> burada listelenmektedir. Buradan ürün onaylayabilir, reddedebilirsiniz.
                     </p>
 
-                    <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">
+                    <table id="datatable-buttons" class="table table-responsive table-striped table-bordered dt-responsive nowrap">
                         <thead>
                         <tr>
                             <th>Id</th>
