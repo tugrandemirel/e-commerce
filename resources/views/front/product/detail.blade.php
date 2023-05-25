@@ -273,6 +273,7 @@
         $(document).ready(function () {
             $('#bidding').click(function () {
                 event.preventDefault();
+                let price = $('#price').val();
 
             })
         });
