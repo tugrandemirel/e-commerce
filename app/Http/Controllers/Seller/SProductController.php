@@ -41,6 +41,7 @@ class SProductController extends Controller
         $data['visibility'] = $data['visibility'] == 1 ? ProductEnum::VISIBILITY_ACTIVE : ProductEnum::VISIBILITY_PASSIVE;
         $data['stock'] = $data['stock'] == 1 ? ProductEnum::STOCK_ACTIVE : ProductEnum::STOCK_PASSIVE;
         $data['push_on'] = $data['push_on'] == 1 ? ProductEnum::PUSH_ON_ACTIVE : ProductEnum::PUSH_ON_PASSIVE;
+        $data['approve'] = ProductEnum::APPROVAL_PENDING;
 
         if (!$request->input('document', []))
             return redirect()->back()->with('error', 'Lütfen resim seçiniz');
@@ -68,17 +69,25 @@ class SProductController extends Controller
         return redirect()->back()->with('success', 'Ürün başarıyla eklendi');
     }
 
-    public function edit(Product $product)
+    public function edit(Product $product, $status = null)
     {
         $categories = Category::where('parent_id', 0)->where('status', CategoryEnum::STATUS_ACTIVE)->orderBy('name')->get();
         $brands = Brand::where('status', BrandEnum::STATUS_ACTIVE)->orderBy('name')->get();
-        return view('seller.product.create-edit', compact('product', 'categories', 'brands'));
+        return view('seller.product.create-edit', compact('product', 'categories', 'brands', 'status'));
     }
 
     public function update(SProductStoreRequest $request, Product $product)
     {
-        return 'test';
+
     }
+
+    public function rejectedProduct()
+    {
+        $sellerId = Seller::where('user_id', auth()->id())->first()->id;
+        $products = Product::where('seller_id', $sellerId)->where('approve', ProductEnum::APPROVAL_REJECTED)->orderBy('id', 'desc')->get();
+        return view('seller.product.rejected', compact('products'));
+    }
+
     public function getSubCategories(Request $request)
     {
         $validate = $request->validate([

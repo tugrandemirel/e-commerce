@@ -49,10 +49,13 @@
                 </li>
 
                 <li class="list-inline-item">
-                    <a href="#">
+                    <a href="#" onclick="document.getElementById('logout').submit()">
                         <i class="mdi mdi-power"></i>
                     </a>
                 </li>
+                <form action="{{ route('logout') }}" method="post" id="logout">
+                    @csrf
+                </form>
             </ul>
         </div>
 

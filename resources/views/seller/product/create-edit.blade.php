@@ -222,6 +222,30 @@
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-body">
+                                                @if($product->hasMedia('images'))
+                                                    @php
+                                                        $images = $product->getMedia('images');
+                                                    @endphp
+                                                <div class="row">
+                                                    @foreach($images as $image)
+                                                        <div class="col-md-3">
+
+
+                                                            <div class="card">
+                                                                <a class="btn btn-block btn-danger removeImg" style="background-color: red"><i class="mdi mdi-close " style="color: black;"></i></a>
+                                                                <input type="hidden" name="image" value="">
+                                                                <div class="text-center card-body"  style="border: 1px solid black;">
+                                                                    <div>
+                                                                        <a href="{{ $image->getUrl() }}" target="_blank">
+                                                                            <img src="{{ $image->getUrl() }}" class="img-fluid" alt="" width="85" style="height: 85px;">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                                @endif
                                                 <!-- Preview -->
                                                 <div class="mb-3 ">
                                                     <div class="needsclick dropzone @error('document') is-invalid  @enderror" id="document-dropzone">

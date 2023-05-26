@@ -80,19 +80,19 @@ Route::prefix('admin')->as('admin.')->middleware(['auth', 'role:Admin'])->group(
         Route::get('destroy/{brand}', [BrandController::class, 'destroy'])->name('destroy');
     });
 });
+
 Route::prefix('seller')->as('seller.')->middleware(['auth', 'role:Seller'])->group(function (){
    Route::get('/', [SellerController::class, 'index'])->name('index');
 
    Route::prefix('product')->as('product.')->group(function (){
-      Route::get('index', [SProductController::class, 'index'])->name('index');
+      Route::get('', [SProductController::class, 'index'])->name('index');
       Route::get('create', [SProductController::class, 'create'])->name('create');
       Route::post('store/', [SProductController::class, 'store'])->name('store');
-
-       Route::get('edit/{product}', [SProductController::class, 'edit'])->name('edit');
-       Route::post('update/{product}', [SProductController::class, 'update'])->name('update');
+      Route::get('edit/{product}/{status?}', [SProductController::class, 'edit'])->name('edit');
+      Route::post('update/{product}/{status?}', [SProductController::class, 'update'])->name('update');
       Route::post('get-sub-categories/', [SProductController::class, 'getSubCategories'])->name('getSubCat');
       Route::post('store-media/', [SProductController::class, 'storeMedia'])->name('storeMedia');
-
+      Route::get('rejected-product', [SProductController::class, 'rejectedProduct'])->name('rejected');
 
    });
 });

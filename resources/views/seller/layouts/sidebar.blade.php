@@ -49,10 +49,13 @@
                 </li>
 
                 <li class="list-inline-item">
-                    <a href="#">
+                    <a onclick="document.getElementById('logout').submit()">
                         <i class="mdi mdi-power"></i>
                     </a>
                 </li>
+                <form action="{{ route('logout') }}" method="post" id="logout">
+                    @csrf
+                </form>
             </ul>
         </div>
 
@@ -72,7 +75,7 @@
                             <a href="{{ route('seller.product.index') }}">Ürünler</a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.categories.sub.index') }}">Onay Bekleyenler</a>
+                            <a href="{{ route('seller.product.rejected') }}">Red Edilen Ürünler</a>
                         </li>
                     </ul>
                 </div>
