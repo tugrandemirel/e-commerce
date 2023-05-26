@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('assets/user/css/font-awesome-pro.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/user/css/default.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/user/css/style.css') }}">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
     @yield('styles')
 </head>
 <body>

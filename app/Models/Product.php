@@ -63,7 +63,7 @@ class Product extends Model implements HasMedia
     }
     public function bids()
     {
-        return $this->hasMany(Bid::class);
+        return $this->hasMany(Bid::class)->orderBy('bid_price', 'desc');
     }
 
 

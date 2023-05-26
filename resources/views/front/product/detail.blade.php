@@ -72,7 +72,7 @@
                         <span><a href="#">Add your review</a></span>
                     </div> -->
                     <div class="price mb-10">
-                        <span>{{ $product->price }} <i class="fas fa-coins"></i></span>
+                        <span>{{ $product->price }} <i class="fas fa-coins"></i> 'den başlayan fiyatla</span>
                     </div>
                     <div class="features-des mb-20 mt-10">
                         <ul>
@@ -80,14 +80,33 @@
                         </ul>
                     </div>
                     <div class="product-stock mb-20">
+                        <h5>Teklif Başlangıç Fiyatı: <span> {{ $product->price }} <i class="fa fa-coins"></i></span></h5>
+                    </div>
+                    <div class="product-stock mb-20 reloadItem">
+                        <h5>En Yüksek Teklif: <span> {{ $product->bid->bid_price }} <i class="fa fa-coins"></i></span></h5>
+                    </div>
+                    <div class="product-stock mb-20">
                         <h5>Teklif Kapanış Tarihi: <span> {{ changingDateFormat($product->end_date) }}</span></h5>
                     </div>
-                    <div class="cart-option mb-15">
+                    <div class="cart-option mb-15 reloadItem">
                         <div class="product-quantity mr-20">
-                            <div class="cart-plus-minus "><input type="number" id="price" value="{{ $product->price }}"></div>
+                            <div class="cart-plus-minus "><input type="number" id="price" value="{{ isset($product->bid) ? $product->bid->bid_price : $product->price }}" placeholder="{{ isset($product->bid) ? $product->bid->bid_price : $product->price }}"></div>
                         </div>
-                        <a href="" id="bidding" class="cart-btn">Teklif Ver</a>
+                        @if(\Illuminate\Support\Facades\Auth::check())
+                        <a href="" id="bidding" class="cart-btn mx-4">Teklif Ver</a>
+                        @else
+                            <a href="" id="bidding" class="cart-btn mx-4">İlk Teklifi Ver</a>
+                        @endif
                     </div>
+
+                    @if(\Illuminate\Support\Facades\Auth::check())
+                        <div class="cart-option mb-15">
+                            <a href="#"  id="percentage-five" class="cart-btn mx-1">%5</a>
+                            <a href="#" id="percentage-ten" class="cart-btn ">%15</a>
+                            <a href="#" id="percentage-fifteen" class="cart-btn mx-1">%10</a>
+                            <a href="#" id="percentage-twenty" class="cart-btn ">%20</a>
+                        </div>
+                    @endif
                     <div class="details-meta">
                         <div class="d-meta-left">
                             <div class="dm-item mr-20">
@@ -144,7 +163,7 @@
         <div class="tab-content" id="prodductDesTaContent">
             <div class="tab-pane fade active show" id="bidding" role="tabpanel" aria-labelledby="bidding-tab">
                 <div class="product__details-des-wrapper">
-                    <div class="table-content table-responsive" style="height: 500px; width: 500px;">
+                    <div class="table-content table-responsive reloadItem" style="height: 500px; width: 500px;">
                         <table class="table table-hover">
                             <thead>
                             <tr>
@@ -282,38 +301,87 @@
 @endsection
 @section('scripts')
     @if(\Illuminate\Support\Facades\Auth::check())
-    <script>
-        $(document).ready(function () {
-            $('#bidding').click(function () {
-
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+        <script>
+            $(document).ready(function () {
+                $('#bidding').click(function () {
+                    event.preventDefault();
+                    let price = $('#price').val();
+                    let real_price = {{ $product->price }}
+                    let bid_price = {{ $product->bid->bid_price }}
+                    if (price <= real_price) {
+                        toastr.error('Girdiğiniz fiyat ürün fiyatından düşük olamaz.');
+                        return false;
                     }
-                });
-                event.preventDefault();
-                let price = $('#price').val();
-                let product_id = {{ $product->id }}
-                let user_id = {{ \Illuminate\Support\Facades\Auth::id() }}
-                console.log(price)
-               $.ajax({
-                    url: "{{ route('front.product.bidding.store') }}",
-                    type: "POST",
-                    data: {price: price, product_id: product_id, user_id: user_id},
-                    success: function (data) {
-                        if (data.success) {
-                            toastr.success(data.message);
-                            setTimeout(function () {
-                                window.location.reload();
-                            }, 1000);
-                        } else {
-                            toastr.error(data.message);
+                    if (price <= bid_price) {
+                        toastr.error('Girdiğiniz fiyat önceki tekliften düşük olamaz.');
+                        return false;
+                    }
+                    let product_id = {{ $product->id }}
+                    let user_id = {{ \Illuminate\Support\Facades\Auth::id() }}
+                    $.ajax({
+                        url: "{{ route('front.product.bidding.store') }}",
+                        type: "POST",
+                        data: {price: price, product_id: product_id, user_id: user_id},
+                        success: function (data) {
+                            if (data.success) {
+                                toastr.success(data.message);
+                                $( ".reloadItem" ).load(window.location.href + ".reloadItem" );
+                            } else {
+                                toastr.error(data.message);
+                            }
                         }
-                    }
+                    })
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
                 })
-
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                var price = parseInt($('#price').val());
+                $('#percentage-five').click(function () {
+                    event.preventDefault();
+                    let percentage = 5;
+                    let total = price * percentage / 100;
+                    console.log(price)
+                    let total_price = price + total;
+                    console.log(price)
+                    $('#price').val(total_price);
+                })
+                $('#percentage-ten').click(function () {
+                    event.preventDefault();
+                    let percentage = 10;
+                    let total = price * percentage / 100;
+                    console.log(price)
+                    let total_price = price + total;
+                    console.log(price)
+                    $('#price').val(total_price);
+                })
+                $('#percentage-fifteen').click(function () {
+                    event.preventDefault();
+                    let percentage = 15;
+                    let total = price * percentage / 100;
+                    console.log(price)
+                    let total_price = price + total;
+                    console.log(price)
+                    $('#price').val(total_price);
+                })
+                $('#percentage-twenty').click(function () {
+                    event.preventDefault();
+                    let percentage = 20;
+                    let total = price * percentage / 100;
+                    console.log(price)
+                    let total_price = price + total;
+                    console.log(price)
+                    $('#price').val(total_price);
+                })
             })
-        });
-    </script>
+
+
+
+        </script>
     @endif
 @endsection

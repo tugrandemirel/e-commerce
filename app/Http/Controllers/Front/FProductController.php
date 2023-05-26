@@ -19,11 +19,21 @@ class FProductController extends Controller
     }
     public function detail($slug)
     {
-        $product = $this->productControl($slug);
+        $product = Product::where('slug', $slug)
+            ->where('visibility', ProductEnum::VISIBILITY_ACTIVE)
+            ->where('approve', ProductEnum::APPROVAL_APPROVED)
+            ->firstOrFail();
         if (!$product) {
             return redirect()->route('index');
         }
 
+        $product =  Product::where('slug', $slug)
+                    ->where('visibility', ProductEnum::VISIBILITY_ACTIVE)
+                    ->where('approve', ProductEnum::APPROVAL_APPROVED)
+                    ->with(['bid' => function($query){
+                        $query->orderBy('bid_price', 'desc');
+                    }])
+                    ->firstOrFail();
         return view('front.product.detail', compact('product'));
     }
 
