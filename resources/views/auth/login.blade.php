@@ -30,7 +30,7 @@
     <div class="row justify-content-center my-5">
         <div class="col-md-6">
             <div class="basic-login mb-50">
-                <h5>Login</h5>
+                <h5>Giriş Yap</h5>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 

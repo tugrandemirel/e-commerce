@@ -1,102 +1,59 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+    <div class="page-banner-area page-banner-height-2" data-background="assets/img/banner/page-banner-4.jpg" style="background-image: url(&quot;assets/img/banner/page-banner-4.jpg&quot;);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-banner-content text-center">
+                        <h4 class="breadcrumb-title">My account</h4>
+                        <div class="breadcrumb-two">
+                            <nav>
+                                <nav class="breadcrumb-trail breadcrumbs">
+                                    <ul class="breadcrumb-menu">
+                                        <li class="breadcrumb-trail">
+                                            <a href="index.html"><span>Home</span></a>
+                                        </li>
+                                        <li class="trail-item">
+                                            <span>My account</span>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </nav>
                         </div>
-                        <div class="row mb-3">
-                            <label for="surname" class="col-md-4 col-form-label text-md-end">{{ __('Surname') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
-
-                                @error('surname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone Number') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror" placeholder="+123-45-678" name="phone" value="{{ old('phone') }}" pattern="+[0-9]{3}-[0-9]{2}-[0-9]{3}" required autocomplete="phone">
-
-                                @error('phone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+<div class="container">
+    <div class="row justify-content-center my-5">
+
+        <div class="col-lg-6">
+            <div class="basic-login">
+                <h5>Kayıt Ol</h5>
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <label for="username">Kullanıcı Adı <span>*</span></label>
+                    <input id="username" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <label for="surname">Kullanıcı Soyadı <span>*</span></label>
+                    <input id="surname" type="text" class="@error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+                    <label for="phone-id">Telefon Numarası <span>*</span></label>
+                    <input id="phone-id" type="tel" class="@error('phone') is-invalid @enderror" placeholder="+123-45-678"  pattern="+[0-9]{3}-[0-9]{2}-[0-9]{3}" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+                    <label for="email-id">Email Adresi <span>*</span></label>
+                    <input id="email-id" type="text" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                    <label for="userpass">Şifre <span>*</span></label>
+                    <input id="userpass" type="password"class="@error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                    <label for="cuserpass">Şifre Tekrarı <span>*</span></label>
+                    <input id="cuserpass" type="password" name="password_confirmation" required autocomplete="new-password">
+                    <div class="login-action mb-10 fix">
+                        <p>
+                            Kişisel verileriniz, bu web sitesindeki deneyiminizi desteklemek, hesabınıza erişimi yönetmek ve
+                            <a href="" target="_blank">gizlilik politikamızda</a> açıklanan diğer amaçlar için kullanılacaktır.</p>
+                    </div>
+                    <button type="submit" class="tp-in-btn w-100">Kayıt Ol</button>
+                </form>
             </div>
         </div>
     </div>
