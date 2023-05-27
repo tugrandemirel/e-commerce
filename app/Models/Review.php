@@ -14,6 +14,10 @@ class Review extends Model
         'product_id',
         'seller_id',
         'rating',
+        'parent_id',
+        'comment',
+        'is_approved',
+        'is_pushed'
     ];
 
     public function user()
@@ -30,6 +34,17 @@ class Review extends Model
     {
         return $this->belongsTo(Seller::class);
     }
+
+    public function parent()
+    {
+        return $this->belongsTo(Review::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Review::class, 'parent_id');
+    }
+
 
 
 }
