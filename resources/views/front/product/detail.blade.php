@@ -4,6 +4,19 @@
 @section('keywords', $product->meta_keywords)
 @section('styles')
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <style>
+        .star {
+            color: rgba(252,190,0,0.4);
+        }
+
+        .star.selected {
+            color: rgba(252,190,0,1);
+        }
+
+        .star.hover {
+            color: rgba(252,190,0,1);
+        }
+    </style>
 @endsection
 @section('content')
 <!-- breadcrumb__area-start -->
@@ -224,7 +237,7 @@
                                     <a href="#"><i class="fas fa-star"></i></a>
                                     <a href="#"><i class="fas fa-star"></i></a>
                                 </div>
-                                <span class="review-count">Yorum Sayısı(10)</span>
+                                <span class="review-count">Yorum Sayısı({{ $product->comments->count() }})</span>
                             </div>
                         </div>
                         <div class="col-xl-8">
@@ -234,11 +247,11 @@
                                     <div class="review-details-content">
                                         <div class="str-info">
                                             <div class="review-star mr-15">
-                                                <a href="#"><i class="fas fa-star" style="color: rgba(252,190,0,0.4)"></i></a>
-                                                <a href="#"><i class="fas fa-star" style="color: rgba(252,190,0,0.4)"></i></a>
-                                                <a href="#"><i class="fas fa-star" style="color: rgba(252,190,0,0.4)"></i></a>
-                                                <a href="#"><i class="fas fa-star" style="color: rgba(252,190,0,0.4)"></i></a>
-                                                <a href="#"><i class="fas fa-star" style="color: rgba(252,190,0,0.4)"></i></a>
+                                                <a href="#"><i class="fas fa-star"></i></a>
+                                                <a href="#"><i class="fas fa-star"></i></a>
+                                                <a href="#"><i class="fas fa-star"></i></a>
+                                                <a href="#"><i class="fas fa-star"></i></a>
+                                                <a href="#"><i class="fas fa-star"></i></a>
                                             </div>
                                         </div>
                                         <div class="name-date mb-30">
@@ -260,42 +273,23 @@
                                 <div class="comment-rating mb-20">
                                     <span>Puan ver:</span>
                                     <ul>
-                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-star star"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-star star"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-star star"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-star star"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-star star"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="comment-input-box">
                                     <form action="#">
+                                        <input type="hidden" name="rating" id="rating">
                                         <div class="row">
-                                            <div class="col-xxl-6 col-xl-6">
-                                                <div class="comment-input">
-                                                    <input type="text" placeholder="Your Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-xxl-6 col-xl-6">
-                                                <div class="comment-input">
-                                                    <input type="email" placeholder="Your Email">
-                                                </div>
-                                            </div>
-                                            <div class="col-xxl-12">
-                                                <textarea placeholder="Your review" class="comment-input comment-textarea"></textarea>
-                                            </div>
-                                            <div class="col-xxl-12">
-                                                <div class="comment-agree d-flex align-items-center mb-25">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <label class="form-check-label" for="flexCheckDefault">
-                                                            Save my name, email, and website in this browser for the next time I comment.
-                                                        </label>
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-12">
+                                                <textarea placeholder="Yorumunuz" rows="3" class="comment-input comment-textarea"></textarea>
                                             </div>
                                             <div class="col-xxl-12">
                                                 <div class="comment-submit">
-                                                    <button type="submit" class="cart-btn">Submit</button>
+                                                    <button type="submit" class="cart-btn">Yorum Yap</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -405,6 +399,48 @@
                     toastr.error('Teklif verebilmek için giriş yapmalısınız.');
                 })
             });
+        </script>
+        <script>
+            $(document).ready(function () {
+                const stars = document.querySelectorAll('.star');
+
+                // Yıldızların tıklanması durumunda gerçekleşecek eylem
+                for (let i = 0; i < stars.length; i++) {
+                    stars[i].addEventListener('click', function() {
+                        const clickedIndex = i;
+
+                        for (let j = 0; j < stars.length; j++) {
+                            if (j <= clickedIndex) {
+                                stars[j].classList.add('selected');
+                            } else {
+                                stars[j].classList.remove('selected');
+                            }
+                        }
+                        document.getElementById('rating').value = clickedIndex + 1;
+
+                    });
+
+                    // Yıldızların üzerine gelindiğinde gerçekleşecek eylem
+                    stars[i].addEventListener('mouseenter', function() {
+                        const hoveredIndex = i;
+
+                        for (let j = 0; j < stars.length; j++) {
+                            if (j <= hoveredIndex) {
+                                stars[j].classList.add('hover');
+                            } else {
+                                stars[j].classList.remove('hover');
+                            }
+                        }
+                    });
+
+                    // Yıldızların üzerinden çıkıldığında gerçekleşecek eylem
+                    stars[i].addEventListener('mouseleave', function() {
+                        for (let j = 0; j < stars.length; j++) {
+                            stars[j].classList.remove('hover');
+                        }
+                    });
+                }
+            })
         </script>
     @endif
 @endsection

@@ -12,6 +12,7 @@ use App\Http\Controllers\Seller\SProductController;
 use App\Http\Controllers\Front\FIndexController;
 use App\Http\Controllers\Front\FProductController;
 use App\Http\Controllers\Front\FBidController;
+use App\Http\Controllers\Front\FReviewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,8 @@ Route::prefix('/')->as('front.')->group(function (){
     Route::get('/butun-urunler/', [FProductController::class, 'index'])->name('product.index');
     Route::get('/detay/{slug}', [FProductController::class, 'detail'])->name('product.detail');
     Route::post('/bidding', [FBidController::class, 'store'])->name('product.bidding.store');
+
+    Route::post('/review', [FReviewController::class, 'store'])->name('review.store');
 });
 
 
