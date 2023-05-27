@@ -68,16 +68,16 @@
                     <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-6">
                         <div class="footer__widget footer-col-2">
                             <div class="footer__widget-title">
-                                <h4>Customer Service</h4>
+                                <h4>Müşteri Servisi</h4>
                             </div>
                             <div class="footer__widget-content">
                                 <div class="footer__link footer__link-2">
                                     <ul>
-                                        <li><a href="faq.html">Help Center</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
-                                        <li><a href="faq.html">Report Abuse</a></li>
-                                        <li><a href="faq.html">Submit a Dispute</a></li>
-                                        <li><a href="faq.html">Policies &amp; Rules</a></li>
+                                        <li><a href="faq.html">Yardım Merkezi</a></li>
+                                        <li><a href="contact.html">İletişim</a></li>
+                                        <li><a href="faq.html">Kötüye Kullanım Bildir</a></li>
+                                        <li><a href="faq.html">İtiraz Gönder</a></li>
+                                        <li><a href="faq.html">Politikalar ve Tüzük</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -86,17 +86,17 @@
                     <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-6">
                         <div class="footer__widget">
                             <div class="footer__widget-title mb-20">
-                                <h4>Sign Up To Newsletter</h4>
+                                <h4>Bültene Abone Ol</h4>
                             </div>
                             <div class="footer__widget-content">
-                                <p class="footer-text mb-25">Join 60.000+ subscribers and get a new discount coupon  on every Saturday.</p>
+                                <p class="footer-text mb-25">Duyurulardan haberdar olmak için bültene hemen abone ol. </p>
                                 <div class="footer__newsletter-form">
                                     <form action="#">
                                         <input class="ft-newsl b-radius" type="email" placeholder="Enter your email ...">
                                         <button class="ft-newsl-btn" type="submit">subscribe</button>
                                     </form>
                                 </div>
-                                <p class="provide-text mt-20">By providing your email address, you agree to our <br> <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> .</p>
+                                <p class="provide-text mt-20">Email adresinizi vererek <br> <a href="#">Gizlilik Politikamızı</a> ve <a href="#">Hizmet Şartlarımızı</a> kabul etmiş olursunuz.</p>
                             </div>
                         </div>
                     </div>
@@ -110,13 +110,13 @@
                         <div class="col-xl-12">
                             <div class="footer__links footer__links-d text-center mb-25">
                                 <p>
-                                    <a href="about.html">About Us</a>
+                                    <a href="about.html">Hakkımızda</a>
                                     <a href="contact.html">Delivery & Return</a>
-                                    <a href="faq.html">Privacy Policy</a>
-                                    <a href="faq.html">Help</a>
+                                    <a href="faq.html">Gizlilik Politikamız</a>
+                                    <a href="faq.html">Yardım</a>
                                     <a href="contact.html">Order Tracking</a>
-                                    <a href="contact.html">Contact Us</a>
-                                    <a href="faq.html">FAQs </a>
+                                    <a href="contact.html">İletişim</a>
+                                    <a href="faq.html">SSS </a>
                                 </p>
                             </div>
                             <div class="payment-image text-center mb-25">
