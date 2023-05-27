@@ -71,6 +71,13 @@ class Product extends Model implements HasMedia
         return $this->hasMany(Review::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+
+
 
 
 }
