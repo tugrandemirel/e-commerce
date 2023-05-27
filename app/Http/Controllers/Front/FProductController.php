@@ -12,6 +12,7 @@ class FProductController extends Controller
     public function index()
     {
         $products = Product::where('visibility', ProductEnum::VISIBILITY_ACTIVE)
+                            ->where('stock', ProductEnum::STOCK_ACTIVE)
                             ->where('approve', ProductEnum::APPROVAL_APPROVED)
                             ->orderBy('id', 'desc')
                             ->paginate(20);
@@ -21,6 +22,7 @@ class FProductController extends Controller
     {
         $product = Product::where('slug', $slug)
             ->where('visibility', ProductEnum::VISIBILITY_ACTIVE)
+            ->where('stock', ProductEnum::STOCK_ACTIVE)
             ->where('approve', ProductEnum::APPROVAL_APPROVED)
             ->firstOrFail();
         if (!$product) {
@@ -29,6 +31,7 @@ class FProductController extends Controller
 
         $product =  Product::where('slug', $slug)
                     ->where('visibility', ProductEnum::VISIBILITY_ACTIVE)
+                    ->where('stock', ProductEnum::STOCK_ACTIVE)
                     ->where('approve', ProductEnum::APPROVAL_APPROVED)
                     ->with(['bid' => function($query){
                         $query->orderBy('bid_price', 'desc');

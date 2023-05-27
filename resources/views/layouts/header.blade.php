@@ -215,8 +215,12 @@
                                 <a class="icon-link icon-link-2" href="{{ route('login') }}">
                                     <i class="flaticon-user"></i>
                                     <span class="text">
-                                    <span class="sub">Giriş Yap </span>
-                                    My Account </span>
+                                        @if(\Illuminate\Support\Facades\Auth::check())
+                                            <span class="sub mt-2">Hesabım </span>  </span>
+                                    @else
+                                        <span class="sub mt-2">Giriş Yap </span>  </span>
+                                    @endif
+
                                 </a>
                             </div>
                             <!--

@@ -76,15 +76,28 @@
                     </div>
                     <div class="features-des mb-20 mt-10">
                         <ul>
+                            <li>
+                                <a href="#"><i class="fas fa-circle"></i>
+                                    @if($product->status == \App\Enum\Product\ProductEnum::STATUS_NEW)
+                                        <span class="text-success">Sıfır Ürün</span>
+                                    @elseif($product->status == 2)
+                                        <span class="text-danger">İkinci El Ürün</span>
+                                    @elseif($product->status == 3)
+                                        <span class="text-warning">Yenilenmiş Ürün</span>
+                                    @endif
+                                </a>
+                            </li>
                             <li><a href="#"><i class="fas fa-circle"></i> {{ $product->short_description }}</a></li>
                         </ul>
                     </div>
                     <div class="product-stock mb-20">
                         <h5>Teklif Başlangıç Fiyatı: <span> {{ $product->price }} <i class="fa fa-coins"></i></span></h5>
                     </div>
+                    @isset($product->bid)
                     <div class="product-stock mb-20 reloadItem">
                         <h5>En Yüksek Teklif: <span> {{ $product->bid->bid_price }} <i class="fa fa-coins"></i></span></h5>
                     </div>
+                    @endisset
                     <div class="product-stock mb-20">
                         <h5>Teklif Kapanış Tarihi: <span> {{ changingDateFormat($product->end_date) }}</span></h5>
                     </div>
@@ -95,7 +108,7 @@
                         @if(\Illuminate\Support\Facades\Auth::check())
                         <a href="" id="bidding" class="cart-btn mx-4">Teklif Ver</a>
                         @else
-                            <a href="" id="bidding" class="cart-btn mx-4">İlk Teklifi Ver</a>
+                            <a href="" id="account" class="cart-btn mx-4">İlk Teklifi Ver</a>
                         @endif
                     </div>
 
@@ -307,7 +320,8 @@
                     event.preventDefault();
                     let price = $('#price').val();
                     let real_price = {{ $product->price }}
-                    let bid_price = {{ $product->bid->bid_price }}
+
+                    let bid_price = {{ $product->bid->bid_price ?? $product->price }}
                     if (price <= real_price) {
                         toastr.error('Girdiğiniz fiyat ürün fiyatından düşük olamaz.');
                         return false;
@@ -382,6 +396,15 @@
 
 
 
+        </script>
+    @else
+        <script>
+            $(document).ready(function () {
+                $('#account').click(function () {
+                    event.preventDefault();
+                    toastr.error('Teklif verebilmek için giriş yapmalısınız.');
+                })
+            });
         </script>
     @endif
 @endsection
