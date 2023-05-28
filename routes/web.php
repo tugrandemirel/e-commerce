@@ -32,11 +32,12 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/', [FIndexController::class, 'index'])->name('index');
 Route::prefix('/')->as('front.')->group(function (){
-    Route::get('/butun-urunler/', [FProductController::class, 'index'])->name('product.index');
-    Route::get('/detay/{slug}', [FProductController::class, 'detail'])->name('product.detail');
-    Route::post('/bidding', [FBidController::class, 'store'])->name('product.bidding.store');
-
-    Route::post('/review', [FReviewController::class, 'store'])->name('review.store');
+    Route::prefix('/')->as('product.')->group(function () {
+        Route::get('/butun-urunler/', [FProductController::class, 'index'])->name('index');
+        Route::get('/detay/{slug}', [FProductController::class, 'detail'])->name('detail');
+        Route::post('/bidding', [FBidController::class, 'store'])->name('bidding.store');
+        Route::post('/review/{product}', [FReviewController::class, 'store'])->name('review.store');
+    });
 });
 
 

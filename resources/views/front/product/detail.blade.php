@@ -16,6 +16,12 @@
         .star.hover {
             color: rgba(252,190,0,1);
         }
+        .red {
+            color: red;
+        }
+        .is-invalid {
+            border-color: red;
+        }
     </style>
 @endsection
 @section('content')
@@ -237,7 +243,7 @@
                                     <a href="#"><i class="fas fa-star"></i></a>
                                     <a href="#"><i class="fas fa-star"></i></a>
                                 </div>
-                                <span class="review-count">Yorum Sayısı({{ $product->comments->count() }})</span>
+                                <span class="review-count">Yorum Sayısı({{ $product->reviews->count() }})</span>
                             </div>
                         </div>
                         <div class="col-xl-8">
@@ -273,7 +279,7 @@
                                 <div class="comment-rating mb-20">
                                     <span>Puan ver:</span>
                                     <ul>
-                                        <li><a href="#"><i class="fas fa-star star"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-star star "></i></a></li>
                                         <li><a href="#"><i class="fas fa-star star"></i></a></li>
                                         <li><a href="#"><i class="fas fa-star star"></i></a></li>
                                         <li><a href="#"><i class="fas fa-star star"></i></a></li>
@@ -281,11 +287,12 @@
                                     </ul>
                                 </div>
                                 <div class="comment-input-box">
-                                    <form action="#">
+                                    <form id="review-form">
                                         <input type="hidden" name="rating" id="rating">
+                                        <input type="hidden" name="_token" id="csrf" value="{{ csrf_token() }}">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <textarea placeholder="Yorumunuz" rows="3" class="comment-input comment-textarea"></textarea>
+                                                <textarea placeholder="Yorumunuz" rows="3" id="comment" name="comment" class="comment-input comment-textarea"></textarea>
                                             </div>
                                             <div class="col-xxl-12">
                                                 <div class="comment-submit">
@@ -403,7 +410,6 @@
         <script>
             $(document).ready(function () {
                 const stars = document.querySelectorAll('.star');
-
                 // Yıldızların tıklanması durumunda gerçekleşecek eylem
                 for (let i = 0; i < stars.length; i++) {
                     stars[i].addEventListener('click', function() {
@@ -414,6 +420,7 @@
                                 stars[j].classList.add('selected');
                             } else {
                                 stars[j].classList.remove('selected');
+                                stars[j].classList.remove('red');
                             }
                         }
                         document.getElementById('rating').value = clickedIndex + 1;
@@ -440,6 +447,50 @@
                         }
                     });
                 }
+            })
+        </script>
+        <script>
+            $(document).ready(function () {
+               let reviewForm = document.getElementById('review-form');
+
+               reviewForm.addEventListener('submit', (e) => {
+                   e.preventDefault()
+                   let rating = document.getElementById("rating");
+                   let comment = document.getElementById("comment");
+
+                   if(rating.value == ""){
+                       toastr.error('Lütfen puan seçiniz.');
+                       $('.star').addClass('red');
+                       return false;
+                   }
+                   if(comment.value == ""){
+                       toastr.error('Lütfen yorum yapınız.');
+                       $('#comment').addClass('is-invalid');
+                       return false;
+                   }
+
+                   let ratingVal = $('#rating').val();
+                   let commentVal = $('#comment').val();
+                   let csrf = $('#csrf').val();
+                   $.ajax({
+
+                       url: "{{ route('front.product.review.store', ['product' => $product]) }}",
+                       method: "POST",
+                       data: {rating: ratingVal, comment: commentVal, "_token": csrf},
+                       success: function (data) {
+                           if (data.success) {
+                               setTimeout(function () {
+                                   toastr.success(data.message);
+                                   window.location.href = "{{ route('front.product.detail', ['slug' => $product->slug]) }}";
+                               }, 1000)
+                           } else {
+                               toastr.error(data.message);
+                           }
+                       }
+
+                   })
+
+               })
             })
         </script>
     @endif
