@@ -521,9 +521,9 @@
 
                 // mouse ile üzerine tıklandığında
                 wishlist.addEventListener('click', (e) => {
+
                     e.preventDefault()
                     let product_id = {{ $product->id }}
-
                     $.ajax({
                         url: "{{ route('front.product.wishlist.store') }}",
                         method: "POST",
@@ -532,9 +532,11 @@
                             if (data.success) {
                                 toastr.success(data.success);
                                 wishlist.style.color =  '#fcbe00';
+                                document.getElementById('wishlist-count').innerHTML = data.count
                             } else {
                                 toastr.error(data.error);
                                 wishlist.style.color =  '#666';
+                                document.getElementById('wishlist-count').innerHTML = data.count
                             }
                         }
                     })
@@ -554,7 +556,7 @@
             $(document).ready(function () {
                 $('#wishlist').click(function () {
                     event.preventDefault();
-                    toastr.error('Teklif verebilmek için giriş yapmalısınız.');
+                    toastr.error('İsteklerinize eklemek için giriş yapmalısınız.');
                 })
             });
         </script>

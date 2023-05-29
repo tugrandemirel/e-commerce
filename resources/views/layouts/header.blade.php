@@ -223,16 +223,20 @@
 
                                 </a>
                             </div>
-                            <!--
+                            @if(\Illuminate\Support\Facades\Auth::check())
                             <div class="block-wishlist action">
-                                <a class="icon-link icon-link-2" href="wishlist.html">
+                                <a class="icon-link icon-link-2" href="{{ route('front.product.wishlist.index') }}">
                                     <i class="flaticon-heart"></i>
-                                    <span class="count count-2">0</span>
+                                    <span class="count count-2 " id="wishlist-count">
+                                        {{ \App\Models\Wishlist::where('user_id', \Illuminate\Support\Facades\Auth::id())->count() ?? 0 }}
+                                    </span>
                                     <span class="text">
-                                    <span class="sub">Favorite</span>
-                                    My Wishlist </span>
+                                    <span class="sub">Favori</span>
+                                    Ürünlerim </span>
                                 </a>
                             </div>
+                            @endif
+                            <!--
                             <div class="block-cart action">
                                 <a class="icon-link icon-link-2" href="cart.html">
                                     <i class="flaticon-shopping-bag"></i>

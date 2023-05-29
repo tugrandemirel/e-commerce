@@ -1,4 +1,4 @@
-<div class="header__bottom">
+Q<div class="header__bottom">
     <div class="container custom-conatiner">
         <div class="row g-0 align-items-center">
             <div class="col-lg-3">
@@ -46,7 +46,7 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a href="index.html" class="active">Anasayfa</a>
+                                    <a href="{{ route('index') }}" class="active">Anasayfa</a>
                                 </li>
                                 <li><a href="about.html">Hakkımızda</a></li>
                             </ul>

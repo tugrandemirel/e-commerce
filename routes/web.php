@@ -25,10 +25,6 @@ use App\Http\Controllers\Front\FWishlistController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 
 Auth::routes();
 Route::get('/', [FIndexController::class, 'index'])->name('index');
@@ -38,10 +34,11 @@ Route::prefix('/')->as('front.')->group(function (){
         Route::get('/detay/{slug}', [FProductController::class, 'detail'])->name('detail');
         Route::post('/bidding', [FBidController::class, 'store'])->name('bidding.store');
         Route::post('/review/{product}', [FReviewController::class, 'store'])->name('review.store');
-        Route::prefix('wishlist')->as('wishlist.')->middleware('auth')->group(function (){
+
+        Route::prefix('begenilenler')->as('wishlist.')->middleware('auth')->group(function (){
             Route::get('/', [FWishlistController::class, 'index'])->name('index');
             Route::post('/store', [FWishlistController::class, 'store'])->name('store');
-            Route::post('/destroy/{id}', [FWishlistController::class, 'destroy'])->name('destroy');
+            Route::post('/destroy/', [FWishlistController::class, 'destroy'])->name('destroy');
         });
     });
 });
