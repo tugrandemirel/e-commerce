@@ -243,33 +243,56 @@
                                     <a href="#"><i class="fas fa-star"></i></a>
                                     <a href="#"><i class="fas fa-star"></i></a>
                                 </div>
-                                <span class="review-count">Yorum Sayısı({{ $product->reviews->count() }})</span>
+                                <span class="review-count">Yorum Sayısı({{ $product->reviews->count() + 1 }})</span>
                             </div>
                         </div>
                         <div class="col-xl-8">
+                            @if($product->reviews->count() > 0)
                             <div class="review-des-infod">
                                 <h6>" <span>{{ $product->title }}</span> "</h6>
+                                @foreach($product->reviews as $review)
                                 <div class="review-details-des">
                                     <div class="review-details-content">
-                                        <div class="str-info">
-                                            <div class="review-star mr-15">
-                                                <a href="#"><i class="fas fa-star"></i></a>
-                                                <a href="#"><i class="fas fa-star"></i></a>
-                                                <a href="#"><i class="fas fa-star"></i></a>
-                                                <a href="#"><i class="fas fa-star"></i></a>
-                                                <a href="#"><i class="fas fa-star"></i></a>
+                                        <div class="name-date mb-30">
+                                            <h6> {{ $review->user->name }} – <span> {{ monthChangingDateFormat($review->created_at) }}</span></h6>
+                                            <div class="str-info">
+                                                <div class="review-star mr-15">
+                                                    <a href="#"><i class="fas fa-star"></i></a>
+                                                    <a href="#"><i class="fas fa-star"></i></a>
+                                                    <a href="#"><i class="fas fa-star"></i></a>
+                                                    <a href="#"><i class="fas fa-star"></i></a>
+                                                    <a href="#"><i class="fas fa-star"></i></a>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="name-date mb-30">
-                                            <h6> admin – <span> {{ monthChangingDateFormat($product->started_date) }}</span></h6>
-                                        </div>
-                                        <p>A light chair, easy to move around the dining table and about the room. Duis aute irure dolor in reprehenderit in <br> voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+                                        <p>
+                                            {{ $review->comment }}
+                                        </p>
                                     </div>
                                 </div>
+                                @if(!$loop->last)
+                                    <hr>
+                                    @endif
+                                @endforeach
+
+                                    @if($product->reviews->count() >= 2)
+                                        <a style="justify-content: end; display: flex;" id="moreReview" href="">Daha fazla görüntüle({{ $product->reviews->count() -1  }})</a>
+                                    @endif
+                                @else
+                                <div class="review-details-des">
+                                    <div class="review-details-content">
+                                        <div class="name-date mb-30">
+                                            <h6> Henüz bir yorum yapılmadı.</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
                             </div>
+
                         </div>
                     </div>
-                    @if(! \Illuminate\Support\Facades\Auth::check())
+                    @if( \Illuminate\Support\Facades\Auth::check())
                         <div class="row">
                         <div class="col-xl-12">
                             <div class="product__details-comment ">
@@ -279,11 +302,11 @@
                                 <div class="comment-rating mb-20">
                                     <span>Puan ver:</span>
                                     <ul>
-                                        <li><a href="#"><i class="fas fa-star star "></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star star"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star star"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star star"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star star"></i></a></li>
+                                        <li><a ><i class="fas fa-star star "></i></a></li>
+                                        <li><a ><i class="fas fa-star star"></i></a></li>
+                                        <li><a ><i class="fas fa-star star"></i></a></li>
+                                        <li><a ><i class="fas fa-star star"></i></a></li>
+                                        <li><a ><i class="fas fa-star star"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="comment-input-box">
@@ -398,15 +421,6 @@
 
 
         </script>
-    @else
-        <script>
-            $(document).ready(function () {
-                $('#account').click(function () {
-                    event.preventDefault();
-                    toastr.error('Teklif verebilmek için giriş yapmalısınız.');
-                })
-            });
-        </script>
         <script>
             $(document).ready(function () {
                 const stars = document.querySelectorAll('.star');
@@ -451,47 +465,68 @@
         </script>
         <script>
             $(document).ready(function () {
-               let reviewForm = document.getElementById('review-form');
+                let reviewForm = document.getElementById('review-form');
 
-               reviewForm.addEventListener('submit', (e) => {
-                   e.preventDefault()
-                   let rating = document.getElementById("rating");
-                   let comment = document.getElementById("comment");
+                reviewForm.addEventListener('submit', (e) => {
+                    e.preventDefault()
+                    let rating = document.getElementById("rating");
+                    let comment = document.getElementById("comment");
 
-                   if(rating.value == ""){
-                       toastr.error('Lütfen puan seçiniz.');
-                       $('.star').addClass('red');
-                       return false;
-                   }
-                   if(comment.value == ""){
-                       toastr.error('Lütfen yorum yapınız.');
-                       $('#comment').addClass('is-invalid');
-                       return false;
-                   }
+                    if(rating.value == ""){
+                        toastr.error('Lütfen puan seçiniz.');
+                        $('.star').addClass('red');
+                        return false;
+                    }
+                    if(comment.value == ""){
+                        toastr.error('Lütfen yorum yapınız.');
+                        $('#comment').addClass('is-invalid');
+                        return false;
+                    }
 
-                   let ratingVal = $('#rating').val();
-                   let commentVal = $('#comment').val();
-                   let csrf = $('#csrf').val();
-                   $.ajax({
+                    let ratingVal = $('#rating').val();
+                    let commentVal = $('#comment').val();
+                    let csrf = $('#csrf').val();
+                    $.ajax({
 
-                       url: "{{ route('front.product.review.store', ['product' => $product]) }}",
-                       method: "POST",
-                       data: {rating: ratingVal, comment: commentVal, "_token": csrf},
-                       success: function (data) {
-                           if (data.success) {
-                               setTimeout(function () {
-                                   toastr.success(data.message);
-                                   window.location.href = "{{ route('front.product.detail', ['slug' => $product->slug]) }}";
-                               }, 1000)
-                           } else {
-                               toastr.error(data.message);
-                           }
-                       }
+                        url: "{{ route('front.product.review.store', ['product' => $product]) }}",
+                        method: "POST",
+                        data: {rating: ratingVal, comment: commentVal, "_token": csrf},
+                        success: function (data) {
+                            if (data.success) {
+                                setTimeout(function () {
+                                    toastr.success(data.message);
+                                    window.location.href = "{{ route('front.product.detail', ['slug' => $product->slug]) }}";
+                                }, 1000)
+                            } else {
+                                toastr.error(data.message);
+                            }
+                        }
 
-                   })
+                    })
 
-               })
+                })
             })
         </script>
+    @else
+        <script>
+            $(document).ready(function () {
+                $('#account').click(function () {
+                    event.preventDefault();
+                    toastr.error('Teklif verebilmek için giriş yapmalısınız.');
+                })
+            });
+        </script>
     @endif
+    <script>
+        $(document).ready(function () {
+            const moreReviewElement = document.getElementById('moreReview');
+
+            moreReviewElement.addEventListener('mouseenter', (e) => {
+                moreReviewElement.style.color = 'blue';
+            })
+            moreReviewElement.addEventListener('mouseleave', (e) => {
+                moreReviewElement.style.color = '#666';
+            })
+        })
+    </script>
 @endsection

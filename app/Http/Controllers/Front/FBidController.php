@@ -18,6 +18,12 @@ class FBidController extends Controller
         if ($product->price >= $request->price) {
             return response()->json(['error' => 'Ürün fiyatından daha düşük bir fiyat giremezsiniz.']);
         }
+
+        $lastOffer = $product->bid()->latest('bid_price')->first();
+        if (!is_null($lastOffer) && $lastOffer->bid_price >= $request->price) {
+            return response()->json(['error' => 'Son tekliften daha düşük bir fiyat giremezsiniz.']);
+        }
+
         $product->bid()->create([
             'user_id' => auth()->id(),
             'bid_price' => $request->price,
