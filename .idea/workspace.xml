@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5af9e0a7-9bcf-4b78-b1c6-2690d042a4ea" name="Changes" comment="wip">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/product/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/product/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +246,7 @@
       <workItem from="1685219519560" duration="545000" />
       <workItem from="1685309681408" duration="500000" />
       <workItem from="1685310384668" duration="13814000" />
-      <workItem from="1685360822937" duration="20278000" />
+      <workItem from="1685360822937" duration="21101000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1683324401893</created>
@@ -566,7 +563,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685401378274</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="wip">
+      <created>1685403142058</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1685403142058</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
