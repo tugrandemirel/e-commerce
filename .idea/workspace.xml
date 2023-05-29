@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5af9e0a7-9bcf-4b78-b1c6-2690d042a4ea" name="Changes" comment="wip">
-      <change afterPath="$PROJECT_DIR$/resources/views/front/wishlist/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FWishlistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FWishlistController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/product/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/product/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -254,7 +247,7 @@
       <workItem from="1685219519560" duration="545000" />
       <workItem from="1685309681408" duration="500000" />
       <workItem from="1685310384668" duration="13814000" />
-      <workItem from="1685360822937" duration="3704000" />
+      <workItem from="1685360822937" duration="5284000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1683324401893</created>
@@ -550,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685323015104</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="wip">
+      <created>1685364860761</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1685364860761</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
