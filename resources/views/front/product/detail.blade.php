@@ -214,7 +214,7 @@
                             @else
                                 @foreach($product->bids as $bid)
                                 <tr>
-                                    <td class="product-name"><a href="shop-details.html">{{ $bid->user->name }}</a></td>
+                                    <td class="product-name"><a>{{ $bid->user->name }}</a></td>
                                     <td class="product-price"><span class="amount">{{ $bid->bid_price }} <i class="fas fa-coins"></i></span></td>
                                     <td class="product-subtotal"><span class="amount">{{ changingDateTimeFormat($bid->created_at) }}</span></td>
                                 </tr>

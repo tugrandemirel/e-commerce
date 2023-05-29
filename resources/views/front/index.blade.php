@@ -933,13 +933,16 @@
                         <div class="product__thumb fix">
                             <div class="product-image w-img">
                                 <a href="{{  route('front.product.detail', ['slug'=> $lastProduct->slug]) }}">
-                                    <img src="assets/user/img/product/tp-1.jpg" alt="product">
+                                    @if ($lastProduct->hasMedia('images'))
+                                    <img src="{{$lastProduct->getFirstMedia('images')->getUrl() }}" alt="{{ $lastProduct->title }}">
+                                    @else
+                                        <img src="assets/user/img/product/tp-1.jpg" alt="product">
+                                    @endif
                                 </a>
                             </div>
                             <div class="product-action product-action-2">
-                                <a href="#" class="icon-box icon-box-1">
-                                    <i class="fal fa-heart"></i>
-                                    <i class="fal fa-heart"></i>
+                                <a class="icon-box icon-box-1">
+                                    <i class="fal fa-heart wishlist" data-id="{{ $lastProduct->id }}"></i>
                                 </a>
                             </div>
                         </div>
@@ -1185,4 +1188,57 @@
         </div>
     </div>
 -->
+@endsection
+@section('scripts')
+@if(\Illuminate\Support\Facades\Auth::check())
+    <script>
+        $(document).ready(function() {
+            let wishlist = document.querySelectorAll('.wishlist');
+            console.log(wishlist.length)
+            for (let i=0; i< wishlist.length; i++){
+                // mouse üzerine geldiğinde
+                wishlist[i].addEventListener('mouseenter', (e) => {
+                    wishlist[i].style.color =  '#fcbe00';
+                });
+
+                // mouse üzerinden gittiğnde
+                wishlist[i].addEventListener('mouseleave', (e) => {
+                    wishlist[i].style.color =  '#666';
+                });
+
+                // mouse ile üzerine tıklandığında
+                wishlist[i].addEventListener('click', (e) => {
+
+                    e.preventDefault()
+                    let product_id = parseInt(wishlist[i].getAttribute('data-id'));
+                    $.ajax({
+                        url: "{{ route('front.product.wishlist.store') }}",
+                        method: "POST",
+                        data: {product_id: product_id, "_token": "{{ csrf_token() }}"},
+                        success: function (data) {
+                            if (data.success) {
+                                toastr.success(data.success);
+                                wishlist.style.color =  '#fcbe00';
+                                document.getElementById('wishlist-count').innerHTML = data.count
+                            } else {
+                                toastr.error(data.error);
+                                wishlist.style.color =  '#666';
+                                document.getElementById('wishlist-count').innerHTML = data.count
+                            }
+                        }
+                    })
+                });
+            }
+        })
+    </script>
+@else
+    <script>
+        $(document).ready(function () {
+            $('#wishlist').click(function () {
+                event.preventDefault();
+                toastr.error('İsteklerinize eklemek için giriş yapmalısınız.');
+            })
+        });
+    </script>
+@endif
 @endsection
