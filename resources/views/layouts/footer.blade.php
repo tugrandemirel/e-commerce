@@ -110,13 +110,9 @@
                         <div class="col-xl-12">
                             <div class="footer__links footer__links-d text-center mb-25">
                                 <p>
-                                    <a href="about.html">Hakkımızda</a>
-                                    <a href="contact.html">Delivery & Return</a>
-                                    <a href="faq.html">Gizlilik Politikamız</a>
-                                    <a href="faq.html">Yardım</a>
-                                    <a href="contact.html">Order Tracking</a>
-                                    <a href="contact.html">İletişim</a>
-                                    <a href="faq.html">SSS </a>
+                                    @foreach($_footerPages as $_footerPage)
+                                        <a href="{{ route('front.page.index', ['slug' => $_footerPage->slug]) }}">{{ $_footerPage->title }}</a>
+                                    @endforeach
                                 </p>
                             </div>
                             <div class="payment-image text-center mb-25">

@@ -46,9 +46,27 @@ Q<div class="header__bottom">
                         <nav>
                             <ul>
                                 <li>
-                                    <a href="{{ route('index') }}" class="active">Anasayfa</a>
+                                    <a
+                                        href="{{ route('index') }}"
+                                        @if(route('index') == request()->fullUrl())
+                                            class="active"
+                                        @endif
+                                    >
+                                        Anasayfa
+                                    </a>
                                 </li>
-                                <li><a href="about.html">Hakkımızda</a></li>
+                                @foreach($_navbarPages as $_navbarPage)
+                                    <li>
+                                        <a
+                                            href="{{ route('front.page.index', ['slug' => $_navbarPage->slug]) }}"
+                                            @if(route('front.page.index', ['slug' => $_navbarPage->slug]) == request()->fullUrl())
+                                                class="active"
+                                            @endif
+                                        >
+                                            {{ $_navbarPage->title }}
+                                        </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </nav>
                     </div>

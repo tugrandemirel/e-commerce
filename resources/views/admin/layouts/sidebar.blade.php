@@ -118,6 +118,21 @@
                         </ul>
                     </div>
                 </li>
+                <li class="menu-title mt-2">Sayfalar</li>
+                <li>
+                    <a href="#page" data-bs-toggle="collapse">
+                        <i class="mdi mdi-hand-left"></i>
+                        <span> Sayfa İşlemleri </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="page">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('admin.page.index') }}">Sayfalar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
             </ul>
 

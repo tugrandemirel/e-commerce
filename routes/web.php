@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Seller\SellerController;
 use App\Http\Controllers\Seller\SProductController;
 use App\Http\Controllers\Front\FIndexController;
@@ -14,6 +15,8 @@ use App\Http\Controllers\Front\FProductController;
 use App\Http\Controllers\Front\FBidController;
 use App\Http\Controllers\Front\FReviewController;
 use App\Http\Controllers\Front\FWishlistController;
+use App\Http\Controllers\Front\FCartController;
+use App\Http\Controllers\Front\FPageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +32,7 @@ use App\Http\Controllers\Front\FWishlistController;
 Auth::routes();
 Route::get('/', [FIndexController::class, 'index'])->name('index');
 Route::prefix('/')->as('front.')->group(function (){
+    Route::get('/{slug}',  [FPageController::class, 'index'])->name('page.index');
     Route::prefix('/')->as('product.')->group(function () {
         Route::get('/butun-urunler/', [FProductController::class, 'index'])->name('index');
         Route::get('/detay/{slug}', [FProductController::class, 'detail'])->name('detail');
@@ -39,6 +43,12 @@ Route::prefix('/')->as('front.')->group(function (){
             Route::get('/', [FWishlistController::class, 'index'])->name('index');
             Route::post('/store', [FWishlistController::class, 'store'])->name('store');
             Route::post('/destroy/', [FWishlistController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::prefix('sepetim')->as('cart')->middleware('auth')->group(function (){
+            Route::get('/', [FCartController::class, 'index'])->name('index');
+            Route::post('/store', [FCartController::class, 'store'])->name('store');
+            Route::post('/destroy/', [FCartController::class, 'destroy'])->name('destroy');
         });
     });
 });
@@ -85,6 +95,15 @@ Route::prefix('admin')->as('admin.')->middleware(['auth', 'role:Admin'])->group(
         Route::get('edit/{brand}', [BrandController::class, 'edit'])->name('edit');
         Route::post('update/{brand}', [BrandController::class, 'update'])->name('update');
         Route::get('destroy/{brand}', [BrandController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::prefix('pages')->as('page.')->group(function (){
+        Route::get('/', [PageController::class, 'index'])->name('index');
+        Route::get('/create', [PageController::class, 'create'])->name('create');
+        Route::post('/store', [PageController::class, 'store'])->name('store');
+        Route::get('/edit/{page}', [PageController::class, 'edit'])->name('edit');
+        Route::post('/update/{page}', [PageController::class, 'update'])->name('update');
+        Route::post('/destroy', [PageController::class, 'destroy'])->name('destroy');
     });
 });
 

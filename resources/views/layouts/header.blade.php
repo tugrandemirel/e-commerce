@@ -168,10 +168,9 @@
                         <div class="header-inner-end text-md-end">
                             <div class="ovic-menu-wrapper ovic-menu-wrapper-2">
                                 <ul>
-                                    <li><a href="about.html">Hakkımızda</a></li>
-                                    <li><a href="contact.html">Order Tracking</a></li>
-                                    <li><a href="contact.html">İletişim</a></li>
-                                    <li><a href="faq.html">SSS</a></li>
+                                    @foreach($_headerPages as $_headerPage)
+                                        <li><a href="{{ route('front.page.index', ['slug' => $_headerPage->slug]) }}">{{ $_headerPage->title }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -235,14 +234,12 @@
                                     Ürünlerim </span>
                                 </a>
                             </div>
-                            @endif
-                            <!--
                             <div class="block-cart action">
-                                <a class="icon-link icon-link-2" href="cart.html">
+                                <a class="icon-link icon-link-2" href="">
                                     <i class="flaticon-shopping-bag"></i>
                                     <span class="count count-2">1</span>
                                     <span class="text">
-                                    <span class="sub">Your Cart:</span>
+                                    <span class="sub">Sepetim:</span>
                                     $00.00 </span>
                                 </a>
                                 <div class="cart">
@@ -250,45 +247,51 @@
                                         <ul>
                                             <li>
                                                 <div class="cart__title">
-                                                    <h4>Your Cart</h4>
-                                                    <span>(1 Item in Cart)</span>
+                                                    <h4>Sepetim</h4>
+                                                    <span>(1 Ürün Var)</span>
                                                 </div>
                                             </li>
-                                            <li>
-                                                <div class="cart__item d-flex justify-content-between align-items-center">
-                                                    <div class="cart__inner d-flex">
-                                                        <div class="cart__thumb">
-                                                            <a href="product-details.html">
-                                                                <img src="assets/user/img/cart/20.jpg" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="cart__details">
-                                                            <h6><a href="product-details.html"> Samsung C49J89: £875, Debenhams Plus  </a></h6>
-                                                            <div class="cart__price">
-                                                                <span>$255.00</span>
+                                            @isset($_carts)
+                                                @foreach($_carts as $_cart)
+                                                <li>
+                                                    <div class="cart__item d-flex justify-content-between align-items-center">
+                                                        <div class="cart__inner d-flex">
+                                                            <div class="cart__thumb">
+                                                                <a href="product-details.html">
+                                                                    <img src="assets/user/img/cart/20.jpg" alt="">
+                                                                </a>
+                                                            </div>
+                                                            <div class="cart__details">
+                                                                <h6><a href="product-details.html"> Samsung C49J89: £875, Debenhams Plus  </a></h6>
+                                                                <div class="cart__price">
+                                                                    <span>$255.00</span>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        <div class="cart__del">
+                                                            <a href="#"><i class="fal fa-times"></i></a>
+                                                        </div>
                                                     </div>
-                                                    <div class="cart__del">
-                                                        <a href="#"><i class="fal fa-times"></i></a>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                                </li>
+                                                @endforeach
+                                            @endisset
                                             <li>
                                                 <div class="cart__sub d-flex justify-content-between align-items-center">
                                                     <h6>Subtotal</h6>
                                                     <span class="cart__sub-total">$255.00</span>
                                                 </div>
                                             </li>
+                                            <!--
                                             <li>
                                                 <a href="cart.html" class="wc-cart mb-10">View cart</a>
                                                 <a href="checkout.html" class="wc-checkout">Checkout</a>
                                             </li>
+                                             -->
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            -->
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,11 @@
 namespace App\Providers;
 
 use App\Enum\Brand\BrandEnum;
+use App\Enum\Page\PageEnum;
+use App\Enum\Product\ProductEnum;
+use App\Models\Bid;
+use App\Models\Page;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
 class ViewShareProvider extends ServiceProvider
@@ -26,6 +31,33 @@ class ViewShareProvider extends ServiceProvider
 
             $brands = \App\Models\Brand::where('status', BrandEnum::STATUS_ACTIVE)->get();
             view()->share('_brands', $brands);
+            if (Auth::check())
+            {
+                $_carts = Bid::where('user_id', auth()->id())
+                    ->with(['product' => function($query){
+                        $query->where('approve', ProductEnum::APPROVAL_APPROVED)
+                            ->where('visibility', ProductEnum::VISIBILITY_ACTIVE)
+                            ->where('stock', ProductEnum::STOCK_ACTIVE);
+                    }])
+                    ->get();
+                view()->share('_carts', $_carts);
+            }
+
+            $_headerPages = Page::where('header', PageEnum::PAGE_HEADER)
+                ->where('is_active', PageEnum::PAGE_IS_ACTIVE)
+                ->get();
+            view()->share('_headerPages', $_headerPages);
+
+            $_footerPages = Page::where('footer', PageEnum::PAGE_FOOTER)
+                ->where('is_active', PageEnum::PAGE_IS_ACTIVE)
+                ->get();
+            view()->share('_footerPages', $_footerPages);
+
+            $_navbarPages = Page::where('footer', PageEnum::PAGE_FOOTER)
+                ->where('is_active', PageEnum::PAGE_IS_ACTIVE)
+                ->get();
+
+            view()->share('_navbarPages', $_navbarPages);
         }
     }
 }
