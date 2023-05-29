@@ -71,7 +71,7 @@ class Product extends Model implements HasMedia
         return $this->hasMany(Review::class);
     }
 
-    public function wislist()
+    public function wishlist()
     {
         return $this->belongsTo(Wishlist::class);
     }

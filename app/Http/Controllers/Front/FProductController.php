@@ -46,7 +46,6 @@ class FProductController extends Controller
 
                     }])
                     ->firstOrFail();
-
         return view('front.product.detail', compact('product'));
     }
 

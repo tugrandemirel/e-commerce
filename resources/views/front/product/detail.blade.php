@@ -142,7 +142,7 @@
                     <div class="details-meta">
                         <div class="d-meta-left">
                             <div class="dm-item mr-20">
-                                <a href="#"><i class="fal fa-heart"></i>Beğenilenlere Ekle</a>
+                                <a><i class="fa fa-heart" id="wishlist"></i></a>
                             </div>
                         </div>
                         <div class="d-meta-left">
@@ -444,7 +444,6 @@
                     // Yıldızların üzerine gelindiğinde gerçekleşecek eylem
                     stars[i].addEventListener('mouseenter', function() {
                         const hoveredIndex = i;
-
                         for (let j = 0; j < stars.length; j++) {
                             if (j <= hoveredIndex) {
                                 stars[j].classList.add('hover');
@@ -507,10 +506,53 @@
                 })
             })
         </script>
+        <script>
+            $(document).ready(function() {
+                let wishlist = document.getElementById('wishlist');
+                // mouse üzerine geldiğinde
+                wishlist.addEventListener('mouseenter', (e) => {
+                    wishlist.style.color =  '#fcbe00';
+                });
+
+                // mouse üzerinden gittiğnde
+                wishlist.addEventListener('mouseleave', (e) => {
+                    wishlist.style.color =  '#666';
+                });
+
+                // mouse ile üzerine tıklandığında
+                wishlist.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    let product_id = {{ $product->id }}
+
+                    $.ajax({
+                        url: "{{ route('front.product.wishlist.store') }}",
+                        method: "POST",
+                        data: {product_id: product_id, "_token": "{{ csrf_token() }}"},
+                        success: function (data) {
+                            if (data.success) {
+                                toastr.success(data.success);
+                                wishlist.style.color =  '#fcbe00';
+                            } else {
+                                toastr.error(data.error);
+                                wishlist.style.color =  '#666';
+                            }
+                        }
+                    })
+                });
+            })
+        </script>
     @else
         <script>
             $(document).ready(function () {
                 $('#account').click(function () {
+                    event.preventDefault();
+                    toastr.error('Teklif verebilmek için giriş yapmalısınız.');
+                })
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#wishlist').click(function () {
                     event.preventDefault();
                     toastr.error('Teklif verebilmek için giriş yapmalısınız.');
                 })

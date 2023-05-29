@@ -13,6 +13,7 @@ use App\Http\Controllers\Front\FIndexController;
 use App\Http\Controllers\Front\FProductController;
 use App\Http\Controllers\Front\FBidController;
 use App\Http\Controllers\Front\FReviewController;
+use App\Http\Controllers\Front\FWishlistController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +38,11 @@ Route::prefix('/')->as('front.')->group(function (){
         Route::get('/detay/{slug}', [FProductController::class, 'detail'])->name('detail');
         Route::post('/bidding', [FBidController::class, 'store'])->name('bidding.store');
         Route::post('/review/{product}', [FReviewController::class, 'store'])->name('review.store');
+        Route::prefix('wishlist')->as('wishlist.')->middleware('auth')->group(function (){
+            Route::get('/', [FWishlistController::class, 'index'])->name('index');
+            Route::post('/store', [FWishlistController::class, 'store'])->name('store');
+            Route::post('/destroy/{id}', [FWishlistController::class, 'destroy'])->name('destroy');
+        });
     });
 });
 
