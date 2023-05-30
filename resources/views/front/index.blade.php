@@ -952,11 +952,6 @@
                                 <span>Başlangıç Fiyatı: {{ $lastProduct->price }} <i class="fas fa-coins"></i></span>
                             </div>
                         </div>
-                        <div class="product__add-cart text-center">
-                            <button type="button" class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                Teklif Ver
-                            </button>
-                        </div>
                     </div>
                 </div>
                 @endforeach
