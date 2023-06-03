@@ -1207,10 +1207,10 @@
                     e.preventDefault()
                     let product_id = parseInt(wishlist[i].getAttribute('data-id'));
                     $.ajax({
-                        url: "{{ route('front.product.wishlist.store') }}",
+                        url: "{{ route('front.wishlist.store') }}",
                         method: "POST",
                         data: {product_id: product_id, "_token": "{{ csrf_token() }}"},
-                        success: function (data) {
+                        success: function (data
                             if (data.success) {
                                 toastr.success(data.success);
                                 wishlist.style.color =  '#fcbe00';

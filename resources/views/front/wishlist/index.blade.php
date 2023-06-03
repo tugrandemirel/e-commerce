@@ -87,7 +87,7 @@
                 event.preventDefault();
                 var wishlistId = $(this).data('wishlist-id');
                 $.ajax({
-                    url: '{{ route('front.product.wishlist.destroy') }}',
+                    url: '{{ route('front.wishlist.destroy') }}',
                     type: 'POST',
                     data: {
                         wishlistId: wishlistId,

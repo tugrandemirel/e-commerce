@@ -211,20 +211,23 @@
                     <div class="col-xl-4 col-lg-5 col-md-8 col-sm-8">
                         <div class="header-action">
                             <div class="block-userlink">
-                                <a class="icon-link icon-link-2" href="{{ route('login') }}">
-                                    <i class="flaticon-user"></i>
-                                    <span class="text">
-                                        @if(\Illuminate\Support\Facades\Auth::check())
+                                @if(\Illuminate\Support\Facades\Auth::check())
+                                    <a class="icon-link icon-link-2" href="{{ route('front.account.index') }}">
+                                        <i class="flaticon-user"></i>
+                                        <span class="text">
                                             <span class="sub mt-2">Hesabım </span>  </span>
-                                    @else
-                                        <span class="sub mt-2">Giriş Yap </span>  </span>
-                                    @endif
-
-                                </a>
+                                    </a>
+                                @else
+                                    <a class="icon-link icon-link-2" href="{{ route('login') }}">
+                                        <i class="flaticon-user"></i>
+                                        <span class="text">
+                                            <span class="sub mt-2">Giriş Yap </span>  </span>
+                                    </a>
+                                @endif
                             </div>
                             @if(\Illuminate\Support\Facades\Auth::check())
                             <div class="block-wishlist action">
-                                <a class="icon-link icon-link-2" href="{{ route('front.product.wishlist.index') }}">
+                                <a class="icon-link icon-link-2" href="{{ route('front.wishlist.index') }}">
                                     <i class="flaticon-heart"></i>
                                     <span class="count count-2 " id="wishlist-count">
                                         {{ \App\Models\Wishlist::where('user_id', \Illuminate\Support\Facades\Auth::id())->count() ?? 0 }}

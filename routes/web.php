@@ -17,6 +17,8 @@ use App\Http\Controllers\Front\FReviewController;
 use App\Http\Controllers\Front\FWishlistController;
 use App\Http\Controllers\Front\FCartController;
 use App\Http\Controllers\Front\FPageController;
+use App\Http\Controllers\Front\FAccountController;
+use App\Http\Controllers\Front\FAddressController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,25 +33,39 @@ use App\Http\Controllers\Front\FPageController;
 
 Auth::routes();
 Route::get('/', [FIndexController::class, 'index'])->name('index');
+
 Route::prefix('/')->as('front.')->group(function (){
     Route::get('/{slug}',  [FPageController::class, 'index'])->name('page.index');
-    Route::prefix('/')->as('product.')->group(function () {
-        Route::get('/butun-urunler/', [FProductController::class, 'index'])->name('index');
-        Route::get('/detay/{slug}', [FProductController::class, 'detail'])->name('detail');
-        Route::post('/bidding', [FBidController::class, 'store'])->name('bidding.store');
-        Route::post('/review/{product}', [FReviewController::class, 'store'])->name('review.store');
 
-        Route::prefix('begenilenler')->as('wishlist.')->middleware('auth')->group(function (){
+    Route::prefix('hesabim/w/')->middleware('auth')->group(function (){
+        Route::as('account.')->group(function (){
+            Route::get('/', [FAccountController::class, 'index'])->name('index');
+            Route::post('/password-update', [FAccountController::class, 'passwordUpdate'])->name('password.update');
+            Route::post('/update', [FAccountController::class, 'update'])->name('update');
+            Route::post('/address-store',[FAddressController::class, 'store'])->name('address.store');
+
+        });
+
+        Route::prefix('begenilenler')->as('wishlist.')->group(function (){
             Route::get('/', [FWishlistController::class, 'index'])->name('index');
             Route::post('/store', [FWishlistController::class, 'store'])->name('store');
             Route::post('/destroy/', [FWishlistController::class, 'destroy'])->name('destroy');
         });
 
-        Route::prefix('sepetim')->as('cart')->middleware('auth')->group(function (){
+        Route::prefix('sepetim')->as('cart')->group(function (){
             Route::get('/', [FCartController::class, 'index'])->name('index');
             Route::post('/store', [FCartController::class, 'store'])->name('store');
             Route::post('/destroy/', [FCartController::class, 'destroy'])->name('destroy');
         });
+    });
+
+    Route::prefix('/')->as('product.')->group(function () {
+        Route::get('/butun-urunler/', [FProductController::class, 'index'])->name('index');
+        Route::get('/detay/{slug}', [FProductController::class, 'detail'])->name('detail');
+
+        Route::post('/bidding', [FBidController::class, 'store'])->name('bidding.store');
+        Route::post('/review/{product}', [FReviewController::class, 'store'])->name('review.store');
+
     });
 });
 

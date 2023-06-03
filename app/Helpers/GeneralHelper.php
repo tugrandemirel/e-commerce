@@ -97,3 +97,15 @@ if (!   function_exists('changingDateTimeFormat'))
     }
 }
 
+if (!function_exists('phoneNumberFormat'))
+{
+    function phoneNumberFormat($phone)
+    {
+        $phone = str_replace('(', '', $phone);
+        $phone = str_replace(')', '', $phone);
+        $phone = str_replace('-', '', $phone);
+        $phone = str_replace(' ', '', $phone);
+        return $phone;
+    }
+}
+
