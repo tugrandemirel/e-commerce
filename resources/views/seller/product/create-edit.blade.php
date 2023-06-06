@@ -222,6 +222,7 @@
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-body">
+                                                @isset($product)
                                                 @if($product->hasMedia('images'))
                                                     @php
                                                         $images = $product->getMedia('images');
@@ -246,6 +247,7 @@
                                                     @endforeach
                                                 </div>
                                                 @endif
+                                                @endisset
                                                 <!-- Preview -->
                                                 <div class="mb-3 ">
                                                     <div class="needsclick dropzone @error('document') is-invalid  @enderror" id="document-dropzone">

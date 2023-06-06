@@ -42,7 +42,11 @@ Route::prefix('/')->as('front.')->group(function (){
             Route::get('/', [FAccountController::class, 'index'])->name('index');
             Route::post('/password-update', [FAccountController::class, 'passwordUpdate'])->name('password.update');
             Route::post('/update', [FAccountController::class, 'update'])->name('update');
+
             Route::post('/address-store',[FAddressController::class, 'store'])->name('address.store');
+            Route::post('/address-edit',[FAddressController::class, 'edit'])->name('address.edit');
+            Route::post('/address-update/{id}',[FAddressController::class, 'update'])->name('address.update');
+            Route::post('/address-delete',[FAddressController::class, 'delete'])->name('address.remove');
 
         });
 

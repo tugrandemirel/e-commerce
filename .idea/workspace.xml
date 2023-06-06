@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5af9e0a7-9bcf-4b78-b1c6-2690d042a4ea" name="Changes" comment="wip">
-      <change afterPath="$PROJECT_DIR$/resources/views/front/account/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/GeneralHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/GeneralHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Bid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Bid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FAccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FAccountController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FAddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FAddressController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/wishlist/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/wishlist/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/account/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/account/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/product/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/product/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/seller/product/create-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/product/create-edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
@@ -229,9 +229,6 @@
       <option name="pestRunnerSettings">
         <PestRunner scope="ConfigurationFile" />
       </option>
-      <option name="runnerSettings">
-        <PhpTestRunnerSettings scope="ConfigurationFile" />
-      </option>
       <method v="2" />
     </configuration>
   </component>
@@ -259,6 +256,12 @@
       <workItem from="1685614978131" duration="10099000" />
       <workItem from="1685651029136" duration="27125000" />
       <workItem from="1685812399664" duration="12000" />
+      <workItem from="1685814518250" duration="2227000" />
+      <workItem from="1685974557575" duration="18000" />
+      <workItem from="1685992592830" duration="1208000" />
+      <workItem from="1685998720856" duration="6107000" />
+      <workItem from="1686048970829" duration="23000" />
+      <workItem from="1686076042854" duration="5550000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1683324401893</created>
@@ -589,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685403760489</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="wip">
+      <created>1685825626725</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1685825626725</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

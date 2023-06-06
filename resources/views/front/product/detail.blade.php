@@ -525,7 +525,7 @@
                     e.preventDefault()
                     let product_id = {{ $product->id }}
                     $.ajax({
-                        url: "{{ route('front.product.wishlist.store') }}",
+                        url: "{{ route('front.wishlist.store') }}",
                         method: "POST",
                         data: {product_id: product_id, "_token": "{{ csrf_token() }}"},
                         success: function (data) {

@@ -46,19 +46,23 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
+                                                    @isset($bids)
                                                     @foreach($bids as $bid)
                                                         <tr>
-
+                                                            @if (($bid->product->hasMedia('images')))
                                                             <td class="product-thumbnail"><a
                                                                     href="{{ route('front.product.detail', ['slug' => $bid->product->slug]) }}"><img
                                                                         src="{{ $bid->product->getFirstMedia('images')->getUrl() }}"
-                                                                        alt=""></a></td>
-
+                                                                        alt="{{ $bid->product->meta_title }}" style="width: 35px;"></a></td>
+                                                            @else
+                                                                <td class="product-thumbnail"><a
+                                                                        href="{{ route('front.product.detail', ['slug' => $bid->product->slug]) }}">RESİM YOK</a></td>
+                                                            @endif
                                                             <td class="product-name"><a
                                                                     href="shop-details.html">{{ $bid->product->title }}</a>
                                                             </td>
                                                             <td class="product-price"><span
-                                                                    class="amount">{{ $bid->product->price }}</span>
+                                                                    class="amount">{{ $bid->bid_price }}</span>
                                                             </td>
                                                             <td class="product-price"><span
                                                                     class="amount">{{ $bid->bid_price }}</span></td>
@@ -74,6 +78,8 @@
                                                                         title="Teklifi geri çek"></i></a></td>
                                                         </tr>
                                                     @endforeach
+                                                        @endisset
+
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -131,90 +137,6 @@
                                 </div>
                             </div>
                         </section>
-                    </div>
-                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
-                         aria-labelledby="v-pills-messages-tab">
-
-                        <div class="cart-area">
-                            <div class="container">
-                                <div class="row">
-
-                                    @if(session()->get('success'))
-                                        <div class="alert alert-success">
-                                            {{ session()->get('success') }}
-                                        </div>
-                                    @endif
-                                    @if(session()->get('error'))
-                                        <div class="alert alert-danger">
-                                            {{ session()->get('error') }}
-                                        </div>
-                                    @endif
-                                    <div class="col-md-12">
-
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <div class="row my-1">
-                                                    <div class="col-md-6">
-                                                        <p>Adres Bilgilerim</p>
-                                                    </div>
-                                                    <div class="col-md-6 text-end">
-                                                        <p>
-                                                            <a href="#" data-bs-toggle="modal"
-                                                               data-bs-target="#productModalId" style="color: #fcbe00">
-                                                                <i class="fa fa-plus" style="color: #fcbe00"></i> Yeni
-                                                                Adres Ekle
-                                                            </a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="row mt-30">
-                                    @foreach($addresses as $address)
-                                        <div class="col-md-4">
-                                            <div class="card">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <p>{{ $address->title }}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <p>{{ $address->user_name }} {{ $address->user_surname }}</p>
-                                                    <p>
-                                                        {{ $address->neighborhood }}
-                                                    </p>
-                                                    <p>
-                                                        {{ $address->address }}
-                                                    </p>
-
-                                                    <p>
-                                                        {{ $address->county }}/{{ $address->city }}
-                                                    </p>
-                                                    <p>
-                                                        {{ $address->user_phone }}
-                                                    </p>
-                                                </div>
-                                                <div class="card-footer" style="text-align: left;">
-                                                   <div class="btn-group">
-                                                       <a href="#" class="icon-box icon-box-1">
-                                                           <i class="fal fa-trash-alt" style="color: red"></i>
-                                                       </a>
-                                                       <a href="#" class="icon-box icon-box-1 ml-10">
-                                                           <i class="fal fa-pencil" style="color: cornflowerblue"></i>
-                                                       </a>
-                                                   </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
                          aria-labelledby="v-pills-settings-tab">
@@ -348,6 +270,90 @@
                             </div>
                         </div>
                     </div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                         aria-labelledby="v-pills-messages-tab">
+
+                        <div class="cart-area">
+                            <div class="container">
+                                <div class="row">
+
+                                    @if(session()->get('success'))
+                                        <div class="alert alert-success">
+                                            {{ session()->get('success') }}
+                                        </div>
+                                    @endif
+                                    @if(session()->get('error'))
+                                        <div class="alert alert-danger">
+                                            {{ session()->get('error') }}
+                                        </div>
+                                    @endif
+                                    <div class="col-md-12">
+
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <div class="row my-1">
+                                                    <div class="col-md-6">
+                                                        <p>Adres Bilgilerim</p>
+                                                    </div>
+                                                    <div class="col-md-6 text-end">
+                                                        <p>
+                                                            <a href="#" data-bs-toggle="modal"
+                                                               data-bs-target="#productModalId" id="modalReset" style="color: #fcbe00">
+                                                                <i class="fa fa-plus" style="color: #fcbe00"></i> Yeni
+                                                                Adres Ekle
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row mt-30">
+                                    @foreach($addresses as $address)
+                                        <div class="col-md-4">
+                                            <div class="card">
+                                                <div class="card">
+                                                    <div class="card-header" style="text-align: center">
+                                                        <p>{{ $address->title }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p>{{ $address->user_name }} {{ $address->user_surname }}</p>
+                                                    <p>
+                                                        {{ $address->neighborhood }}
+                                                    </p>
+                                                    <p>
+                                                        {{ $address->address }}
+                                                    </p>
+
+                                                    <p>
+                                                        {{ $address->county }}/{{ $address->city }}
+                                                    </p>
+                                                    <p>
+                                                        {{ $address->user_phone }}
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer" style="text-align: left;">
+                                                    <div class="btn-group">
+                                                        <a data-id="{{ $address->id }}" class="icon-box icon-box-1 removeAddress">
+                                                            <i class="fal fa-trash-alt" style="color: red"></i>
+                                                        </a>
+                                                        <a data-id="{{ $address->id }}" class="icon-box icon-box-1 ml-10 addressModal">
+                                                            <i class="fal fa-pencil " style="color: cornflowerblue"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -361,7 +367,7 @@
                         <button data-bs-dismiss="modal" style="background-color: #0d6efd; border-color: #0d6efd;"><i class="fal fa-times" ></i></button>
                     </div>
                 </div>
-                <form action="{{ route('front.account.address.store') }}" method="post">
+                <form action="{{ route('front.account.address.store') }}" id="modelRoute" method="post">
                     @csrf
                     <div class="modal-body">
                         <div class="row mx-5">
@@ -409,7 +415,7 @@
                     </div>
                     <div class="modal-footer">
                         <div class="pro-cart-btn mb-25">
-                            <button class="cart-btn" id="test" style="background-color: #0d6efd; color: white" type="submit">Add to cart</button>
+                            <button class="cart-btn" id="test" style="background-color: #0d6efd; color: white" type="submit">Kaydet</button>
                         </div>
                     </div>
                 </form>
@@ -418,6 +424,80 @@
     </div>
 @endsection
 @section('scripts')
+    <script>
+        $(document).ready(function () {
+
+        })
+    </script>
+    <script>
+        $(document).ready(function () {
+            addressModal = document.querySelectorAll('.addressModal');
+            for(let i = 0; i < addressModal.length; i++){
+                addressModal[i].addEventListener('mouseenter', function () {
+                    addressModal[i].style.cursor = 'pointer';
+                })
+                addressModal[i].addEventListener('click', function () {
+
+                    $id = addressModal[i].getAttribute('data-id');
+                    $.ajax({
+                        type: 'POST',
+                        url: '{{ route('front.account.address.edit') }}',
+                        data: {
+                            id: $id,
+                            '_token': '{{ csrf_token() }}'
+                        },
+                        success: function (data) {
+                            $('#productModalId').modal('show');
+                            $('#user_name').val(data.user_name);
+                            $('#user_surname').val(data.user_surname);
+                            $('#user_phone').val(data.user_phone);
+                            $('#county').val(data.county);
+                            $('#city').val(data.city);
+                            $('#neighborhood').val(data.neighborhood);
+                            $('#address').val(data.address);
+                            $('#title').val(data.title);
+                            $('#modelRoute').attr('action', '{{ route('front.account.address.update', ['id' => 'id']) }}'.replace('id', data.id));
+                        },
+                        errors: function (data) {
+                            console.log(data);
+                        }
+                    })
+                })
+            }
+
+
+        })
+    </script>
+    <script>
+            $(document).ready(function () {
+                $removeAddress = document.querySelectorAll('.removeAddress');
+                for (let i = 0; i < $removeAddress.length; i++) {
+
+                    $removeAddress[i].addEventListener('mouseenter', function () {
+                        $removeAddress[i].style.cursor = 'pointer';
+                    })
+
+                    $removeAddress[i].addEventListener('click', function () {
+
+                        $id = $removeAddress[i].getAttribute('data-id');
+                        console.log($id)
+                        $.ajax({
+                            type: 'POST',
+                            url: '{{ route('front.account.address.remove') }}',
+                            data: {
+                                id: $id,
+                                '_token': '{{ csrf_token() }}'
+                            },
+                            success: function (data) {
+                                $removeAddress[i].parentElement.parentElement.parentElement.parentElement.remove();
+                            }
+                        })
+
+
+                    })
+                }
+            })
+    </script>
     <script>
         $(document).ready(function () {
             saveAddress = document.getElementById('test')
