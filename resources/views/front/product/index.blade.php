@@ -33,8 +33,8 @@
                                 <form action="#">
                                     @foreach($_categories as $_category)
                                         <div class="single-widget-category">
-                                            <input type="checkbox" id="cat-item-1" name="cat-item">
-                                            <label for="cat-item-1"> {{ $_category->name }} <span>({{ $_category->products->count() }})</span></label>
+                                            <input type="checkbox" id="{{ $_category->slug }}" name= "{{ $_category->slug }}">
+                                            <label for="{{ $_category->slug }}"> {{ $_category->name }} <span>({{ $_category->products->count() }})</span></label>
                                         </div>
                                     @endforeach
                                 </form>
@@ -46,8 +46,8 @@
                                 <form action="#">
                                     @foreach($_brands as $_brand)
                                     <div class="single-widget-category">
-                                        <input type="checkbox" id="brand-item-1" name="brand-item">
-                                        <label for="brand-item-1">{{ $_brand->name }} <span>({{ $_brand->products->count() }})</span></label>
+                                        <input type="checkbox" id="{{ $_brand->slug }}" name="{{ $_brand->slug }}">
+                                        <label for="{{ $_brand->slug }}">{{ $_brand->name }} <span>({{ $_brand->products->count() }})</span></label>
                                     </div>
                                     @endforeach
                                 </form>
