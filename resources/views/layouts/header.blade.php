@@ -215,7 +215,10 @@
                                     <a class="icon-link icon-link-2" href="{{ route('front.account.index') }}">
                                         <i class="flaticon-user"></i>
                                         <span class="text">
-                                            <span class="sub mt-2">Hesabım </span>  </span>
+                                            <span class="sub mt-2">Hesabım </span>
+
+                                            <span class="sub mt-1">Bakiye: {{ \App\Models\Wallet::where('user_id', \Illuminate\Support\Facades\Auth::id())->first()->balance ?? 0 }} </span>
+                                        </span>
                                     </a>
                                 @else
                                     <a class="icon-link icon-link-2" href="{{ route('login') }}">
