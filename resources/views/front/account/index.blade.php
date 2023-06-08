@@ -22,6 +22,10 @@
                             data-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages"
                             aria-selected="false">Adres Bilgileri
                     </button>
+                    <button class="nav-link" id="v-pills-wallet-tab" data-toggle="pill"
+                            data-target="#v-pills-wallet" type="button" role="tab" aria-controls="v-pills-wallet"
+                            aria-selected="false">Cüzdanım
+                    </button>
                 </div>
             </div>
             <div class="col-9">
@@ -353,6 +357,75 @@
                             </div>
                         </div>
 
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-wallet" role="tabpanel"
+                         aria-labelledby="v-pills-settings-tab">
+                        <div class="cart-area">
+                            <div class="container">
+                                <div class="row">
+
+                                    @if(session()->get('success'))
+                                        <div class="alert alert-success">
+                                            {{ session()->get('success') }}
+                                        </div>
+                                    @endif
+                                    @if(session()->get('error'))
+                                        <div class="alert alert-danger">
+                                            {{ session()->get('error') }}
+                                        </div>
+                                    @endif
+                                    <div class="col-md-6">
+                                            <div class="row">
+
+                                                <div class="card"
+                                                     style="border-top-right-radius: 0;border-bottom-right-radius: 0;">
+                                                    <p class="text-primary mt-2 "><b>Cüzdan Bilgilerim</b></p>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="input-group row">
+                                                                    <label for="staticEmail"
+                                                                           class="col-sm-4 col-form-label">Bakiye</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" readonly
+                                                                               class="form-control-plaintext"
+                                                                               id="staticEmail"
+                                                                               value="{{ $user->wallet->balance ?? 0 }}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12 mt-3">
+                                                                <div class="input-group row">
+                                                                    <label for="staticEmail"
+                                                                           class="col-sm-4 col-form-label">Kilitli Bakiye</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" readonly
+                                                                               class="form-control-plaintext"
+                                                                               id="staticEmail"
+                                                                               value="{{ $user->wallet->locekd_balance ?? 0 }}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12 mt-3">
+                                                                <div class="input-group row">
+                                                                    <label for="staticEmail"
+                                                                           class="col-sm-4 col-form-label">Cüzdan Durumu</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" readonly
+                                                                               class="form-control-plaintext"
+                                                                               id="staticEmail"
+                                                                               value="{{ isset($user->wallet) && $user->wallet->status == 0 ? 'Pasif' : 'Aktif' }}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
