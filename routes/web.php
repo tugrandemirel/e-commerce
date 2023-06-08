@@ -35,7 +35,7 @@ Auth::routes();
 Route::get('/', [FIndexController::class, 'index'])->name('index');
 
 Route::prefix('/')->as('front.')->group(function (){
-    Route::get('/{slug}',  [FPageController::class, 'index'])->name('page.index');
+    Route::get('/sayfa/{slug}',  [FPageController::class, 'index'])->name('page.index');
 
     Route::prefix('hesabim/w/')->middleware('auth')->group(function (){
         Route::as('account.')->group(function (){
@@ -63,7 +63,7 @@ Route::prefix('/')->as('front.')->group(function (){
         });
     });
 
-    Route::prefix('/')->as('product.')->group(function () {
+    Route::as('product.')->group(function () {
         Route::get('/butun-urunler/', [FProductController::class, 'index'])->name('index');
         Route::get('/detay/{slug}', [FProductController::class, 'detail'])->name('detail');
 
