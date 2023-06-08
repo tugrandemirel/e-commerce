@@ -47,6 +47,8 @@
                     <input id="userpass" type="password"class="@error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                     <label for="cuserpass">Şifre Tekrarı <span>*</span></label>
                     <input id="cuserpass" type="password" name="password_confirmation" required autocomplete="new-password">
+                    <label for="reference">Referans Kodu <span data-toggle="tooltip" title="İsteğe Bağlı">?</span></label>
+                    <input id="reference" type="text" name="reference" required autocomplete="">
                     <div class="login-action mb-10 fix">
                         <p>
                             Kişisel verileriniz, bu web sitesindeki deneyiminizi desteklemek, hesabınıza erişimi yönetmek ve
@@ -58,4 +60,11 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 @endsection
