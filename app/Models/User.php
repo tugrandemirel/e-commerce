@@ -98,4 +98,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Reference::class);
     }
+
+    public function wallet()
+    {
+        return $this->hasOne(Wallet::class);
+    }
 }
