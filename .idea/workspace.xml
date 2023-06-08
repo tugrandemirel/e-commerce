@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5af9e0a7-9bcf-4b78-b1c6-2690d042a4ea" name="Changes" comment="wip">
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/product/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,21 +260,7 @@
       <workItem from="1686048970829" duration="23000" />
       <workItem from="1686076042854" duration="8859000" />
       <workItem from="1686103341519" duration="6000" />
-      <workItem from="1686254318266" duration="3631000" />
-    </task>
-    <task id="LOCAL-00007" summary="wip">
-      <created>1684848649265</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1684848649265</updated>
-    </task>
-    <task id="LOCAL-00008" summary="wip">
-      <created>1684848681594</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1684848681594</updated>
+      <workItem from="1686254318266" duration="5401000" />
     </task>
     <task id="LOCAL-00009" summary="wip">
       <created>1684848691143</created>
@@ -602,7 +591,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686258273084</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="wip">
+      <created>1686258486492</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1686258486492</updated>
+    </task>
+    <task id="LOCAL-00057" summary="wip">
+      <created>1686258651893</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1686258651893</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

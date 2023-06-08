@@ -921,7 +921,7 @@
                             <h5 class="st-titile">En Son Eklenen Ürünler</h5>
                         </div>
                         <div class="button-wrap button-wrap-2">
-                            <a href="product.html">Bütün Ürünler <i class="fal fa-chevron-right"></i></a>
+                            <a href="{{ route('front.product.index') }}">Bütün Ürünler <i class="fal fa-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -942,6 +942,7 @@
                             </div>
                             <div class="product-action product-action-2">
                                 <a class="icon-box icon-box-1">
+                                    <i class="fal fa-heart wishlist" data-id="{{ $lastProduct->id }}"></i>
                                     <i class="fal fa-heart wishlist" data-id="{{ $lastProduct->id }}"></i>
                                 </a>
                             </div>
@@ -1210,7 +1211,7 @@
                         url: "{{ route('front.wishlist.store') }}",
                         method: "POST",
                         data: {product_id: product_id, "_token": "{{ csrf_token() }}"},
-                        success: function (data
+                        success: function (data) {
                             if (data.success) {
                                 toastr.success(data.success);
                                 wishlist.style.color =  '#fcbe00';

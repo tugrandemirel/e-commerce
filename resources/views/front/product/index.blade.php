@@ -207,9 +207,9 @@
                                                         </a>
                                                     </div>
                                                     <div class="product-action">
-                                                        <a href="#" class="icon-box icon-box-1">
-                                                            <i class="fal fa-heart"></i>
-                                                            <i class="fal fa-heart"></i>
+                                                        <a class="icon-box icon-box-1">
+                                                            <i class="fal fa-heart wishlist" data-id="{{ $product->id }}"></i>
+                                                            <i class="fal fa-heart wishlist" data-id="{{ $product->id }}"></i>
                                                         </a>
 
                                                     </div>
@@ -229,6 +229,69 @@
                                         </div>
                                         @endforeach
                                     </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="FiveCol" role="tabpanel" aria-labelledby="FiveCol-tab">
+                                <div class="tp-wrapper-2">
+                                    @foreach($products as $product)
+                                    <div class="single-item-pd">
+                                        <div class="row align-items-center">
+                                            <div class="col-xl-9">
+                                                <div class="single-features-item single-features-item-df b-radius mb-20">
+                                                    <div class="row  g-0 align-items-center">
+                                                        <div class="col-md-4">
+                                                            <div class="features-thum">
+                                                                <div class="features-product-image w-img">
+                                                                    <a href="{{ route('front.product.detail', ['slug' => $product->slug]) }}"><img src="assets/img/product/sm-1.jpg" alt=""></a>
+                                                                </div>
+                                                                <div class="product__offer">
+                                                                    <span class="discount">-15%</span>
+                                                                </div>
+                                                                <div class="product-action">
+                                                                    <a class="icon-box icon-box-1">
+                                                                        <i class="fal fa-heart wishlist" data-id="{{ $product->id }}"></i>
+                                                                        <i class="fal fa-heart wishlist" data-id="{{ $product->id }}"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="product__content product__content-d">
+                                                                <h6><a href="{{ route('front.product.detail', ['slug' => $product->slug]) }}">{{ $product->title }}</a></h6>
+                                                                <div class="rating mb-5">
+                                                                    <ul class="rating-d">
+                                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                                    </ul>
+                                                                    <span>({{ count($product->reviews) }})</span>
+                                                                </div>
+                                                                <div class="features-des">
+                                                                    <ul>
+                                                                        <li><a href="{{ route('front.product.detail', ['slug' => $product->slug]) }}"><i class="fas fa-circle"></i> {{ $product->short_description }}</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3">
+                                                <div class="product-stock mb-15">
+                                                    <h5>Availability: <span> 940 in stock</span></h5>
+                                                    <h6>Başlangıç Fiyatı - <del> {{ $product->price }}</del></h6>
+                                                </div>
+                                                <div class="stock-btn ">
+                                                    <a href="{{ route('front.product.detail', ['slug' => $product->slug]) }}" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                                        Teklif Ver
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -269,4 +332,57 @@
             </div>
         </div>
         <!-- shop-area-end -->
+@endsection
+@section('scripts')
+    @if(\Illuminate\Support\Facades\Auth::check())
+        <script>
+            $(document).ready(function() {
+                let wishlist = document.querySelectorAll('.wishlist');
+                console.log(wishlist.length)
+                for (let i=0; i< wishlist.length; i++){
+                    // mouse üzerine geldiğinde
+                    wishlist[i].addEventListener('mouseenter', (e) => {
+                        wishlist[i].style.color =  '#fcbe00';
+                    });
+
+                    // mouse üzerinden gittiğnde
+                    wishlist[i].addEventListener('mouseleave', (e) => {
+                        wishlist[i].style.color =  '#666';
+                    });
+
+                    // mouse ile üzerine tıklandığında
+                    wishlist[i].addEventListener('click', (e) => {
+                        alert(true)
+                        e.preventDefault()
+                        let product_id = parseInt(wishlist[i].getAttribute('data-id'));
+                        $.ajax({
+                            url: "{{ route('front.wishlist.store') }}",
+                            method: "POST",
+                            data: {product_id: product_id, "_token": "{{ csrf_token() }}"},
+                            success: function (data) {
+                                if (data.success) {
+                                    toastr.success(data.success);
+                                    wishlist.style.color =  '#fcbe00';
+                                    document.getElementById('wishlist-count').innerHTML = data.count
+                                } else {
+                                    toastr.error(data.error);
+                                    wishlist.style.color =  '#666';
+                                    document.getElementById('wishlist-count').innerHTML = data.count
+                                }
+                            }
+                        })
+                    });
+                }
+            })
+        </script>
+    @else
+        <script>
+            $(document).ready(function () {
+                $('#wishlist').click(function () {
+                    event.preventDefault();
+                    toastr.error('İsteklerinize eklemek için giriş yapmalısınız.');
+                })
+            });
+        </script>
+    @endif
 @endsection
