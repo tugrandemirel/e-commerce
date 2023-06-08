@@ -9,6 +9,7 @@ use App\Models\Address;
 use App\Models\Bid;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class FAccountController extends Controller
@@ -24,21 +25,22 @@ class FAccountController extends Controller
                     ->where('approve', ProductEnum::APPROVAL_APPROVED);
             }])
             ->get();*/
-        $products = Product::where('stock', ProductEnum::STOCK_ACTIVE)
-            ->where('visibility', ProductEnum::VISIBILITY_ACTIVE)
-            ->where('approve', ProductEnum::APPROVAL_APPROVED)
-            ->with(['bids' => function($q) use ($user) {
-                $q->where('user_id', $user->id)
-                    ->orderBy('bid_price', 'desc')
-                    ->groupBy('product_id');
-            }])
-            ->get();
 
+
+        $products = Product::with(['bids' => function ($query) use ($user) {
+            $query->where('user_id', $user->id)
+                ->groupBy('product_id');
+        }])->get();
         $bids = [];
         foreach ($products as $product) {
-            array_push($bids, $product->bids->first());
-            // En yüksek teklifi veren kullanıcının teklifini alıyoruz.
+            $highestBid = $product->bids()->orderBy('bid_price', 'desc')->first();
+            // En yüksek teklifi veren kullanıcının teklifini al
+
+            if ($highestBid) {
+                array_push($bids, $highestBid);
+            }
         }
+
 
         $orders = Bid::where('user_id', $user->id)
             ->with(['product' => function ($query) {

@@ -88,4 +88,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Address::class);
     }
+
+    public function references()
+    {
+        return $this->hasMany(Reference::class);
+    }
+
+    public function reference()
+    {
+        return $this->hasOne(Reference::class);
+    }
 }

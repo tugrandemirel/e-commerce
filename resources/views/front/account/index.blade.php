@@ -360,7 +360,7 @@
     </div>
     <div class="modal fade" id="productModalId" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+            <div class="modal-content" id="modalContent">
                 <div class="modal-header">
                     <h4 style="color: #0d6efd;"><a href="#">Yeni Adres Ekle</a></h4>
                     <div class="product__modal-close p-absolute" >
@@ -424,11 +424,6 @@
     </div>
 @endsection
 @section('scripts')
-    <script>
-        $(document).ready(function () {
-
-        })
-    </script>
     <script>
         $(document).ready(function () {
             addressModal = document.querySelectorAll('.addressModal');
