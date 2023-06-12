@@ -55,15 +55,15 @@
                                                         <tr>
                                                             @if (($bid->product->hasMedia('images')))
                                                             <td class="product-thumbnail"><a
-                                                                    href="{{ route('front.product.detail', ['slug' => $bid->product->slug]) }}"><img
+                                                                    href="{{ route('front.product.detail', ['slug' => $bid->product->slug]) }}" target="_blank"><img
                                                                         src="{{ $bid->product->getFirstMedia('images')->getUrl() }}"
                                                                         alt="{{ $bid->product->meta_title }}" style="width: 35px;"></a></td>
                                                             @else
                                                                 <td class="product-thumbnail"><a
-                                                                        href="{{ route('front.product.detail', ['slug' => $bid->product->slug]) }}">RESİM YOK</a></td>
+                                                                        href="{{ route('front.product.detail', ['slug' => $bid->product->slug]) }}" target="_blank">RESİM YOK</a></td>
                                                             @endif
                                                             <td class="product-name"><a
-                                                                    href="shop-details.html">{{ $bid->product->title }}</a>
+                                                                    href="{{ route('front.product.detail', ['slug' => $bid->product->slug]) }}" target="_blank">{{ $bid->product->title }}</a>
                                                             </td>
                                                             <td class="product-price"><span
                                                                     class="amount">{{ $bid->bid_price }}</span>
@@ -119,9 +119,9 @@
                                                                         src="{{ $order->product->getFirstMedia('images')->getUrl() }}"
                                                                         alt=""></a></td>
                                                             <td class="product-name"><a
-                                                                    href="shop-details.html">{{ $order->product->title }}</a>
+                                                                    href="{{ route('front.product.detail', ['slug' => $order->product->slug]) }}">{{ $order->product->title }}</a>
                                                             </td>
-                                                            <td class="product-name"><a href="shop-details.html">Jacket
+                                                            <td class="product-name"><a href="{{ route('front.product.detail', ['slug' => $order->product->slug]) }}">Jacket
                                                                     light</a></td>
                                                             <td class="product-price"><span
                                                                     class="amount">{{ $order->product->price }}</span>
@@ -394,6 +394,18 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-md-12">
+                                                                <div class="input-group row">
+                                                                    <label for="staticEmail"
+                                                                           class="col-sm-4 col-form-label">Kullanılabilir Bakiye</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" readonly
+                                                                               class="form-control-plaintext"
+                                                                               id="staticEmail"
+                                                                               value="{{ $user->wallet->availableBalance ?? 0 }}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                             <div class="col-md-12 mt-3">
                                                                 <div class="input-group row">
                                                                     <label for="staticEmail"
@@ -402,7 +414,19 @@
                                                                         <input type="text" readonly
                                                                                class="form-control-plaintext"
                                                                                id="staticEmail"
-                                                                               value="{{ $user->wallet->locekd_balance ?? 0 }}">
+                                                                               value="{{ $user->wallet->locked_balance ?? 0 }}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12 mt-3">
+                                                                <div class="input-group row">
+                                                                    <label for="staticEmail"
+                                                                           class="col-sm-4 col-form-label">Cüzdan Adresi</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" readonly
+                                                                               class="form-control-plaintext"
+                                                                               id="staticEmail"
+                                                                               value="{{ $user->wallet->address ?? 0 }}">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -512,7 +536,7 @@
                         url: '{{ route('front.account.address.edit') }}',
                         data: {
                             id: $id,
-                            '_token': '{{ csrf_token() }}'
+                            '_token': '{{ csrf_token() }}',
                         },
                         success: function (data) {
                             $('#productModalId').modal('show');

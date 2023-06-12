@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5af9e0a7-9bcf-4b78-b1c6-2690d042a4ea" name="Changes" comment="wip">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/product/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FBidController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FBidController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Wallet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Wallet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/account/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/account/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/product/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/product/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -260,14 +263,12 @@
       <workItem from="1686048970829" duration="23000" />
       <workItem from="1686076042854" duration="8859000" />
       <workItem from="1686103341519" duration="6000" />
-      <workItem from="1686254318266" duration="5401000" />
-    </task>
-    <task id="LOCAL-00009" summary="wip">
-      <created>1684848691143</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1684848691143</updated>
+      <workItem from="1686254318266" duration="6215000" />
+      <workItem from="1686321556462" duration="995000" />
+      <workItem from="1686399738540" duration="71000" />
+      <workItem from="1686401092890" duration="1352000" />
+      <workItem from="1686408568065" duration="718000" />
+      <workItem from="1686575137737" duration="3202000" />
     </task>
     <task id="LOCAL-00010" summary="wip">
       <created>1684848795117</created>
@@ -605,7 +606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686258651893</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="wip">
+      <created>1686260850855</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1686260850856</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -217,7 +217,7 @@
                                         <span class="text">
                                             <span class="sub mt-2">Hesabım </span>
 
-                                            <span class="sub mt-1">Bakiye: {{ \App\Models\Wallet::where('user_id', \Illuminate\Support\Facades\Auth::id())->first()->balance ?? 0 }} </span>
+                                            <span class="sub mt-1">Kullanılabilir Bakiye: {{ \App\Models\Wallet::where('user_id', \Illuminate\Support\Facades\Auth::id())->first()->availableBalance ?? 0 }} </span>
                                         </span>
                                     </a>
                                 @else

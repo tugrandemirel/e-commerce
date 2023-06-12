@@ -122,7 +122,9 @@
                     </div>
                     <div class="cart-option mb-15 reloadItem">
                         <div class="product-quantity mr-20">
-                            <div class="cart-plus-minus "><input type="number" id="price" value="{{ isset($product->bid) ? $product->bid->bid_price : $product->price }}" placeholder="{{ isset($product->bid) ? $product->bid->bid_price : $product->price }}"></div>
+                            <div class="cart-plus-minus ">
+                                <input type="number" id="price" value="{{ isset($product->bid) ? $product->bid->bid_price : $product->price }}" placeholder="{{ isset($product->bid) ? $product->bid->bid_price : $product->price }}">
+                            </div>
                         </div>
                         @if(\Illuminate\Support\Facades\Auth::check())
                         <a href="" id="bidding" class="cart-btn mx-4">Teklif Ver</a>
@@ -362,10 +364,10 @@
                         data: {price: price, product_id: product_id, user_id: user_id},
                         success: function (data) {
                             if (data.success) {
-                                toastr.success(data.message);
+                                toastr.success(data.success);
                                 $( ".reloadItem" ).load(window.location.href + ".reloadItem" );
                             } else {
-                                toastr.error(data.message);
+                                toastr.error(data.error);
                             }
                         }
                     })
@@ -384,42 +386,31 @@
                     event.preventDefault();
                     let percentage = 5;
                     let total = price * percentage / 100;
-                    console.log(price)
                     let total_price = price + total;
-                    console.log(price)
                     $('#price').val(total_price);
                 })
                 $('#percentage-ten').click(function () {
                     event.preventDefault();
                     let percentage = 10;
                     let total = price * percentage / 100;
-                    console.log(price)
                     let total_price = price + total;
-                    console.log(price)
                     $('#price').val(total_price);
                 })
                 $('#percentage-fifteen').click(function () {
                     event.preventDefault();
                     let percentage = 15;
                     let total = price * percentage / 100;
-                    console.log(price)
                     let total_price = price + total;
-                    console.log(price)
                     $('#price').val(total_price);
                 })
                 $('#percentage-twenty').click(function () {
                     event.preventDefault();
                     let percentage = 20;
                     let total = price * percentage / 100;
-                    console.log(price)
                     let total_price = price + total;
-                    console.log(price)
                     $('#price').val(total_price);
                 })
             })
-
-
-
         </script>
         <script>
             $(document).ready(function () {
