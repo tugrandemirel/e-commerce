@@ -20,6 +20,7 @@ use App\Http\Controllers\Front\FPageController;
 use App\Http\Controllers\Front\FAccountController;
 use App\Http\Controllers\Front\FAddressController;
 use App\Http\Controllers\Front\FApplicationFormController;
+use App\Http\Controllers\Front\FSellerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,9 +70,15 @@ Route::prefix('/')->as('front.')->group(function (){
         Route::get('/butun-urunler/', [FProductController::class, 'index'])->name('index');
         Route::get('/detay/{slug}', [FProductController::class, 'detail'])->name('detail');
         Route::get('/kategori/{slug}', [FProductController::class, 'category'])->name('category');
+
+
         Route::post('/bidding', [FBidController::class, 'store'])->name('bidding.store');
         Route::post('/review/{product}', [FReviewController::class, 'store'])->name('review.store');
 
+    });
+
+    Route::prefix('satici')->as('seller.')->group(function (){
+        Route::get('/{slug}', [FSellerController::class, 'index'])->name('index');
     });
 });
 

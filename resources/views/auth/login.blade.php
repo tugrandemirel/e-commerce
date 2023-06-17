@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@yield('title', 'Giriş Yap'.' | '.config('app.name'))
 @section('content')
     <div class="page-banner-area page-banner-height-2" data-background="assets/img/banner/page-banner-4.jpg" style="background-image: url(&quot;assets/img/banner/page-banner-4.jpg&quot;);">
         <div class="container">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@yield('title', 'Şifre Onayı'.' | '.config('app.name'))
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

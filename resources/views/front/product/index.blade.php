@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Ürünler')
+@section('title', 'Ürünler'.' | '.config('app.name'))
 @section('description', 'Ürün description')
 @section('keywords', 'Ürün, leywords')
 @section('content')
@@ -33,7 +33,7 @@
                                 <form action="#">
                                     @foreach($_categories as $_category)
                                         <div class="single-widget-category">
-                                            <input type="checkbox" id="{{ $_category->slug }}" name= "{{ $_category->slug }}">
+                                            <input type="checkbox" id="{{ $_category->slug }}" data-id="{{ $_category->id }}" name= "{{ $_category->slug }}">
                                             <label for="{{ $_category->slug }}"> {{ $_category->name }} <span>({{ $_category->products->count() }})</span></label>
                                         </div>
                                     @endforeach
@@ -46,7 +46,7 @@
                                 <form action="#">
                                     @foreach($_brands as $_brand)
                                     <div class="single-widget-category">
-                                        <input type="checkbox" id="{{ $_brand->slug }}" name="{{ $_brand->slug }}">
+                                        <input type="checkbox" id="{{ $_brand->slug }}" class="category" name="{{ $_brand->slug }}">
                                         <label for="{{ $_brand->slug }}">{{ $_brand->name }} <span>({{ $_brand->products->count() }})</span></label>
                                     </div>
                                     @endforeach
@@ -244,7 +244,11 @@
                                                         <div class="col-md-4">
                                                             <div class="features-thum">
                                                                 <div class="features-product-image w-img">
-                                                                    <a href="{{ route('front.product.detail', ['slug' => $product->slug]) }}"><img src="assets/img/product/sm-1.jpg" alt=""></a>
+                                                                    <a href="{{ route('front.product.detail', ['slug' => $product->slug]) }}">
+                                                                        @if($product->hasMedia('images'))
+                                                                            <img src="{{$product->getFirstMedia('images')->getUrl() }}" alt="product">
+                                                                        @endif
+                                                                    </a>
                                                                 </div>
                                                                 <div class="product__offer">
                                                                     <span class="discount">-15%</span>

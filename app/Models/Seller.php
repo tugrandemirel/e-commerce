@@ -13,7 +13,8 @@ class Seller extends Model
         'user_id',
         'name',
         'image',
-        'locaiton'
+        'locaiton',
+        'slug'
     ];
 
     public function product()

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $product->title)
+@section('title', $product->title.' | '.config('app.name'))
 @section('description', $product->meta_description)
 @section('keywords', $product->meta_keywords)
 @section('styles')
@@ -164,6 +164,10 @@
                                     @foreach(explodeTags($product->meta_keywords) as $tag)
                                         <a href="#">{{ $tag }}</a>,
                                     @endforeach
+                            </span>
+                            <span class="tagged_as">
+                                    <span class="title">Mağaza:</span>
+                                    <a href="{{ route('front.seller.index', ['slug' =>$product->seller->slug]) }}">{{ $product->seller->name }}</a>
                             </span>
                         </div>
                     </div>

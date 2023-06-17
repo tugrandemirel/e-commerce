@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5af9e0a7-9bcf-4b78-b1c6-2690d042a4ea" name="Changes" comment="wip">
-      <change afterPath="$PROJECT_DIR$/resources/views/front/application/seller.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front/seller/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/account/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/account/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/application/seller.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/application/seller.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/page/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/page/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/product/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/product/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
@@ -277,14 +282,7 @@
       <workItem from="1686865875928" duration="1270000" />
       <workItem from="1686927538309" duration="44000" />
       <workItem from="1686957367626" duration="1271000" />
-      <workItem from="1686992291920" duration="7144000" />
-    </task>
-    <task id="LOCAL-00011" summary="wip">
-      <created>1684882512662</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1684882512662</updated>
+      <workItem from="1686992291920" duration="9654000" />
     </task>
     <task id="LOCAL-00012" summary="wip">
       <created>1684883648591</created>
@@ -622,7 +620,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686579230377</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="wip">
+      <created>1687032306140</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1687032306141</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
