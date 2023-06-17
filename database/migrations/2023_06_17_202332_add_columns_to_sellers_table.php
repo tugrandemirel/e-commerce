@@ -24,6 +24,7 @@ return new class extends Migration
     {
         Schema::table('sellers', function (Blueprint $table) {
             $table->dropColumn('slug');
+            $table->dropColumn('slogan');
         });
     }
 };
