@@ -582,6 +582,9 @@
                             },
                             success: function (data) {
                                 $removeAddress[i].parentElement.parentElement.parentElement.parentElement.remove();
+                            },
+                            error: function (data) {
+                                console.log(data);
                             }
                         })
 

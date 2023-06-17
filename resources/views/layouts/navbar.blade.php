@@ -8,12 +8,9 @@ Q<div class="header__bottom">
                         <div class="cat__menu-2 cat__menu">
                             <nav id="mobile-menu" style="display: block;">
                                 <ul>
-                                    <li>
-                                        <a href="#">Bütün Kategoriler</a>
-                                    </li>
                                     @foreach($_categories as $category)
                                         <li>
-                                            <a href="{{ $category->slug }}">{{ $category->name }}
+                                            <a href="{{ route('front.product.category', ['slug' =>$category->slug]) }}">{{ $category->name }}
                                                 @if($category->children()->count() > 0 )
                                                     <i class="far fa-angle-down"></i>
                                                 @endif
@@ -23,7 +20,7 @@ Q<div class="header__bottom">
                                                     @foreach($category->children()->get() as $subCcategory)
                                                         <li>
                                                             <ul class="mega-item">
-                                                                <li><a href="{{ $subCcategory->slug }}">{{ $subCcategory->name }}</a></li>
+                                                                <li><a href="{{ route('front.product.category', ['slug' =>$subCcategory->slug]) }}">{{ $subCcategory->name }}</a></li>
                                                             </ul>
                                                         </li>
                                                     @endforeach

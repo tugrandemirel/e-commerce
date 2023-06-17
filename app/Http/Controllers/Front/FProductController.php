@@ -15,7 +15,7 @@ class FProductController extends Controller
         $products = Product::where('visibility', ProductEnum::VISIBILITY_ACTIVE)
                             ->where('stock', ProductEnum::STOCK_ACTIVE)
                             ->where('approve', ProductEnum::APPROVAL_APPROVED)
-                            ->orderBy('id', 'desc')
+                            ->orderBy('end_date', 'desc')
                             ->paginate(20);
         return view('front.product.index', compact('products'));
     }
@@ -49,6 +49,22 @@ class FProductController extends Controller
         return view('front.product.detail', compact('product'));
     }
 
+    public function category($slug)
+    {
+        $products = Product::where('visibility', ProductEnum::VISIBILITY_ACTIVE)
+                            ->where('stock', ProductEnum::STOCK_ACTIVE)
+                            ->where('approve', ProductEnum::APPROVAL_APPROVED)
+                            ->whereHas('category', function($query) use ($slug){
+                                $query->where('slug', $slug);
+                            })
+                            ->orderBy('end_date', 'desc')
+                            ->paginate(20);
+
+        if (count($products) == 0) {
+            return abort(404);
+        }
+        return view('front.product.index', compact('products'));
+    }
 
     private function productControl($slug)
     {

@@ -19,6 +19,7 @@ use App\Http\Controllers\Front\FCartController;
 use App\Http\Controllers\Front\FPageController;
 use App\Http\Controllers\Front\FAccountController;
 use App\Http\Controllers\Front\FAddressController;
+use App\Http\Controllers\Front\FApplicationFormController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,7 +37,8 @@ Route::get('/', [FIndexController::class, 'index'])->name('index');
 
 Route::prefix('/')->as('front.')->group(function (){
     Route::get('/sayfa/{slug}',  [FPageController::class, 'index'])->name('page.index');
-
+    Route::get('/satici-basvurusu', [FApplicationFormController::class, 'sellerApplicationForm'])->name('seller.application.form');
+    Route::post('/satici-basvurusu', [FApplicationFormController::class, 'sellerApplicationFormStore'])->name('seller.application.form.store');
     Route::prefix('hesabim/w/')->middleware('auth')->group(function (){
         Route::as('account.')->group(function (){
             Route::get('/', [FAccountController::class, 'index'])->name('index');
@@ -66,7 +68,7 @@ Route::prefix('/')->as('front.')->group(function (){
     Route::as('product.')->group(function () {
         Route::get('/butun-urunler/', [FProductController::class, 'index'])->name('index');
         Route::get('/detay/{slug}', [FProductController::class, 'detail'])->name('detail');
-
+        Route::get('/kategori/{slug}', [FProductController::class, 'category'])->name('category');
         Route::post('/bidding', [FBidController::class, 'store'])->name('bidding.store');
         Route::post('/review/{product}', [FReviewController::class, 'store'])->name('review.store');
 

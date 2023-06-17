@@ -203,7 +203,9 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="{{ route('front.product.detail', ['slug' => $product->slug]) }}">
-                                                            <img src="assets/user/img/product/tp-2.jpg" alt="product">
+                                                            @if($product->hasMedia('images'))
+                                                            <img src="{{$product->getFirstMedia('images')->getUrl() }}" alt="product">
+                                                            @endif
                                                         </a>
                                                     </div>
                                                     <div class="product-action">
