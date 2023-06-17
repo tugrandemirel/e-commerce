@@ -14,7 +14,8 @@ class Seller extends Model
         'name',
         'image',
         'locaiton',
-        'slug'
+        'slug',
+        'slogan'
     ];
 
     public function product()
@@ -32,7 +33,7 @@ class Seller extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function review()
+    public function reviews()
     {
         return $this->hasMany(Review::class);
     }

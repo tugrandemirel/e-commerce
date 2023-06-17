@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('sellers', function (Blueprint $table) {
             $table->string('slug')->after('name');
+            $table->string('slogan')->after('slug');
         });
     }
 

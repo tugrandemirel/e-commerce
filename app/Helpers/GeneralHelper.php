@@ -1,111 +1,46 @@
 <?php
-if (! function_exists('replaceTurkishCharacters')) {
-    // Türkçe karakterleri ingilizce karakterlere çevirir.
-    function replaceTurkishCharacters($string, $whitespace = false)
-    {
-        $search = array('ç', 'Ç', 'ğ', 'Ğ', 'ı', 'İ', 'ö', 'Ö', 'ş', 'Ş', 'ü', 'Ü');
-        $replace = array('c', 'C', 'g', 'G', 'i', 'I', 'o', 'O', 's', 'S', 'u', 'U');
-        $string = str_replace($search, $replace, $string);
-        if (!$whitespace)
-            $string = str_replace(' ', '-', $string);
-        return strtolower($string);
-    }
-}
 
-if (! function_exists('changingDateFormat')) {
-    // 2021-01-01 -> 01-01-2021
-    function changingDateFormat($date)
-    {
-        return  date('d-m-Y', strtotime($date));
-    }
-}
-
-if (! function_exists('monthChangingDateFormat')) {
-    // 2021-01-01 -> 1 Ocak 2021
-    function monthChangingDateFormat($date)
-    {
-        $date = changingDateFormat($date);
-        $date = explode('-', $date);
-        $month = monthName($date[1]);
-        return $date[0].' '.$month.' '.$date[2];
-    }
-}
-
-if (! function_exists('monthName'))
+if(! function_exists('productCountCalculation'))
 {
-    function monthName($month)
+    function productCountCalculation($count)
     {
-        switch ($month) {
-            case '01':
-                return 'Ocak';
-                break;
-            case '02':
-                return 'Şubat';
-                break;
-            case '03':
-                return 'Mart';
-                break;
-            case '04':
-                return 'Nisan';
-                break;
-            case '05':
-                return 'Mayıs';
-                break;
-            case '06':
-                return 'Haziran';
-                break;
-            case '07':
-                return 'Temmuz';
-                break;
-            case '08':
-                return 'Ağustos';
-                break;
-            case '09':
-                return 'Eylül';
-                break;
-            case '10':
-                return 'Ekim';
-                break;
-            case '11':
-                return 'Kasım';
-                break;
-            case '12':
-                return 'Aralık';
-                break;
-            default:
-                return 'Hatalı ay';
-                break;
+        if($count >= 1000)
+        {
+            $count = $count / 1000;
+            $count = round($count, 1);
+            return $count.'B';
         }
+        else
+        {
+            return $count;
+        }
+
     }
 }
 
-if (! function_exists('explodeTags'))
+if (! function_exists('avgCalculation'))
 {
-    function explodeTags($tags)
+    function avgCalculation($reviewModel)
     {
-        $tags = explode(',', $tags);
-        $tags = array_map('trim', $tags);
-        return $tags;
-    }
-}
+        $sum = 0;
+        $count = 0;
+        foreach ($reviewModel as $model) // $reviewModel = $products
+        {
+            foreach ($model->reviews as $review) // $model->reviews = $product->reviews
+            {
+                $count++; // review count. example: one product has 10 reviews, another product has 20 reviews. so, total review count is 30.
+                $sum += $review->rating; // sum of all ratings. example: one product has 10 reviews, another product has 20 reviews. so, total rating is 30.
+            }
+        }
+        if ($count == 0) // if no review, then return 0
+            return 0;
 
-if (!   function_exists('changingDateTimeFormat'))
-{
-    function changingDateTimeFormat($date)
-    {
-        return  date('d-m-Y H:i:s', strtotime($date));
-    }
-}
+        $avg = $sum / $count; // 1900 / 24431 = 0.0778
+        $avg = round($avg, 1);
+        if ($avg < 1)
+            $avg = 1;
+        return $avg;
 
-if (!function_exists('phoneNumberFormat'))
-{
-    function phoneNumberFormat($phone)
-    {
-        $phone = str_replace('(', '', $phone);
-        $phone = str_replace(')', '', $phone);
-        $phone = str_replace('-', '', $phone);
-        $phone = str_replace(' ', '', $phone);
-        return $phone;
     }
 }
 

@@ -5,19 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5af9e0a7-9bcf-4b78-b1c6-2690d042a4ea" name="Changes" comment="wip">
-      <change afterPath="$PROJECT_DIR$/resources/views/front/seller/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helpers/DateHelper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helpers/StringHelper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/application/seller.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/application/seller.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/page/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/page/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/product/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/product/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/GeneralHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/GeneralHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FSellerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FSellerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Review.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Review.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Seller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Seller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_17_202332_add_columns_to_sellers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_17_202332_add_columns_to_sellers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/seller/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/seller/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -282,21 +279,7 @@
       <workItem from="1686865875928" duration="1270000" />
       <workItem from="1686927538309" duration="44000" />
       <workItem from="1686957367626" duration="1271000" />
-      <workItem from="1686992291920" duration="9654000" />
-    </task>
-    <task id="LOCAL-00012" summary="wip">
-      <created>1684883648591</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1684883648591</updated>
-    </task>
-    <task id="LOCAL-00013" summary="wip">
-      <created>1684883703923</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1684883703923</updated>
+      <workItem from="1686992291920" duration="20192000" />
     </task>
     <task id="LOCAL-00014" summary="wip">
       <created>1684888904972</created>
@@ -627,7 +610,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687032306141</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="wip">
+      <created>1687034725324</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1687034725324</updated>
+    </task>
+    <task id="LOCAL-00062" summary="wip">
+      <created>1687034744152</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1687034744152</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -32,7 +32,9 @@
         },
         "files": [
             "app/Helpers/ImageHelper.php",
-            "app/Helpers/GeneralHelper.php"
+            "app/Helpers/GeneralHelper.php",
+            "app/Helpers/DateHelper.php",
+            "app/Helpers/StringHelper.php"
         ]
     },
     "autoload-dev": {
