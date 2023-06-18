@@ -28,20 +28,6 @@ class FSellerController extends Controller
                 }])
                 ->firstOrFail();
 
-        /*
-         *  1.product 2.product avg
-         *  5           4       (5+4/2) = 3.5
-         *
-         * 1.product 2.product 3.product avg
-         * 5           4           3       (5+4+3/3) = 4
-         *
-         * 1.product 2.product 3.product 4.product avg
-         * 5           5          5          5   (5+5+5+5/4) = 5
-         *
-         * 1.product 2.product 3.product 4.product 5.product avg
-         *
-         * 5           2          3          1         1   (5+2+3+1+1/5) = 2.4
-         */
         return view('front.seller.index', compact('seller'));
     }
 }

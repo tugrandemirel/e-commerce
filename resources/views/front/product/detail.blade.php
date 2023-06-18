@@ -538,6 +538,7 @@
                 });
             })
         </script>
+        <input type="checkbox" onclik="updateTbl('price', this.value)">
     @else
         <script>
             $(document).ready(function () {
