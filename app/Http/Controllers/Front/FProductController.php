@@ -41,11 +41,11 @@ class FProductController extends Controller
                         'reviews' => function($query){
                             $query->where('is_approved', ReviewEnum::APPROVED_ACTIVE)
                                     ->where('is_pushed', ReviewEnum::PUSHED_ACTIVE)
-                                    ->orderBy('rating', 'desc')
-                                    ->limit(2);
+                                    ->orderBy('rating', 'desc');
+
 
                     }])
-                    ->firstOrFail();
+                    ->first();
         return view('front.product.detail', compact('product'));
     }
 

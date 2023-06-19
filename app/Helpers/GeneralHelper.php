@@ -20,16 +20,20 @@ if(! function_exists('productCountCalculation'))
 
 if (! function_exists('avgCalculation'))
 {
+    // Product reviews calculation
     function avgCalculation($reviewModel)
     {
         $sum = 0;
         $count = 0;
         foreach ($reviewModel as $model) // $reviewModel = $products
         {
-            foreach ($model->reviews as $review) // $model->reviews = $product->reviews
+            if (is_object($model))
             {
-                $count++; // review count. example: one product has 10 reviews, another product has 20 reviews. so, total review count is 30.
-                $sum += $review->rating; // sum of all ratings. example: one product has 10 reviews, another product has 20 reviews. so, total rating is 30.
+                foreach ($model->reviews as $review) // $model->reviews = $product->reviews
+                {
+                    $count++; // review count. example: one product has 10 reviews, another product has 20 reviews. so, total review count is 30.
+                    $sum += $review->rating; // sum of all ratings. example: one product has 10 reviews, another product has 20 reviews. so, total rating is 30.
+                }
             }
         }
         if ($count == 0) // if no review, then return 0

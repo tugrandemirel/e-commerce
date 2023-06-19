@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5af9e0a7-9bcf-4b78-b1c6-2690d042a4ea" name="Changes" comment="wip">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/GeneralHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/GeneralHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/product/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/product/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,13 +275,7 @@
       <workItem from="1686992291920" duration="21050000" />
       <workItem from="1687092076015" duration="655000" />
       <workItem from="1687099254715" duration="115000" />
-    </task>
-    <task id="LOCAL-00016" summary="wip">
-      <created>1684934514864</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1684934514864</updated>
+      <workItem from="1687125249837" duration="5595000" />
     </task>
     <task id="LOCAL-00017" summary="wip">
       <created>1684936212932</created>
@@ -618,7 +613,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687046200669</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="wip">
+      <created>1687125409244</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1687125409245</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -22,6 +22,9 @@
         .is-invalid {
             border-color: red;
         }
+        .starSelected {
+            color: rgba(252,190,0,0.1)!important;
+        }
     </style>
 @endsection
 @section('content')
@@ -241,15 +244,25 @@
                     <div class="row">
                         <div class="col-xl-4">
                             <div class="review-rate">
-                                <h5>5.00</h5>
+                                @php
+                                    $avg = avgCalculation($product);
+                                   /* foreach ($product->reviews as $review){
+                                        $avg += $review->rating;
+                                    }
+                                    if ($avg > 0)
+                                        $avg = $avg / $product->reviews->count();
+                                    else
+                                        $avg = 0;*/
+                                @endphp
+                                <h5 style="font-size: 30px">{{ $avg }}</h5>
                                 <div class="review-star">
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star starSelected"></i></a>
+                                    <a href="#"><i class="fas fa-star starSelected"></i></a>
+                                    <a href="#"><i class="fas fa-star starSelected"></i></a>
+                                    <a href="#"><i class="fas fa-star starSelected"></i></a>
+                                    <a href="#"><i class="fas fa-star starSelected"></i></a>
                                 </div>
-                                <span class="review-count">Yorum Sayısı({{ $product->reviews->count() + 1 }})</span>
+                                <span class="review-count">Yorum Sayısı({{ $product->reviews->count() }})</span>
                             </div>
                         </div>
                         <div class="col-xl-8">
@@ -263,11 +276,13 @@
                                             <h6> {{ $review->user->name }} – <span> {{ monthChangingDateFormat($review->created_at) }}</span></h6>
                                             <div class="str-info">
                                                 <div class="review-star mr-15">
-                                                    <a href="#"><i class="fas fa-star"></i></a>
-                                                    <a href="#"><i class="fas fa-star"></i></a>
-                                                    <a href="#"><i class="fas fa-star"></i></a>
-                                                    <a href="#"><i class="fas fa-star"></i></a>
-                                                    <a href="#"><i class="fas fa-star"></i></a>
+                                                    @for($i = 0; $i < 5; $i++)
+                                                        @if ($i < $review->rating)
+                                                            <a href="#"><i class="fas fa-star "></i></a>
+                                                        @else
+                                                            <a href="#"><i class="fas fa-star starSelected"></i></a>
+                                                        @endif
+                                                    @endfor
                                                 </div>
                                             </div>
                                         </div>
@@ -282,8 +297,8 @@
                                     @endif
                                 @endforeach
 
-                                    @if($product->reviews->count() >= 2)
-                                        <a style="justify-content: end; display: flex;" id="moreReview" href="">Daha fazla görüntüle({{ $product->reviews->count() -1  }})</a>
+                                    @if($product->reviews->count() > 2)
+                                        <a style="justify-content: end; display: flex;" id="moreReview" href="">Daha fazla görüntüle({{ $product->reviews->count()  }})</a>
                                     @endif
                                 @else
                                 <div class="review-details-des">
@@ -343,6 +358,18 @@
 <!-- product-details-des-end -->
 @endsection
 @section('scripts')
+    <script>
+        $(document).ready(function () {
+            let star = document.querySelectorAll('.starSelected');
+            let leng = Math.ceil({{ $avg }});
+
+            for (let i = 0; i < leng; i++)
+            {
+                star[i].classList.remove('starSelected')
+                //star[i].classList.add('star')
+            }
+        })
+    </script>
     @if(\Illuminate\Support\Facades\Auth::check())
         <script>
             $(document).ready(function () {
