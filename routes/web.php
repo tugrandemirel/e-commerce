@@ -59,7 +59,7 @@ Route::prefix('/')->as('front.')->group(function (){
             Route::post('/destroy/', [FWishlistController::class, 'destroy'])->name('destroy');
         });
 
-        Route::prefix('sepetim')->as('cart')->group(function (){
+        Route::prefix('sepetim')->as('cart.')->group(function (){
             Route::get('/', [FCartController::class, 'index'])->name('index');
             Route::post('/store', [FCartController::class, 'store'])->name('store');
             Route::post('/destroy/', [FCartController::class, 'destroy'])->name('destroy');

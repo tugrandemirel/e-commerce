@@ -240,13 +240,22 @@
                                     Ürünlerim </span>
                                 </a>
                             </div>
+                                @php
+                                    $_carts = \App\Models\Cart::where('user_id', \Illuminate\Support\Facades\Auth::id())->get();
+                                    $totalPrice = 0;
+                                @endphp
+                                @foreach($_carts as $_cart)
+                                    @php
+                                        $totalPrice += $_cart->bid_price
+                                    @endphp
+                                @endforeach
                             <div class="block-cart action">
                                 <a class="icon-link icon-link-2" href="">
                                     <i class="flaticon-shopping-bag"></i>
-                                    <span class="count count-2">1</span>
+                                    <span class="count count-2">{{ isset($_carts) ? count($_carts) :'0' }}</span>
                                     <span class="text">
                                     <span class="sub">Sepetim:</span>
-                                    $00.00 </span>
+                                    {{ isset($_carts) ? $totalPrice : '0' }} </span>
                                 </a>
                                 <div class="cart">
                                     <div class="cart__mini">
@@ -254,23 +263,24 @@
                                             <li>
                                                 <div class="cart__title">
                                                     <h4>Sepetim</h4>
-                                                    <span>(1 Ürün Var)</span>
+                                                    <span>({{ isset($_carts) ? count($_carts) :'0' }} Ürün Var)</span>
                                                 </div>
                                             </li>
+
                                             @isset($_carts)
                                                 @foreach($_carts as $_cart)
                                                 <li>
                                                     <div class="cart__item d-flex justify-content-between align-items-center">
                                                         <div class="cart__inner d-flex">
                                                             <div class="cart__thumb">
-                                                                <a href="product-details.html">
-                                                                    <img src="assets/user/img/cart/20.jpg" alt="">
+                                                                <a href="{{ route('front.product.detail', ['slug' => $_cart->product->slug]) }}">
+                                                                    <img src="{{ $_cart->product->getFirstMedia('images')->getUrl() }}" alt="{{$_cart->product->slug}}">
                                                                 </a>
                                                             </div>
                                                             <div class="cart__details">
-                                                                <h6><a href="product-details.html"> Samsung C49J89: £875, Debenhams Plus  </a></h6>
+                                                                <h6><a href="{{ route('front.product.detail', ['slug' => $_cart->product->slug]) }}">{{ $_cart->product->slug }}</a></h6>
                                                                 <div class="cart__price">
-                                                                    <span>$255.00</span>
+                                                                    <span>{{ $_cart->bid_price }}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -283,16 +293,14 @@
                                             @endisset
                                             <li>
                                                 <div class="cart__sub d-flex justify-content-between align-items-center">
-                                                    <h6>Subtotal</h6>
-                                                    <span class="cart__sub-total">$255.00</span>
+                                                    <h6>Toplam</h6>
+                                                    <span class="cart__sub-total">{{ $totalPrice }}</span>
                                                 </div>
                                             </li>
-                                            <!--
                                             <li>
-                                                <a href="cart.html" class="wc-cart mb-10">View cart</a>
-                                                <a href="checkout.html" class="wc-checkout">Checkout</a>
+                                                <a href="{{ route('front.cart.index') }}" class="wc-cart mb-10">Sepet</a>
+                                                <a href="checkout.html" class="wc-checkout">Ödeme</a>
                                             </li>
-                                             -->
                                         </ul>
                                     </div>
                                 </div>

@@ -31,17 +31,7 @@ class ViewShareProvider extends ServiceProvider
 
             $brands = \App\Models\Brand::where('status', BrandEnum::STATUS_ACTIVE)->get();
             view()->share('_brands', $brands);
-            if (Auth::check())
-            {
-                $_carts = Bid::where('user_id', auth()->id())
-                    ->with(['product' => function($query){
-                        $query->where('approve', ProductEnum::APPROVAL_APPROVED)
-                            ->where('visibility', ProductEnum::VISIBILITY_ACTIVE)
-                            ->where('stock', ProductEnum::STOCK_ACTIVE);
-                    }])
-                    ->get();
-                view()->share('_carts', $_carts);
-            }
+
 
             $_headerPages = Page::where('header', PageEnum::PAGE_HEADER)
                 ->where('is_active', PageEnum::PAGE_IS_ACTIVE)

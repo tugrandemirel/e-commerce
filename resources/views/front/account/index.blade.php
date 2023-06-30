@@ -73,13 +73,17 @@
                                                             <td class="product-price"><span
                                                                     class="amount">{{ changingDateTimeFormat($bid->created_at) }}</span>
                                                             </td>
-                                                            <td class="product-remove " data-toggle="tooltip"
-                                                                title="Teklifi geri çek"><a href="#"
-                                                                                            data-toggle="tooltip"
-                                                                                            title="Teklifi geri çek"><i
+                                                            <td class="product-remove removeProduct" data-toggle="tooltip" data-id="{{ $bid->id }}"
+                                                                title="Teklifi geri çek">
+                                                                <a href="#"
+                                                                        data-toggle="tooltip"
+                                                                        title="Teklifi geri çek">
+                                                                    <i
                                                                         class="fa fa-times remove-wishlist"
                                                                         data-toggle="tooltip"
-                                                                        title="Teklifi geri çek"></i></a></td>
+                                                                        title="Teklifi geri çek"></i>
+                                                                </a>
+                                                            </td>
                                                         </tr>
                                                     @endforeach
                                                         @endisset
@@ -521,6 +525,12 @@
     </div>
 @endsection
 @section('scripts')
+    <script>
+        $(document).ready(function(){
+            let productRemove = document.querySelectorAll('.removeProduct')
+
+        })
+    </script>
     <script>
         $(document).ready(function () {
             addressModal = document.querySelectorAll('.addressModal');

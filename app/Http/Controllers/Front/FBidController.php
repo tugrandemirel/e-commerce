@@ -44,6 +44,7 @@ class FBidController extends Controller
         $product->bid()->create([
             'user_id' => $user->id,
             'bid_price' => $request->price,
+            'paid_at' => now(),
         ]);
 
         $user->wallet->update([
