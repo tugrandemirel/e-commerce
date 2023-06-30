@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Seller\SellerController;
 use App\Http\Controllers\Seller\SProductController;
+use App\Http\Controllers\Seller\SOrderController;
 use App\Http\Controllers\Front\FIndexController;
 use App\Http\Controllers\Front\FProductController;
 use App\Http\Controllers\Front\FBidController;
@@ -32,7 +33,7 @@ use App\Http\Controllers\Front\FSellerController;
 |
 */
 
-
+Route::get('test', [\App\Http\Controllers\TestController::class, 'SellerAuctionEndNotification']);
 Auth::routes();
 Route::get('/', [FIndexController::class, 'index'])->name('index');
 
@@ -148,6 +149,7 @@ Route::prefix('seller')->as('seller.')->middleware(['auth', 'role:Seller'])->gro
       Route::post('get-sub-categories/', [SProductController::class, 'getSubCategories'])->name('getSubCat');
       Route::post('store-media/', [SProductController::class, 'storeMedia'])->name('storeMedia');
       Route::get('rejected-product', [SProductController::class, 'rejectedProduct'])->name('rejected');
-
+      Route::get('purchase-product', [SOrderController::class, 'purchaseProduct'])->name('purchase');
+      Route::get('purchase-product-detail/{product}', [SOrderController::class, 'purchaseProductDetail'])->name('purchaseDetail');
    });
 });

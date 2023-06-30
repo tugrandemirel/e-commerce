@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Seller;
 
 use App\Enum\Brand\BrandEnum;
+use App\Enum\Cart\CartEnum;
 use App\Enum\Category\CategoryEnum;
 use App\Enum\Product\ProductEnum;
 use App\Http\Controllers\Controller;
@@ -123,5 +124,4 @@ class SProductController extends Controller
             'original_name' => $file->getClientOriginalName(),
         ]);
     }
-
 }

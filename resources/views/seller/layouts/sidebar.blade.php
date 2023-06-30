@@ -75,6 +75,9 @@
                             <a href="{{ route('seller.product.index') }}">Ürünler</a>
                         </li>
                         <li>
+                            <a href="{{ route('seller.product.purchase') }}">Satın Alınan Ürünler</a>
+                        </li>
+                        <li>
                             <a href="{{ route('seller.product.rejected') }}">Red Edilen Ürünler</a>
                         </li>
                     </ul>

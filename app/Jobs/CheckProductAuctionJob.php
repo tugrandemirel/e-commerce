@@ -9,6 +9,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use App\Models\User;
 use App\Notifications\AuctionEndNotification;
+use App\Notifications\SellerAuctionEndNotification;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -57,7 +58,7 @@ class CheckProductAuctionJob implements ShouldQueue
                     'user' => $user,
                     'bid' => $highestBid,
                 ];
-                Cart::create([
+               $cart =  Cart::create([
                     'user_id' => $user->id,
                     'product_id' => $product->id,
                     'bid_price' => $highestBid->bid_price,
@@ -69,6 +70,8 @@ class CheckProductAuctionJob implements ShouldQueue
                 ]);
 
                 $user->notify(new AuctionEndNotification($data));
+                $seller = $product->seller;
+                $seller->notify(new SellerAuctionEndNotification($data));
             }
         }
     }

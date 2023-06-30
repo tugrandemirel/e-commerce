@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -49,6 +50,12 @@ class User extends Authenticatable
         'date_of_birth' => 'date'
     ];
 
+    protected function fullName() : Attribute
+    {
+        return Attribute::make(
+            get: fn() => ucfirst($this->name) . ' ' . ucfirst($this->surname),
+        );
+    }
     public function seller()
     {
         return $this->hasOne(Seller::class);
@@ -102,5 +109,15 @@ class User extends Authenticatable
     public function wallet()
     {
         return $this->hasOne(Wallet::class);
+    }
+
+    public function order()
+    {
+        return $this->hasOne(Order::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }
