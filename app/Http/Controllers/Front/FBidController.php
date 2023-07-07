@@ -28,7 +28,6 @@ class FBidController extends Controller
         if ($user->wallet->availableBalance < $request->price)
             return response()->json(['error' => 'Bakiyeniz yetersiz.']);
 
-
         $product = $this->productControl($request->product_id);
         if (is_null($request->price) || is_null($request->product_id))
             return response()->json(['error' => 'Lütfen geçerli bir fiyat giriniz.']);

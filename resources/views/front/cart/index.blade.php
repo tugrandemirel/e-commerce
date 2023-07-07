@@ -47,7 +47,7 @@
                                     <th class="product-price">Ürün Fiyatı</th>
                                     <th class="product-price">Ürün Alınan Fİyatı</th>
                                     <th class="product-price">Açık Artırma Bitiş Tarihi</th>
-                                    <th class="product-remove">Kaldır</th>
+{{--                                    <th class="product-remove">Kaldır</th>--}}
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -64,9 +64,15 @@
                                         <td class="product-price"><span class="amount">{{ $cart->bid_price }}</span></td>
                                         <td class="product-price"><span class="amount">{{ $cart->product_price }}</span></td>
                                         <td class="product-price"><span class="amount">{{ monthChangingDateFormat($cart->product->ended_date) <= date('D-M-Y') ? 'Süresi Doldu' : monthChangingDateFormat($cart->product->ended_date) }}</span></td>
-                                        <td class="product-remove"><a class="deleteWishlist" data-wishlist-id="{{ $cart->id }}"><i class="fa fa-times remove-wishlist"></i></a></td>
+{{--                                        <td class="product-remove"><a class="deleteProduct" data-product-id="{{ $cart->id }}"><i class="fa fa-times remove-wishlist"></i></a></td>--}}
                                     </tr>
                                 @endforeach
+                                    <tr >
+                                        <td class="actions" colspan="6">
+
+                                                    <a href="{{ route('front.checkout.index') }}" class="wc-cart mb-10">Ödeme</a>
+                                        </td>
+                                    </tr>
                                 @else
                                     <tr>
                                         <td colspan="6" class="text-center">Beğenilen ürün bulunmamaktadır.</td>
@@ -82,12 +88,12 @@
     </section>
     <!-- cart-area-end -->
 @endsection
-@section('scripts')
+{{--@section('scripts')
     <script>
         $(document).ready(function(){
-            $('.deleteWishlist').click(function () {
+            $('.deleteProduct').click(function () {
                 event.preventDefault();
-                var wishlistId = $(this).data('wishlist-id');
+                var wishlistId = $(this).data('product-id');
                 $.ajax({
                     url: '{{ route('front.wishlist.destroy') }}',
                     type: 'POST',
@@ -125,4 +131,4 @@
             }
         })
     </script>
-@endsection
+@endsection--}}

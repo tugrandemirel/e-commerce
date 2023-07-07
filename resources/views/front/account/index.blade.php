@@ -525,12 +525,7 @@
     </div>
 @endsection
 @section('scripts')
-    <script>
-        $(document).ready(function(){
-            let productRemove = document.querySelectorAll('.removeProduct')
 
-        })
-    </script>
     <script>
         $(document).ready(function () {
             addressModal = document.querySelectorAll('.addressModal');

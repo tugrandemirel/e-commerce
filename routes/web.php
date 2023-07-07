@@ -22,6 +22,7 @@ use App\Http\Controllers\Front\FAccountController;
 use App\Http\Controllers\Front\FAddressController;
 use App\Http\Controllers\Front\FApplicationFormController;
 use App\Http\Controllers\Front\FSellerController;
+use App\Http\Controllers\Front\FCheckoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,7 +64,13 @@ Route::prefix('/')->as('front.')->group(function (){
         Route::prefix('sepetim')->as('cart.')->group(function (){
             Route::get('/', [FCartController::class, 'index'])->name('index');
             Route::post('/store', [FCartController::class, 'store'])->name('store');
-            Route::post('/destroy/', [FCartController::class, 'destroy'])->name('destroy');
+//            Route::post('/destroy/', [FCartController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::prefix('ödeme')->as('checkout.')->group(function (){
+           Route::get('/', [FCheckoutController::class, 'index'])->name('index');
+           Route::post('/store', [FCheckoutController::class, 'store'])->name('store');
+           Route::get('/bildirim/', [FCheckoutController::class, 'show'])->name('show');
         });
     });
 

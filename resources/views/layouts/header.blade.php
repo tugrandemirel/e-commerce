@@ -250,7 +250,7 @@
                                     @endphp
                                 @endforeach
                             <div class="block-cart action">
-                                <a class="icon-link icon-link-2" href="">
+                                <a class="icon-link icon-link-2" href="{{ route('front.cart.index') }}">
                                     <i class="flaticon-shopping-bag"></i>
                                     <span class="count count-2">{{ isset($_carts) ? count($_carts) :'0' }}</span>
                                     <span class="text">
@@ -299,7 +299,7 @@
                                             </li>
                                             <li>
                                                 <a href="{{ route('front.cart.index') }}" class="wc-cart mb-10">Sepet</a>
-                                                <a href="checkout.html" class="wc-checkout">Ödeme</a>
+                                                <a href="{{ route('front.checkout.index') }}" class="wc-checkout">Ödeme</a>
                                             </li>
                                         </ul>
                                     </div>

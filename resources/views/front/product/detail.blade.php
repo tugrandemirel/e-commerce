@@ -28,6 +28,7 @@
     </style>
 @endsection
 @section('content')
+    
 <!-- breadcrumb__area-start -->
 <section class="breadcrumb__area box-plr-75">
     <div class="container">

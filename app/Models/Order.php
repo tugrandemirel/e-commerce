@@ -11,6 +11,7 @@ class Order extends Model
 
     protected $fillable = [
         'user_id',
+        'seller_id',
         'address_id',
         'order_number',
         'product_id',
@@ -19,7 +20,14 @@ class Order extends Model
         'product_bid_price',
         'product_price',
         'product_total',
+        'status',
+        'paid_at',
+        'cancelled_at',
+        'shipped_at',
+        'delivered_at',
+        'returned_at',
     ];
+
 
     public function user()
     {

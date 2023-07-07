@@ -16,6 +16,6 @@ class FCartController extends Controller
                         ->with(['product'])
                         ->get();
         return view('front.cart.index', compact('carts'));
-
     }
+
 }
