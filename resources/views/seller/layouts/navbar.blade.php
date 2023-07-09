@@ -1,88 +1,6 @@
 <!-- Topbar Start -->
 <div class="navbar-custom">
     <ul class="list-unstyled topnav-menu float-end mb-0">
-
-        <li class="d-none d-lg-block">
-            <form class="app-search">
-                <div class="app-search-box">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="top-search">
-                        <button class="btn input-group-text" type="submit">
-                            <i class="fe-search"></i>
-                        </button>
-                    </div>
-                    <div class="dropdown-menu dropdown-lg" id="search-dropdown">
-                        <!-- item-->
-                        <div class="dropdown-header noti-title">
-                            <h5 class="text-overflow mb-2">Found 22 results</h5>
-                        </div>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-home me-1"></i>
-                            <span>Analytics Report</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-aperture me-1"></i>
-                            <span>How can I help you?</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-settings me-1"></i>
-                            <span>User profile settings</span>
-                        </a>
-
-                        <!-- item-->
-                        <div class="dropdown-header noti-title">
-                            <h6 class="text-overflow mb-2 text-uppercase">Users</h6>
-                        </div>
-
-                        <div class="notification-list">
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="d-flex align-items-start">
-                                    <img class="d-flex me-2 rounded-circle" src="{{ asset('assets/admin/images/users/user-1.jpg') }}"
-                                         alt="Generic placeholder image" height="32">
-                                    <div class="w-100">
-                                        <h5 class="m-0 font-14">Erwin E. Brown</h5>
-                                        <span class="font-12 mb-0">UI Designer</span>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="d-flex align-items-start">
-                                    <img class="d-flex me-2 rounded-circle" src="assets/admin/images/users/user-5.jpg"
-                                         alt="Generic placeholder image" height="32">
-                                    <div class="w-100">
-                                        <h5 class="m-0 font-14">Jacob Deo</h5>
-                                        <span class="font-12 mb-0">Developer</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </form>
-        </li>
-
-        <li class="dropdown d-inline-block d-lg-none">
-            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#"
-               role="button" aria-haspopup="false" aria-expanded="false">
-                <i class="fe-search noti-icon"></i>
-            </a>
-            <div class="dropdown-menu dropdown-lg dropdown-menu-end p-0">
-                <form class="p-3">
-                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                </form>
-            </div>
-        </li>
-
         <li class="dropdown notification-list topbar-dropdown">
             <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#"
                role="button" aria-haspopup="false" aria-expanded="false">
@@ -96,128 +14,74 @@
                     <h5 class="m-0">
                                         <span class="float-end">
                                             <a href="" class="text-dark">
-                                                <small>Clear All</small>
+                                                <small>Tümünü Temizle</small>
                                             </a>
-                                        </span>Notification
+                                        </span>Bildirimler
                     </h5>
                 </div>
 
                 <div class="noti-scroll" data-simplebar>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                    @foreach($_unreadNotifications as $_unreadNotification)
+                    <a href="javascript:void(0);" class="dropdown-item notify-item @if($loop->first) active @endif">
                         <div class="notify-icon">
-                            <img src="assets/admin/images/users/user-1.jpg" class="img-fluid rounded-circle" alt=""/>
+                            <img src="{{ asset($_unreadNotification->data['image']) }}" class="img-fluid rounded-circle" alt=""/>
                         </div>
-                        <p class="notify-details">Cristina Pride</p>
+                        <p class="notify-details">{{ $_unreadNotification->data['title'] }}</p>
                         <p class="text-muted mb-0 user-msg">
-                            <small>Hi, How are you? What about our next meeting</small>
+                            <small>{{ $_unreadNotification->data['message'] }}</small>
                         </p>
                     </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon bg-primary">
-                            <i class="mdi mdi-comment-account-outline"></i>
-                        </div>
-                        <p class="notify-details">Caleb Flakelar commented on Admin
-                            <small class="text-muted">1 min ago</small>
-                        </p>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon">
-                            <img src="assets/admin/images/users/user-4.jpg" class="img-fluid rounded-circle" alt=""/>
-                        </div>
-                        <p class="notify-details">Karen Robinson</p>
-                        <p class="text-muted mb-0 user-msg">
-                            <small>Wow ! this admin looks good and awesome design</small>
-                        </p>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon bg-warning">
-                            <i class="mdi mdi-account-plus"></i>
-                        </div>
-                        <p class="notify-details">New user registered.
-                            <small class="text-muted">5 hours ago</small>
-                        </p>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon bg-info">
-                            <i class="mdi mdi-comment-account-outline"></i>
-                        </div>
-                        <p class="notify-details">Caleb Flakelar commented on Admin
-                            <small class="text-muted">4 days ago</small>
-                        </p>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon bg-secondary">
-                            <i class="mdi mdi-heart"></i>
-                        </div>
-                        <p class="notify-details">Carlos Crouch liked
-                            <b>Admin</b>
-                            <small class="text-muted">13 days ago</small>
-                        </p>
-                    </a>
+                    @endforeach
                 </div>
 
                 <!-- All-->
                 <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                    View all
+                    Tümünü Görüntüle
                     <i class="fe-arrow-right"></i>
                 </a>
 
             </div>
         </li>
-
         <li class="dropdown notification-list topbar-dropdown">
             <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown"
                href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <img src="assets/admin/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
+
                 <span class="pro-user-name ms-1">
-                                    Nowak <i class="mdi mdi-chevron-down"></i>
+                                    {{$_seller->name}} <i class="mdi mdi-chevron-down"></i>
                                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                 <!-- item-->
                 <div class="dropdown-header noti-title">
-                    <h6 class="text-overflow m-0">Welcome !</h6>
+                    <h6 class="text-overflow m-0">Hoşgeldiniz !  </h6>
+                    <span class="text-overflow m-0">{{ $_seller->user->name }} </span>
                 </div>
 
                 <!-- item-->
                 <a href="contacts-profile.html" class="dropdown-item notify-item">
                     <i class="fe-user"></i>
-                    <span>My Account</span>
+                    <span>Hesabım</span>
                 </a>
 
                 <!-- item-->
                 <a href="auth-lock-screen.html" class="dropdown-item notify-item">
                     <i class="fe-lock"></i>
-                    <span>Lock Screen</span>
+                    <span>Ekranı Kilitle</span>
                 </a>
 
                 <div class="dropdown-divider"></div>
 
                 <!-- item-->
-                <a href="auth-logout.html" class="dropdown-item notify-item">
+                <a onclick="document.getElementById('logoutForm').submit();" class="dropdown-item notify-item">
                     <i class="fe-log-out"></i>
-                    <span>Logout</span>
+                    <span>Çıkış Yap</span>
                 </a>
-
+                <form id="logoutForm" action="{{ route('logout') }}" method="post">
+                    @csrf
+                </form>
             </div>
-        </li>
-
-        <li class="dropdown notification-list">
-            <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
-                <i class="fe-settings noti-icon"></i>
-            </a>
         </li>
 
     </ul>

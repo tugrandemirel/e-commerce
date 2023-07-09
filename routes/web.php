@@ -144,7 +144,7 @@ Route::prefix('admin')->as('admin.')->middleware(['auth', 'role:Admin'])->group(
     });
 });
 
-Route::prefix('seller')->as('seller.')->middleware(['auth', 'role:Seller'])->group(function (){
+Route::prefix('seller')->as('seller.')->middleware(['auth', 'role:Seller', 'seller_view_share'])->group(function (){
    Route::get('/', [SellerController::class, 'index'])->name('index');
 
    Route::prefix('product')->as('product.')->group(function (){

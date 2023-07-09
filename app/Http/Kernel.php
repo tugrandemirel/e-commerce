@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\SellerViewShareMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -68,5 +69,6 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+        'seller_view_share' => SellerViewShareMiddleware::class,
     ];
 }
