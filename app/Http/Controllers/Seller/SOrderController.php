@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Seller;
+use App\Notifications\Product\ProductApprovedNotification;
+use App\Notifications\Product\ProductDispprovedNotification;
 use Illuminate\Http\Request;
 
 class SOrderController extends Controller
@@ -58,14 +60,25 @@ class SOrderController extends Controller
                 },
                 'address' => function($query){
                     $query->with(['user']);
-                }
+                },
+                'seller'
             ]);
-            dd($order);
+            $order->seller->notify(new ProductDispprovedNotification($order));
             return redirect()->route('seller.order.purchase')->with('success', 'Ürün başarıyla reddedildi');
         }
         $order->update([
-            'status' => OrderEnum::SHIPPED
+            'status' => OrderEnum::APPROVED
         ]);
+        $order->load([
+            'product' => function($query){
+                $query->with(['category', 'brand']);
+            },
+            'address' => function($query){
+                $query->with(['user']);
+            },
+            'seller'
+        ]);
+        $order->seller->notify(new ProductApprovedNotification($order));
         return redirect()->route('seller.order.purchase')->with('success', 'Ürün başarıyla gönderildi');
     }
 }

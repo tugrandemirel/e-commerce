@@ -19,7 +19,8 @@ class SellerViewShareMiddleware
         if($this->getUser())
         {
             $seller = $this->getUser()->seller;
-            $unreadNotifications = $seller->unreadNotifications->take(5);
+            $unreadNotifications = $seller->unreadNotifications;
+
             view()->share('_seller', $seller);
             view()->share('_unreadNotifications', $unreadNotifications);
         }

@@ -51,15 +51,13 @@
                         </div>
                         <div class="clearfix"></div>
 
-
-
                         <div class="assign-team mt-3">
                             <h5>Ürün Resimleri</h5>
                             <div>
                                 @if ($order->product->hasMedia('images'))
                                     @foreach($order->product->getMedia('images') as $image)
 
-                                        <a target="_blank"> <img class="rounded-circle avatar-sm" alt="{{ $order->title }}" style="max-width: 64px; max-height: 64px;" src="{{ $image->getUrl() }}"> </a>
+                                        <a target="_blank" href="{{ $image->getUrl() }}"> <img class="rounded-circle avatar-sm" alt="{{ $order->title }}" style="max-width: 64px; max-height: 64px;" src="{{ $image->getUrl() }}"> </a>
 
                                     @endforeach
                                 @else

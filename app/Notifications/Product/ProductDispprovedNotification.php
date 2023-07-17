@@ -2,6 +2,7 @@
 
 namespace App\Notifications\Product;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -10,13 +11,14 @@ use Illuminate\Notifications\Notification;
 class ProductDispprovedNotification extends Notification
 {
     use Queueable;
+    public $order;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct(Order $order)
     {
-        //
+        $this->order = $order;
     }
 
     /**
@@ -26,7 +28,7 @@ class ProductDispprovedNotification extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -48,7 +50,15 @@ class ProductDispprovedNotification extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            //
+            'id' => $this->order->id,
+            'order_number' => $this->order->order_number,
+            'title' => $this->order->product_title,
+            'slug' => $this->order->slug,
+            'image' => $this->order->product->getFirstMedia('images')->getUrl(),
+            'bid_price' => $this->order->product_bid_price,
+            'price' => $this->order->product_price,
+            'total_price' => $this->order->product_total,
+            'message' => 'Ürün reddetme işlemi gerçekleştirilmiştir.'
         ];
     }
 }

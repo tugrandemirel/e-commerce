@@ -40,7 +40,7 @@ class FCheckoutController extends Controller
                 'product_slug' => $cart->product->slug,
                 'product_bid_price' => $cart->bid_price,
                 'product_price' => $cart->product->price,
-                'product_total' => $cart->product->price * $cart->bid_price,
+                'product_total' => $cart->product->price + $cart->bid_price,
                 'status' => OrderEnum::WAITING,
             ]);
             if ($order)
