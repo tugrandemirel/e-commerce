@@ -13,7 +13,7 @@ enum OrderEnum : int
     // urun teslim edildi
     case DELIVERED = 3;
 
-    // urun iptal edildi
+    // urun müşteri tarafından iptal edildi
     case CANCELLED = 4;
 
     // urun geri gönderildi
@@ -21,4 +21,7 @@ enum OrderEnum : int
 
     // urun musteri tarafından onaylandı
     case PAID = 6;
+
+    // urun satıcı tarafından red edildi
+    case REJECTED = 7;
 }

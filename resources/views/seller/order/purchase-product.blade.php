@@ -19,7 +19,7 @@
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">
                         <thead>
                         <tr>
-                            <th>Başlık</th>
+                            <th>#</th>
                             <th>Resim</th>
                             <th>Kategori</th>
                             <th>Marka</th>
@@ -35,39 +35,40 @@
 
 
                         <tbody>
-                        @if($products->products->count() > 0)
-                        @foreach($products->products as $product)
-                            @if(isset($product->cart) && $product->cart->count() > 0)
+                        @if($orders->count() > 0)
+                        @foreach($orders as $order)
+                            @if(isset($order) && $order->count() > 0)
                             <tr>
-                                    <td>{{ $product->title }}</td>
-                                    @if ($product->hasMedia('images'))
+                                    <td>{{ $order->id }}</td>
+                                    <td>{{ $order->title }}</td>
+                                    @if ($order->product->hasMedia('images'))
                                         <td>
-                                            <img src="{{ $product->getFirstMedia('images')->getUrl() }}" alt="{{ $product->title }}" width="80">
+                                            <img src="{{ $order->product->getFirstMedia('images')->getUrl() }}" alt="{{ $order->title }}" width="80">
                                         </td>
                                     @else
                                         <td>Resim Yok</td>
                                     @endif
-                                    <td>{{ $product->category->name }}</td>
-                                    <td>{{ $product->brand->name }}</td>
+                                    <td>{{ $order->product->category->name }}</td>
+                                    <td>{{ $order->product->brand->name }}</td>
                                     <td>
-                                            {{ $product->price }}<i style="margin-left: 1px;" class="fas fa-coins">
+                                            {{ $order->price }}<i style="margin-left: 1px;" class="fas fa-coins">
                                     </td>
                                     <td>
-                                            {{ $product->cart->bid_price }}<i style="margin-left: 1px;" class="fas fa-coins">
+                                            {{ $order->product_bid_price }}<i style="margin-left: 1px;" class="fas fa-coins">
                                     </td>
 
                                     <td>
                                         <span class="badge bg-soft-success text-success" data-toggle="tooltip" title="Oluşturma Tarihi">
-                                            {{ date('d-m-Y H:i:s', strtotime($product->created_at)) }}
+                                            {{ date('d-m-Y H:i:s', strtotime($order->created_at)) }}
                                         </span>
 
                                         <span class="badge bg-soft-info text-info" data-toggle="tooltip" title="Güncelleme Tarihi">
-                                            {{ date('d-m-Y H:i:s', strtotime($product->updated_at)) }}
+                                            {{ date('d-m-Y H:i:s', strtotime($order->updated_at)) }}
                                         </span>
                                     </td>
                                     <td>
-                                        <a href="{{ route('seller.product.purchaseDetail', ['product' => $product]) }}" target="_blank" class="btn btn-primary btn-sm waves-effect waves-light"><i class="mdi mdi-eye"></i></a>
-                                        <a href="{{ route('seller.product.edit', ['product' => $product, 'status' => 'resend']) }}" class="btn btn-danger btn-sm waves-effect waves-light"><i class="mdi mdi-close-circle"></i></a>
+                                        <a href="{{ route('seller.order.purchaseDetail', ['order' => $order]) }}" target="_blank" class="btn btn-primary btn-sm waves-effect waves-light"><i class="mdi mdi-eye"></i></a>
+                                        <a href="{{ route('seller.product.edit', ['product' => $order, 'status' => 'resend']) }}" class="btn btn-danger btn-sm waves-effect waves-light"><i class="mdi mdi-close-circle"></i></a>
                                     </td>
 
                             </tr>

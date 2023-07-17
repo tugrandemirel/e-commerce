@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Seller;
 
 use App\Enum\Cart\CartEnum;
+use App\Enum\Order\OrderEnum;
 use App\Enum\Product\ProductEnum;
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Seller;
 use Illuminate\Http\Request;
@@ -13,31 +15,57 @@ class SOrderController extends Controller
 {
     public function purchaseProduct()
     {
-        $products = Seller::where('user_id', auth()->user()->id)
-            ->with(['products' => function($query){
-                $query->where('approve', ProductEnum::APPROVAL_APPROVED)
-                    ->where('stock', ProductEnum::STOCK_ACTIVE)
-                    ->where('visibility', ProductEnum::VISIBILITY_ACTIVE)
-                    ->with(['cart' => function($query){
-                        $query->where('status', CartEnum::STATUS_APPROVED);
-                    }])
-                    ->orderBy('id', 'desc');
-            }])->first();
-//        dd($products->products[0]->cart);
-
-        return view('seller.order.purchase-product', compact('products'));
+        $orders = Order::where('seller_id', auth()->user()->seller->id)
+                        ->where('status', OrderEnum::WAITING)
+                        ->with([
+                            'product' => function($query){
+                                $query->with(['category', 'brand']);
+                            },
+                            'address'
+                        ])
+                        ->get();
+        return view('seller.order.purchase-product', compact('orders'));
     }
 
-    public function purchaseProductDetail(Product $product)
+    public function purchaseProductDetail(Order $order)
     {
-        $product = $product
-                    ->load(['cart' => function($query){
-                    $query->where('status', CartEnum::STATUS_APPROVED)
-                        ->with(['user' => function($query){
-                            $query->with(['address']);
-                        }]);
-                }, 'category', 'brand']);
+     /*   if ((int)$order->status == OrderEnum::WAITING)
+        {
+            return redirect()->route('seller.order.purchase')->with('error', 'Bu ürün için işlem yapamazsınız');
+        }*/
+        $order = $order
+                    ->load([
+                        'product' => function($query){
+                            $query->with(['category', 'brand']);
+                        },
+                        'address' => function($query){
+                            $query->with(['user']);
+                        }
+                    ]);
+        return view('seller.order.purchase-product-detail', compact('order'));
+    }
 
-        return view('seller.order.purchase-product-detail', compact('product'));
+    public function updateOrderStatus(Request $request, Order $order)
+    {
+        if ($request->filled('status'))
+        {
+            $order->update([
+                'status' => OrderEnum::REJECTED
+            ]);
+            $order->load([
+                'product' => function($query){
+                    $query->with(['category', 'brand']);
+                },
+                'address' => function($query){
+                    $query->with(['user']);
+                }
+            ]);
+            dd($order);
+            return redirect()->route('seller.order.purchase')->with('success', 'Ürün başarıyla reddedildi');
+        }
+        $order->update([
+            'status' => OrderEnum::SHIPPED
+        ]);
+        return redirect()->route('seller.order.purchase')->with('success', 'Ürün başarıyla gönderildi');
     }
 }

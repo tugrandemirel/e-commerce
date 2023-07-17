@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5af9e0a7-9bcf-4b78-b1c6-2690d042a4ea" name="Changes" comment="wip">
+      <change afterPath="$PROJECT_DIR$/app/Notifications/Product/ProductApprovedNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Notifications/Product/ProductDispprovedNotification.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/seller/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Enum/Order/OrderEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enum/Order/OrderEnum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Seller/SOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Seller/SOrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/seller/layouts/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/layouts/footer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/seller/layouts/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/layouts/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/seller/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/seller/order/purchase-product-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/order/purchase-product-detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/seller/order/purchase-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/order/purchase-product.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
@@ -177,13 +184,16 @@
     </include_path>
   </component>
   <component name="ProjectId" id="2PN3tPhUdGP4ykJBHeACgdwye9a" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -237,9 +247,6 @@
     <configuration name="phpunit.xml" type="PestRunConfigurationType">
       <option name="pestRunnerSettings">
         <PestRunner scope="ConfigurationFile" />
-      </option>
-      <option name="runnerSettings">
-        <PhpTestRunnerSettings scope="ConfigurationFile" />
       </option>
       <method v="2" />
     </configuration>
@@ -308,7 +315,10 @@
       <workItem from="1688511535866" duration="10000" />
       <workItem from="1688565545571" duration="12446000" />
       <workItem from="1688652568300" duration="1004000" />
-      <workItem from="1688900870195" duration="2116000" />
+      <workItem from="1688900870195" duration="17286000" />
+      <workItem from="1689274938638" duration="10000" />
+      <workItem from="1689288424955" duration="594000" />
+      <workItem from="1689529657648" duration="95000" />
     </task>
     <task id="LOCAL-00021" summary="wip">
       <created>1684975575615</created>
@@ -653,13 +663,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688095267609</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="initial" />
     <MESSAGE value="install role permission package" />
     <MESSAGE value="add column to users table" />

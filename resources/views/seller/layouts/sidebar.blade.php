@@ -7,33 +7,33 @@
         <!-- User box -->
         <div class="user-box text-center">
 
-            <img src="{{ asset('assets/admin/images/users/user-1.jpg') }}" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
+            <img src="{{ asset($_seller->image) }}" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
             <div class="dropdown">
-                <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown"  aria-expanded="false">Nowak Helme</a>
+                <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown"  aria-expanded="false">{{$_seller->name}}</a>
                 <div class="dropdown-menu user-pro-dropdown">
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <i class="fe-user me-1"></i>
-                        <span>My Account</span>
+                        <span>Hesabım</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <i class="fe-settings me-1"></i>
-                        <span>Settings</span>
+                        <span>Ayarlar</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <i class="fe-lock me-1"></i>
-                        <span>Lock Screen</span>
+                        <span>Ekranı Kilitle</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <i class="fe-log-out me-1"></i>
-                        <span>Logout</span>
+                        <span>Çıkış</span>
                     </a>
 
                 </div>
@@ -75,7 +75,7 @@
                             <a href="{{ route('seller.product.index') }}">Ürünler</a>
                         </li>
                         <li>
-                            <a href="{{ route('seller.product.purchase') }}">Satın Alınan Ürünler</a>
+                            <a href="{{ route('seller.order.purchase') }}">Satın Alınan Ürünler</a>
                         </li>
                         <li>
                             <a href="{{ route('seller.product.rejected') }}">Red Edilen Ürünler</a>

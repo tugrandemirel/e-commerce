@@ -156,7 +156,12 @@ Route::prefix('seller')->as('seller.')->middleware(['auth', 'role:Seller', 'sell
       Route::post('get-sub-categories/', [SProductController::class, 'getSubCategories'])->name('getSubCat');
       Route::post('store-media/', [SProductController::class, 'storeMedia'])->name('storeMedia');
       Route::get('rejected-product', [SProductController::class, 'rejectedProduct'])->name('rejected');
-      Route::get('purchase-product', [SOrderController::class, 'purchaseProduct'])->name('purchase');
-      Route::get('purchase-product-detail/{product}', [SOrderController::class, 'purchaseProductDetail'])->name('purchaseDetail');
+   });
+
+   Route::prefix('order')->as('order.')->group(function (){
+
+       Route::get('purchase-product', [SOrderController::class, 'purchaseProduct'])->name('purchase');
+       Route::get('purchase-product-detail/{order}', [SOrderController::class, 'purchaseProductDetail'])->name('purchaseDetail');
+       Route::post('purchase-product-detail/{order}', [SOrderController::class, 'updateOrderStatus'])->name('updateOrderStatus');
    });
 });
