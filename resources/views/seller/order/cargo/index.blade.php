@@ -11,6 +11,28 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="mt-3 mt-md-0">
+                                <a href="{{ route('seller.order.cargo.index', ['status' => \App\Enum\Order\OrderEnum::DELIVERED]) }}" class="btn btn-success waves-effect waves-light" >Teslim Edilen Ürünler</a>
+                            </div>
+                        </div><!-- end col-->
+                        <div class="col-md-3">
+                            <div class="mt-3 mt-md-0">
+                                <a href="{{ route('seller.order.cargo.index', ['status' => \App\Enum\Order\OrderEnum::CANCELLED]) }}" class="btn btn-success waves-effect waves-light" >Müşteri Tarafından İptal Edilen Ürünler</a>
+                            </div>
+                        </div><!-- end col-->
+                        <div class="col-md-3">
+                            <div class="mt-3 mt-md-0">
+                                <a href="{{ route('seller.order.cargo.index', ['status' => \App\Enum\Order\OrderEnum::RETURNED]) }}" class="btn btn-success waves-effect waves-light" >Geri Gelen Ürünler</a>
+                            </div>
+                        </div><!-- end col-->
+                        <div class="col-md-3">
+                            <div class="mt-3 mt-md-0">
+                                <a href="{{ route('seller.order.cargo.index', ['status' => \App\Enum\Order\OrderEnum::SHIPPED]) }}" class="btn btn-success waves-effect waves-light" >Yola Çıkan Ürünler</a>
+                            </div>
+                        </div><!-- end col-->
+                    </div> <!-- end row -->
                     <h4 class="mt-2 header-title">Kargo Bekleyen Ürünler</h4>
                     <p class="text-muted font-14 mb-3">
                         Onaylanmış <b>Ürünler</b> burada listelenmektedir. Buradan ürünlerinizi müşteriye göndermek için kargo bilgilerini girebilirsiniz.

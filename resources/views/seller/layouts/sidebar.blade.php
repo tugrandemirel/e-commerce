@@ -64,12 +64,12 @@
 
             <ul id="side-menu">
                 <li>
-                    <a href="#email" data-bs-toggle="collapse">
+                    <a href="#product" data-bs-toggle="collapse">
                         <i class="mdi mdi-hand-left"></i>
                         <span> Ürün </span>
                         <span class="menu-arrow"></span>
                     </a>
-                <div class="collapse" id="email">
+                <div class="collapse" id="product">
                     <ul class="nav-second-level">
                         <li>
                             <a href="{{ route('seller.product.index') }}">Ürünler</a>
@@ -78,7 +78,7 @@
                             <a href="{{ route('seller.order.purchase') }}">Satın Alınan Ürünler</a>
                         </li>
                         <li>
-                            <a href="{{ route('seller.order.cargo.index') }}">Kargo Bekleyen Ürünler</a>
+                            <a href="{{ route('seller.order.cargo.index') }}">Kargo</a>
                         </li>
                         <li>
                             <a href="{{ route('seller.product.rejected') }}">Red Edilen Ürünler</a>
