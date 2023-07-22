@@ -19,6 +19,7 @@ class SCargoController extends Controller
                 },
                 'address'
             ])
+            ->orderBy('updated_at', 'desc')
             ->get();
         return view('seller.order.cargo.index', compact('orders'));
     }
