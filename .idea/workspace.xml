@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5af9e0a7-9bcf-4b78-b1c6-2690d042a4ea" name="Changes" comment="wip">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Seller/SCargoController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/seller/order/cargo/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Enum/Order/OrderEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enum/Order/OrderEnum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FCheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FCheckoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Seller/SOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Seller/SOrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/SellerViewShareMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/SellerViewShareMiddleware.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Notifications/Product/ProductApprovedNotification.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/Product/ProductApprovedNotification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Notifications/Product/ProductDispprovedNotification.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/Product/ProductDispprovedNotification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/seller/order/purchase-product-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/order/purchase-product-detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/seller/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,40 +183,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/laragon/www/e-commerce/resources/views/front/orders&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/laragon/www/e-commerce/resources/views/seller/product/cargo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\e-commerce\resources\views\seller\product\cargo" />
       <recent name="C:\laragon\www\e-commerce\resources\views\front\orders" />
       <recent name="C:\laragon\www\e-commerce\resources\views\front\checkout" />
       <recent name="C:\laragon\www\e-commerce\resources\views\seller\order" />
       <recent name="C:\laragon\www\e-commerce\resources\views\front" />
-      <recent name="C:\laragon\www\e-commerce\resources\views\front\application" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\e-commerce\resources\views\seller\order" />
       <recent name="C:\laragon\www\e-commerce\public\assets" />
       <recent name="C:\laragon\www\e-commerce\resources\views\front\product" />
       <recent name="C:\laragon\www\e-commerce\public\assets\user" />
       <recent name="C:\laragon\www\e-commerce\public\assets\admin" />
-      <recent name="C:\laragon\www\e-commerce" />
     </key>
   </component>
   <component name="RunManager" selected="Makefile Target.test">
@@ -318,6 +313,9 @@
       <workItem from="1689529657648" duration="95000" />
       <workItem from="1689585811812" duration="1083000" />
       <workItem from="1689592284978" duration="8487000" />
+      <workItem from="1689621479066" duration="1600000" />
+      <workItem from="1689845487185" duration="639000" />
+      <workItem from="1690027379027" duration="881000" />
     </task>
     <task id="LOCAL-00021" summary="wip">
       <created>1684975575615</created>
@@ -662,7 +660,7 @@
       <option name="project" value="LOCAL" />
       <updated>1688095267609</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

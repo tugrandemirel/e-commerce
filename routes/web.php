@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Seller\SellerController;
 use App\Http\Controllers\Seller\SProductController;
 use App\Http\Controllers\Seller\SOrderController;
+use App\Http\Controllers\Seller\SCargoController;
 use App\Http\Controllers\Front\FIndexController;
 use App\Http\Controllers\Front\FProductController;
 use App\Http\Controllers\Front\FBidController;
@@ -163,5 +164,9 @@ Route::prefix('seller')->as('seller.')->middleware(['auth', 'role:Seller', 'sell
        Route::get('purchase-product', [SOrderController::class, 'purchaseProduct'])->name('purchase');
        Route::get('purchase-product-detail/{order}', [SOrderController::class, 'purchaseProductDetail'])->name('purchaseDetail');
        Route::post('purchase-product-detail/{order}', [SOrderController::class, 'updateOrderStatus'])->name('updateOrderStatus');
+
+       Route::prefix('cargo')->as('cargo.')->group(function (){
+          Route::get('/', [SCargoController::class, 'index'])->name('index');
+       });
    });
 });

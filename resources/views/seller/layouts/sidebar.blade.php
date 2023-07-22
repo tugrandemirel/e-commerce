@@ -78,6 +78,9 @@
                             <a href="{{ route('seller.order.purchase') }}">Satın Alınan Ürünler</a>
                         </li>
                         <li>
+                            <a href="{{ route('seller.order.cargo.index') }}">Kargo Bekleyen Ürünler</a>
+                        </li>
+                        <li>
                             <a href="{{ route('seller.product.rejected') }}">Red Edilen Ürünler</a>
                         </li>
                     </ul>
