@@ -87,7 +87,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="category">İL SEÇİNİZ <span>*</span></label><br>
-                        <select class=" @error('category') is-invalid @enderror" id="getCity">
+                        <select class="@error('city') is-invalid @enderror" id="getCity">
                             <option value="">Lütfen İlinizi Seçiniz</option>
                             @foreach($cities as $city)
                                 <option value="{{ $city->id }}">{{ $city->name }}</option>
