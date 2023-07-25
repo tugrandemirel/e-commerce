@@ -10,7 +10,7 @@ class FApplicationFormController extends Controller
 {
     public function sellerApplicationForm()
     {
-        $cities = City::all();
+        $cities = City::orderBy('name', 'asc')->get();
         return view('front.application.seller', compact('cities'));
     }
 

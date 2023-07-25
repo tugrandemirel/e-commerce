@@ -2,32 +2,32 @@
 @yield('title', 'Satıcı Başvurusu'.' | '.config('app.name'))
 @section('styles')
 @endsection
-    @section('content')
-    <div class="page-banner-area page-banner-height-2" data-background="assets/img/banner/page-banner-4.jpg" style="background-image: url({{ asset('assets/user/img/banner/page-banner-4.jpg') }});">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-banner-content text-center">
-                        <h4 class="breadcrumb-title">Satıcı Başvurusu</h4>
-                        <div class="breadcrumb-two">
-                            <nav>
-                                <nav class="breadcrumb-trail breadcrumbs">
-                                    <ul class="breadcrumb-menu">
-                                        <li class="breadcrumb-trail">
-                                            <a href="{{ route('index') }}"><span>Anasayfa</span></a>
-                                        </li>
-                                        <li class="trail-item">
-                                            <span>Satıcı Başvurusu</span>
-                                        </li>
-                                    </ul>
-                                </nav>
+@section('content')
+<div class="page-banner-area page-banner-height-2" data-background="assets/img/banner/page-banner-4.jpg" style="background-image: url({{ asset('assets/user/img/banner/page-banner-4.jpg') }});">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-banner-content text-center">
+                    <h4 class="breadcrumb-title">Satıcı Başvurusu</h4>
+                    <div class="breadcrumb-two">
+                        <nav>
+                            <nav class="breadcrumb-trail breadcrumbs">
+                                <ul class="breadcrumb-menu">
+                                    <li class="breadcrumb-trail">
+                                        <a href="{{ route('index') }}"><span>Anasayfa</span></a>
+                                    </li>
+                                    <li class="trail-item">
+                                        <span>Satıcı Başvurusu</span>
+                                    </li>
+                                </ul>
                             </nav>
-                        </div>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 <div class="container">
     <div class="row justify-content-center my-5">
         <div class="col-md-6">
