@@ -11,28 +11,14 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="mt-3 mt-md-0">
-                                <a href="{{ route('seller.order.cargo.index', ['status' => \App\Enum\Order\OrderEnum::DELIVERED]) }}" class="btn btn-success waves-effect waves-light" >Teslim Edilen Ürünler</a>
-                            </div>
-                        </div><!-- end col-->
-                        <div class="col-md-3">
-                            <div class="mt-3 mt-md-0">
-                                <a href="{{ route('seller.order.cargo.index', ['status' => \App\Enum\Order\OrderEnum::CANCELLED]) }}" class="btn btn-success waves-effect waves-light" >Müşteri Tarafından İptal Edilen Ürünler</a>
-                            </div>
-                        </div><!-- end col-->
-                        <div class="col-md-3">
-                            <div class="mt-3 mt-md-0">
-                                <a href="{{ route('seller.order.cargo.index', ['status' => \App\Enum\Order\OrderEnum::RETURNED]) }}" class="btn btn-success waves-effect waves-light" >Geri Gelen Ürünler</a>
-                            </div>
-                        </div><!-- end col-->
-                        <div class="col-md-3">
-                            <div class="mt-3 mt-md-0">
-                                <a href="{{ route('seller.order.cargo.index', ['status' => \App\Enum\Order\OrderEnum::SHIPPED]) }}" class="btn btn-success waves-effect waves-light" >Yola Çıkan Ürünler</a>
-                            </div>
-                        </div><!-- end col-->
-                    </div> <!-- end row -->
+                    <div class="button-list">
+                        <a href="{{ route('seller.order.cargo.index') }}" class="btn btn-success rounded-pill waves-effect waves-light">Bütün Ürünler</a>
+                        <a href="{{ route('seller.order.cargo.index', ['status' => \App\Enum\Order\OrderEnum::SHIPPED]) }}" class="btn btn-info rounded-pill waves-effect waves-light">Yola Çıkan Ürünler</a>
+                        <a href="{{ route('seller.order.cargo.index', ['status' => \App\Enum\Order\OrderEnum::RETURNED]) }}" class="btn btn-warning rounded-pill waves-effect waves-light">Geri Gelen Ürünler</a>
+                        <a href="{{ route('seller.order.cargo.index', ['status' => \App\Enum\Order\OrderEnum::DELIVERED]) }}" class="btn btn-danger rounded-pill waves-effect waves-light">Müşteri Tarafından İptal Edilen Ürünler</a>
+
+
+                    </div>
                     <h4 class="mt-2 header-title">Kargo Bekleyen Ürünler</h4>
                     <p class="text-muted font-14 mb-3">
                         Onaylanmış <b>Ürünler</b> burada listelenmektedir. Buradan ürünlerinizi müşteriye göndermek için kargo bilgilerini girebilirsiniz.
@@ -43,10 +29,12 @@
                         <tr>
                             <th>#</th>
                             <th>Resim</th>
+                            <th>Ürün Adı</th>
                             <th>Kategori</th>
                             <th>Marka</th>
                             <th>Fiyat</th>
-                            <th>Teklif Verilen Fiyat</th>
+                            <th>Teklif Fiyatı</th>
+                            <th>Durum</th>
                             <th>
                                 İşlem Tarihi
                                 <i class="fa fa-question" data-toggle="tooltip" title="İşlem tarihleri üzerine gelerek hakknda bilgi alabilirsiniz."></i>
@@ -62,7 +50,6 @@
                                 @if(isset($order) && $order->count() > 0)
                                     <tr>
                                         <td>{{ $order->id }}</td>
-                                        <td>{{ $order->title }}</td>
                                         @if ($order->product->hasMedia('images'))
                                             <td>
                                                 <img src="{{ $order->product->getFirstMedia('images')->getUrl() }}" alt="{{ $order->title }}" width="80">
@@ -70,27 +57,50 @@
                                         @else
                                             <td>Resim Yok</td>
                                         @endif
+                                        <td>{{ $order->product_title }}</td>
                                         <td>{{ $order->product->category->name }}</td>
                                         <td>{{ $order->product->brand->name }}</td>
                                         <td>
-                                            {{ $order->price }}<i style="margin-left: 1px;" class="fas fa-coins">
+                                            {{ $order->product_price }}<i style="margin-left: 1px;" class="fas fa-coins">
                                         </td>
                                         <td>
                                             {{ $order->product_bid_price }}<i style="margin-left: 1px;" class="fas fa-coins">
                                         </td>
-
                                         <td>
-                                        <span class="badge bg-soft-success text-success" data-toggle="tooltip" title="Oluşturma Tarihi">
-                                            {{ date('d-m-Y H:i:s', strtotime($order->created_at)) }}
-                                        </span>
-
+                                                @switch ($order->status)
+                                                    @case (\App\Enum\Order\OrderEnum::APPROVED->value)
+                                                        <span class="badge bg-soft-success text-success">Yola Çıkmayı Bekliyor</span>
+                                                        @break
+                                                    @case (\App\Enum\Order\OrderEnum::REJECTED->value)
+                                                        <span class="badge bg-soft-danger text-danger">Reddedildi</span>
+                                                        @break
+                                                    @case (\App\Enum\Order\OrderEnum::CANCELLED->value)
+                                                        <span class="badge bg-soft-danger text-danger">Müşteri Tarafından İptal Edildi</span>
+                                                        @break
+                                                    @case (\App\Enum\Order\OrderEnum::SHIPPED->value)
+                                                        <span class="badge bg-soft-info text-info">Yola Çıktı</span>
+                                                        @break
+                                                    @case (\App\Enum\Order\OrderEnum::DELIVERED->value)
+                                                        <span class="badge bg-soft-success text-success">Teslim Edildi</span>
+                                                        @break
+                                                    @case (\App\Enum\Order\OrderEnum::RETURNED->value)
+                                                        <span class="badge bg-soft-danger text-danger">Geri Geldi</span>
+                                                        @break
+                                                    @default
+                                                        <span class="badge bg-soft-warning text-warning">Bilinmeyen Durum</span>
+                                                        @break
+                                                @endswitch
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-soft-success text-success" data-toggle="tooltip" title="Oluşturma Tarihi">
+                                                {{ date('d-m-Y H:i:s', strtotime($order->created_at)) }}
+                                            </span>
                                             <span class="badge bg-soft-info text-info" data-toggle="tooltip" title="Güncelleme Tarihi">
-                                            {{ date('d-m-Y H:i:s', strtotime($order->updated_at)) }}
-                                        </span>
+                                                {{ date('d-m-Y H:i:s', strtotime($order->updated_at)) }}
+                                            </span>
                                         </td>
                                         <td>
                                             <a href="{{ route('seller.order.purchaseDetail', ['order' => $order]) }}" target="_blank" class="btn btn-primary btn-sm waves-effect waves-light"><i class="mdi mdi-eye"></i></a>
-                                            <a href="{{ route('seller.product.edit', ['product' => $order, 'status' => 'resend']) }}" class="btn btn-danger btn-sm waves-effect waves-light"><i class="mdi mdi-close-circle"></i></a>
                                         </td>
 
                                     </tr>
