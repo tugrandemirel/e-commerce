@@ -100,7 +100,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="category">İL SEÇİNİZ <span>*</span></label><br>
-                        <select class=" @error('category') is-invalid @enderror" id="exampleFormControlSelect1">
+                        <select class=" @error('category') is-invalid @enderror" id="getCity">
                             <option value="">Lütfen İlinizi Seçiniz</option>
                             @foreach($cities as $city)
                                 <option value="{{ $city->id }}">{{ $city->name }}</option>
@@ -109,12 +109,10 @@
                     </div>
                     <div class="col-md-6">
 
-                        <label for="category">İLÇE SEÇİNİZ <span>*</span></label> <br>
-                        <select class=" @error('category') is-invalid @enderror" id="exampleFormControlSelect1">
+                        <label for="getCity">İLÇE SEÇİNİZ <span>*</span></label> <br>
+                        <select id="getDistrict" id="getDistrict">
                             <option value="">Lütfen İlinizi Seçiniz</option>
-                            @foreach($cities as $city)
-                                <option value="{{ $city->id }}">{{ $city->name }}</option>
-                            @endforeach
+
                         </select>
                     </div>
                 </div>
@@ -125,7 +123,7 @@
             <div class="login-action mb-10 fix">
                     <span class="log-rem f-left">
                        <input id="remember" type="checkbox" required name="agreement" class=" @error('agreement') is-invalid @enderror">
-                       <label for="remember"><a style="color: #263c97!important; text-decoration:underline;  " href="{{ route('front.page.index', ['slug'=> 'adyinlatma-metni']) }}">Aydınlatma metnini</a> okudum anladım.</label>
+                       <label for="remember"><a style="color: #263c97!important; text-decoration:underline;  " target="_blank" href="{{ route('front.page.index', ['slug'=> 'adyinlatma-metni']) }}">Aydınlatma metnini</a> okudum anladım.</label>
                     </span>
             </div>
         </div>
@@ -138,7 +136,27 @@
 </div>
 @endsection
 @section('scripts')
-
+    <script>
+        $(document).ready(function(){
+            $('#getCity').on('change', function(){
+                var city_id = $(this).val();
+                var url = "{{ route('front.getDistrict', ['id'=> 'city_id']) }}"
+                if(city_id){
+                    $.ajax({
+                        url: url.replace('city_id', city_id),
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(data){
+                            $('#getDistrict').empty();
+                            $('#getDistrict').append(data.data);
+                        }
+                    });
+                }else{
+                    $('#getDistrict').empty();
+                }
+            });
+        })
+    </script>
     <script>
         $(document).ready(function(){
             $('.phone').inputmask('(999)-999-9999');

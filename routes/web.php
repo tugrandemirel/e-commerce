@@ -24,6 +24,7 @@ use App\Http\Controllers\Front\FAddressController;
 use App\Http\Controllers\Front\FApplicationFormController;
 use App\Http\Controllers\Front\FSellerController;
 use App\Http\Controllers\Front\FCheckoutController;
+use App\Http\Controllers\LocationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -89,6 +90,8 @@ Route::prefix('/')->as('front.')->group(function (){
     Route::prefix('satici')->as('seller.')->group(function (){
         Route::get('/{slug}', [FSellerController::class, 'index'])->name('index');
     });
+
+    Route::get('getDistrict', [LocationController::class, 'getDistrict'])->name('getDistrict');
 });
 
 
