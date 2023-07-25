@@ -35,40 +35,89 @@
     <div class="row justify-content-center my-5">
         <div class="col-md-6">
             <div class="basic-login mb-50">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="name">ADINIZ  <span>*</span></label>
+                        <input id="name" type="text" class=" @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
 
-                    <label for="name">ADINIZ  <span>*</span></label>
-                    <input id="name" type="text" class=" @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <label for="surname">SOYADINIZ<span>*</span></label>
+                        <input id="surname" type="text" class=" @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
 
-                    <label for="surname">SOYADINIZ<span>*</span></label>
-                    <input id="surname" type="text" class=" @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
-                    <label for="email">EMAİL ADRESİNİZ  <span>*</span></label>
-                    <input id="email" type="text" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                    <label for="company">Şirket Türü <span>*</span></label>
-                    <input id="company" type="text" class=" @error('company') is-invalid @enderror" name="company" value="{{ old('company') }}" required autocomplete="company" autofocus>
-                    <label for="city">İLİNİZİ YAZINIZ <span>*</span></label>
-                    <input id="city" type="text" class=" @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="email">EMAİL ADRESİNİZ  <span>*</span></label>
+                        <input id="email" type="text" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <label for="company">ŞİRKET TÜRÜ <span>*</span></label>
+                        <input id="company" type="text" class=" @error('company') is-invalid @enderror" name="company" value="{{ old('company') }}" required autocomplete="company" autofocus>
+
+                    </div>
+                </div>
+
+
+
 
             </div>
         </div>
         <div class="col-md-6">
             <div class="basic-login mb-50">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="phone">CEP TELEFONUNUZ  <span>*</span></label>
+                        <input id="phone" type="text" class="phone @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
 
+                        <label for="category">SATILACAK ÜRÜN KATEGORİSİ SEÇİNİZ <span>*</span></label><br>
+                        <select class=" @error('category') is-invalid @enderror" id="exampleFormControlSelect1">
+                            <option value="">Seçim Yapınız</option>
+                            @foreach($_categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="identity_number" class="mt-3">TCK/VKN <span>*</span></label>
+                        <input id="identity_number" type="text" class=" @error('identity_number') is-invalid @enderror" name="identity_number" value="{{ old('identity_number') }}" required autocomplete="identity_number" autofocus>
 
-                    <label for="phone">CEP TELEFONUNUZ  <span>*</span></label>
-                    <input id="phone" type="text" class="phone @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="category">İL SEÇİNİZ <span>*</span></label><br>
+                        <select class=" @error('category') is-invalid @enderror" id="exampleFormControlSelect1">
+                            <option value="">Lütfen İlinizi Seçiniz</option>
+                            @foreach($cities as $city)
+                                <option value="{{ $city->id }}">{{ $city->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-6">
 
-                <label for="category">Satılacak Ürün Kategorisi Seçiniz <span>*</span></label><br>
-                    <select class=" @error('category') is-invalid @enderror" id="exampleFormControlSelect1">
-                        <option value="">Seçim Yapınız</option>
-                        @foreach($_categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                <br> <br>
-                <label for="identity_number" class="mt-3">TCK/VKN <span>*</span></label>
-                <input id="identity_number" type="text" class=" @error('identity_number') is-invalid @enderror" name="identity_number" value="{{ old('identity_number') }}" required autocomplete="identity_number" autofocus>
-                <label for="county">İLÇENİZİ YAZINIZ YAZINIZ <span>*</span></label>
-                <input id="county" type="text" class=" @error('county') is-invalid @enderror" name="county" value="{{ old('county') }}" required autocomplete="county" autofocus>
+                        <label for="category">İLÇE SEÇİNİZ <span>*</span></label> <br>
+                        <select class=" @error('category') is-invalid @enderror" id="exampleFormControlSelect1">
+                            <option value="">Lütfen İlinizi Seçiniz</option>
+                            @foreach($cities as $city)
+                                <option value="{{ $city->id }}">{{ $city->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
 
             </div>
         </div>
