@@ -13,14 +13,9 @@ class LocationController extends Controller
         $districts = County::where('city_id', $request->id)->get();
         if($districts->count() > 0)
         {
-           $arr = [];
-              foreach($districts as $district)
-              {
-                  $arr[] = '"<option value="'.$district->id.'">'.$district->name.'</option>';
-              }
             return response()->json([
                 'status' => 'success',
-                'data' => $arr
+                'data' => $districts
             ], 200);
         }
         return response()->json([
