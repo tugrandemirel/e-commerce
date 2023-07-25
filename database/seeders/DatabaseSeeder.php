@@ -18,5 +18,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call(\Epigra\TrGeoZones\Database\Seeders\GeozoneCountriesTableSeeder::class);
+        $this->call(\Epigra\TrGeoZones\Database\Seeders\GeozoneCitiesTableSeeder::class);
+        $this->call(\Epigra\TrGeoZones\Database\Seeders\GeozoneCountiesTableSeeder::class);
+        $this->call(\Epigra\TrGeoZones\Database\Seeders\GeozoneDistrictsTableSeeder::class);
+        $this->call(\Epigra\TrGeoZones\Database\Seeders\GeozoneNeighbourhoodsTableSeeder::class);
     }
 }

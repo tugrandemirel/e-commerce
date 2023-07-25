@@ -5,11 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5af9e0a7-9bcf-4b78-b1c6-2690d042a4ea" name="Changes" comment="wip">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Seller/SCargoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/seller/order/cargo/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ApplicationSeller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/City.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Country.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/County.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/District.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Neighbourhood.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/e-commerce.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/e-commerce.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/seller/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_reset_tokens_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_reset_tokens_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_05_05_222359_create_permission_tables.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_05_05_222359_create_permission_tables.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_05_06_003809_create_sellers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_05_06_003809_create_sellers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_05_06_230805_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_05_06_230805_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_05_08_115836_create_brands_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_05_08_115836_create_brands_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_05_17_213750_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_05_17_213750_create_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_05_17_231050_create_media_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_05_17_231050_create_media_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_05_18_010343_add_status_column_to_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_05_18_010343_add_status_column_to_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_05_24_134746_add_approve_and_feedback_column_to_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_05_24_134746_add_approve_and_feedback_column_to_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_05_24_231315_create_bids_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_05_24_231315_create_bids_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_05_27_123037_create_reviews_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_05_27_123037_create_reviews_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_05_28_223046_create_wishlists_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_05_28_223046_create_wishlists_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_05_29_133851_create_pages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_05_29_133851_create_pages_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_02_183910_create_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_02_183910_create_addresses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_08_200116_create_references_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_08_200116_create_references_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_08_200845_add_reference_column_to_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_08_200845_add_reference_column_to_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_08_201832_create_wallets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_08_201832_create_wallets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_17_202332_add_columns_to_sellers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_17_202332_add_columns_to_sellers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_19_224558_create_carts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_19_224558_create_carts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_19_234727_create_notifications_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_19_234727_create_notifications_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_30_031403_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_30_031403_create_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_07_05_163746_add_status_column_to_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_07_05_163746_add_status_column_to_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_07_05_183433_add_seller_id_column_to_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_07_05_183433_add_seller_id_column_to_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/application/seller.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/application/seller.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +209,7 @@
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-medialibrary" />
       <path value="$PROJECT_DIR$/vendor/spatie/image-optimizer" />
       <path value="$PROJECT_DIR$/vendor/league/glide" />
+      <path value="$PROJECT_DIR$/vendor/epigra/trgeozones" />
     </include_path>
   </component>
   <component name="ProjectId" id="2PN3tPhUdGP4ykJBHeACgdwye9a" />
@@ -186,12 +223,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/laragon/www/e-commerce/resources/views/seller/product/cargo",
+    "last_opened_file_path": "C:/laragon/www/e-commerce/app/Models",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -239,6 +277,9 @@
     <configuration name="phpunit.xml" type="PestRunConfigurationType">
       <option name="pestRunnerSettings">
         <PestRunner scope="ConfigurationFile" />
+      </option>
+      <option name="runnerSettings">
+        <PhpTestRunnerSettings scope="ConfigurationFile" />
       </option>
       <method v="2" />
     </configuration>
@@ -316,6 +357,10 @@
       <workItem from="1689621479066" duration="1600000" />
       <workItem from="1689845487185" duration="639000" />
       <workItem from="1690027379027" duration="881000" />
+      <workItem from="1690056399988" duration="2558000" />
+      <workItem from="1690232644815" duration="29000" />
+      <workItem from="1690282931379" duration="7257000" />
+      <workItem from="1690291734063" duration="1342000" />
     </task>
     <task id="LOCAL-00021" summary="wip">
       <created>1684975575615</created>
@@ -660,7 +705,7 @@
       <option name="project" value="LOCAL" />
       <updated>1688095267609</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

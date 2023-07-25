@@ -41,4 +41,9 @@ class Category extends Model
     {
         return $query->where('status', 1);
     }
+
+    public function applicationSeller()
+    {
+        return $this->hasOne(ApplicationSeller::class);
+    }
 }
