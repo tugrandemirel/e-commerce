@@ -1,6 +1,6 @@
 <?php
 
-namespace Epigra\TrGeoZones\Models;
+namespace App\Models;
 
 use Epigra\TrGeoZones\Models\City;
 use Illuminate\Database\Eloquent\Model;
